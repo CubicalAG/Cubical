@@ -14,11 +14,10 @@
         transition:0.5s;
         @include breakpoint(lg){
             min-height:10px;
-            width:25%;
-            min-width:250px;
+            width:45%;
             transform:translate(0, -50%);
             position:absolute;
-            right:40px;
+            right:0;
             top:50%;
         }
     }
@@ -27,7 +26,6 @@
         transform:translate(0, -40px);
         @include breakpoint(lg){
             transform:translate(0, -50%);
-            width:60%;
             right:0;
         }
     }
@@ -35,7 +33,7 @@
         position: relative;
         transition:0.5s;
         @include breakpoint(lg){
-            width:70%;
+            width:50%;
         }
         .reference-video{
             @include breakpoint(xs){
@@ -44,9 +42,17 @@
         }
     }
     blockquote{
+        cursor: pointer;
         font-size:3rem;
         text-transform: uppercase;
         margin:0;
+        display: flex;
+        align-items: center;
+        > img{
+            width:auto;
+            height:6rem;
+            margin-left: 15px;
+        }
     }
     .reference-video{
         position:absolute;
@@ -107,15 +113,17 @@
     transition: 1s;
 }
 
+.property-button{
+    display: flex;
+    justify-content: flex-end;
+    > button{
+        width:auto;
+    }
+}
+
 
 .overlay-styled-container:hover{
     border-radius:30px;
-}
-
-.shrinked{
-    @include breakpoint(lg){
-        transform: scale(0.7) translate(-50%, 0%);
-    }
 }
 
 .description{

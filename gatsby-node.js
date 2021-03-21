@@ -238,6 +238,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       body: HTML
       cover_image: LocalImageWithAlt
       heading: String
+      button: String
     }
 
     type PrismicReference implements Node{

@@ -22,6 +22,16 @@ const PageReferenceSection = ({data:sliceData}) => {
                     body {
                     html
                     }
+                    button
+                    button_link{
+                        url
+                        uid
+                        document {
+                            data {
+                              type_of_property
+                            }
+                        }
+                    }
                     cover_image {
                         alt
                         localFile {
@@ -48,29 +58,12 @@ const PageReferenceSection = ({data:sliceData}) => {
       window.scrollTo(0, scrollFromTop)
   }, [numOfLoadedItems])
 
-  const dummyArray = [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-  ]
-  
   return(
     <Section id={(sliceData && sliceData.primary && sliceData.primary.section_id) ? data.primary.section_id : ''} fullWidth>
         {data.references.edges && data.references.edges.map(({node:reference}, index) => {
             if(index < numOfLoadedItems){
                 return <div className={`${styles.referenceItem} ${styles.visibleItem}`}>
-                <Reference image={reference.data.cover_image && reference.data.cover_image.localFile.childImageSharp.fluid} alt={reference.data.cover_image && reference.data.cover_image.alt} quote={reference.data.heading} text={
+                <Reference button={reference.data.button} buttonLink={reference.data.button_link} image={reference.data.cover_image && reference.data.cover_image.localFile.childImageSharp.fluid} alt={reference.data.cover_image && reference.data.cover_image.alt} quote={reference.data.heading} text={
                     <div dangerouslySetInnerHTML={{__html:reference.data.body && reference.data.body.html}}>
                     </div>
                 }/>

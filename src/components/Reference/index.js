@@ -9,8 +9,10 @@ import seeLessIcon from '../../img/eye-off-outline.svg'
 import RoofSVG from '../RoofSVG'
 import TiltableContainer from '../TiltableContainer'
 import AppearOnViewContainer from '../AppearOnViewContainer'
+import ButtonBordered from '../ButtonBordered'
+import { Link } from 'gatsby'
 
-const Reference = ({videoLink, image, quote, text, alt}) => {
+const Reference = ({videoLink, image, quote, text, alt, button, buttonLink}) => {
 
     const [showVideo, setShowVideo] = useState(false)
     const [seeMore, setSeeMore] = useState(false)
@@ -42,18 +44,25 @@ const Reference = ({videoLink, image, quote, text, alt}) => {
                         <figcaption className={`${styles.textOverlay} ${seeMore ? styles.expanded : ''}`}>
                             <TiltableContainer roundedCorners>
                                 <div className={styles.overlayStyledContainer}>
-                                    <blockquote>
-                                        {quote}
+                                    <blockquote onClick={() => setSeeMore(prevState => !prevState)}>
+                                        {quote} 
+                                        {!seeMore && <img src={seeMoreIcon} alt=''/>}
                                     </blockquote>
                                     <div className={`${styles.description} ${seeMore ? styles.visibleDescription : ''}`}>
-                                        {text}
-                                    </div>
-                                    <button className={styles.infoButton} onClick={() => setSeeMore(prevState => !prevState)}>
-                                        <img src={seeMore ? seeLessIcon : seeMoreIcon} alt=''/>
+                                        <p>
+                                            {text}
+                                        </p>
                                         {
-                                            seeMore ? 'WENIGER SEHEN' : 'WEITERE INFOS'
+                                            button &&
+                                            <div className={styles.propertyButton}>
+                                                <ButtonBordered>
+                                                    <Link to={`${(buttonLink) && ((buttonLink.uid) ? `/${buttonLink.document.data && buttonLink.document.data.type_of_property ? 'mieten' : 'kaufen'}/${buttonLink.uid}` : buttonLink.url)}`}>
+                                                        {button}
+                                                    </Link>
+                                                </ButtonBordered>
+                                            </div>
                                         }
-                                    </button>
+                                    </div>
                                     {/* <button onClick={() => setShowVideo(true)}>
                                         <img src={playCircle} alt=''/>
                                         ZUM VIDEO

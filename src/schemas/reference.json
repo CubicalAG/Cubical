@@ -1,27 +1,39 @@
 {
-  "Main" : {
-    "heading" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Heading"
+  "Main": {
+    "heading": {
+      "type": "Text",
+      "config": {
+        "label": "Heading"
       }
     },
-    "body" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label" : "Body"
+    "body": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Body"
       }
     },
-    "cover_image" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : {
-          "width" : 940,
-          "height" : 580
+    "button": {
+      "type": "Text",
+      "config": {
+        "label": "Button"
+      }
+    },
+    "button_link": {
+      "type": "Link",
+      "config": {
+        "label": "Button Link"
+      }
+    },
+    "cover_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 940,
+          "height": 580
         },
-        "thumbnails" : [ ],
-        "label" : "Cover Image"
+        "thumbnails": [],
+        "label": "Cover Image"
       }
     }
   }
