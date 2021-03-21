@@ -34,7 +34,7 @@ const PageOrderSection = ({data}) => {
           }
           {
             data.primary.button_link &&
-            <Link to={(data.primary.button_link.document && data.primary.button_link.document[0].data.page_path) ? data.primary.button_link.document[0].data.page_path : data.primary.button_link.url}>
+            <Link to={(data.primary.button_link.document && data.primary.button_link.document[0] && data.primary.button_link.document[0].data.page_path) ? data.primary.button_link.document[0].data.page_path : data.primary.button_link.url}>
               {
                 data.primary.button_text &&
                 <ButtonBordered>
