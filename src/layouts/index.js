@@ -226,7 +226,10 @@ const Layout = ({children, location}) => {
 
     const linkListProps = useSpring({
         opacity: (pageLoaded && pageLoadedMinimal) ? 1 : 0,
-        ref: linkListPropsRef
+        config:{
+            duration:200
+        },
+        ref: linkListPropsRef,
     })
 
     const logoProps = useSpring({
@@ -234,6 +237,9 @@ const Layout = ({children, location}) => {
         top: (pageLoaded && pageLoadedMinimal) ? '0%' : '-50%',
         right: (pageLoaded && pageLoadedMinimal) ? '0%' : '50%',
         transform: (pageLoaded && pageLoadedMinimal) ? 'translateX(0%)' :'translateX(50%)',
+        config:{
+            duration:200
+        },
         ref: logoPropsRef
     })
 

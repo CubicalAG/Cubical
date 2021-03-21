@@ -17,6 +17,9 @@ const NavMenuContainer = ({children, navMenuContainerAnimationRef}) => {
     
     const props = useSpring({
         height: (pageLoaded && pageLoadedMinimal) ? `${height}px` : vhToPixel(100),
+        config:{
+            duration:200
+        },
         ref: navMenuContainerAnimationRef
     })
     

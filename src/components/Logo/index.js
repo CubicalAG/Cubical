@@ -58,6 +58,9 @@ const Logo = ({afterLogoAnimations = []}) => {
             transform: (pageLoaded && pageLoadedMinimal) ? 'scale(1)' : 'scale(1.75)',
         },
         delay: (pageLoaded && pageLoadedMinimal) ? 0 : 300,
+        config:{
+          duration:200
+        },
         ref: logoRef
     })
 
@@ -68,7 +71,7 @@ const Logo = ({afterLogoAnimations = []}) => {
         to:{
           paddingBottom:(pageLoaded && pageLoadedMinimal) ? '0rem' : '1.5rem'
         },
-        delay: (pageLoaded && pageLoadedMinimal) ? 0 : 300,
+        delay: (pageLoaded && pageLoadedMinimal) ? 0 : 0,
         ref: wholeLogo
     })
 
