@@ -8,30 +8,6 @@ import ButtonBordered from '../ButtonBordered'
 
 const PageContactFormSection = ({data}) => {
 
-  const queryData = useStaticQuery(graphql`
-    query ContactFormSectionQuery {
-        prismicLayout {
-          data {
-            footer_content {
-              html
-            }
-            footer_buttons{
-              button_text
-              button_link {
-                url
-                document {
-                    data {
-                      page_path
-                    }
-                }
-              }
-            }
-          }
-        }
-      }
-    `)
-
-
   return(
     <Section fullWidth id={(data.primary && data.primary.section_id) ? data.primary.section_id : ''}>
       <div className={styles.contactFormSection}>
@@ -226,8 +202,8 @@ const PageContactFormSection = ({data}) => {
           </div>
           <div className={styles.infoContent}>
               {
-                  queryData.prismicLayout.data.footer_content &&
-                  <div dangerouslySetInnerHTML={{__html:queryData.prismicLayout.data.footer_content.html}}>
+                  data.primary.contact_content &&
+                  <div dangerouslySetInnerHTML={{__html:data.primary.contact_content.html}}>
                   </div>
               }
               {/* <div className={styles.infoButtons}>

@@ -53,10 +53,8 @@ module.exports = {
         },
         // Get the correct URLs in blog posts
         // linkResolver: () => (doc) => {
-        //   if (doc.type == 'product') {
-        //     if (doc.data) {
-        //       return `/shop/${doc.data.product_category.uid}/${doc.uid}`
-        //     }
+        //   if (doc.type == 'page') {
+        //     return `/${doc.page_path}`
         //   } else {
         //     return `/${doc.uid}`
         //   }

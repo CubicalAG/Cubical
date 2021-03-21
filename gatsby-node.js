@@ -95,10 +95,18 @@ exports.createSchemaCustomization = ({ actions }) => {
       url: String
     }
 
+    type FooterPrimaryContent{
+      text: String
+      link: Link @infer
+      bold: String
+    }
+
     type Fields{
       right_side_links: [Link] @infer
       footer_links: [Link] @infer
       footer_buttons: [ButtonLink] @infer
+      footer_primary_content: [FooterPrimaryContent]
+      footer_content: HTML
       left_side_links: [LeftSideLinks] @infer
       link_hover_icons: [Link] @infer
       links: [Link] @infer
@@ -331,8 +339,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       primary: PrimaryForSectionIdOnlySlices
     }
 
+    type PrismicPageBodyContactFormSectionPrimary {
+      section_id: String
+      contact_content: HTML
+    }
+
     type PrismicPageBodyContactFormSection implements Node{
-      primary: PrimaryForSectionIdOnlySlices
+      primary: PrismicPageBodyContactFormSectionPrimary
       slice_type: String
     }
 

@@ -42,6 +42,18 @@ const Layout = ({children, location}) => {
                 }
               }
             }
+            footer_primary_content{
+                text
+                link{
+                    url
+                    document {
+                        data {
+                        page_path
+                        }
+                    }
+                }
+                bold
+            }
             footer_content {
               html
             }
@@ -476,6 +488,26 @@ const Layout = ({children, location}) => {
                             </React.Suspense>
                         )}
                     </div> */}
+                    {
+                        data.prismicLayout.data.footer_primary_content &&
+                        data.prismicLayout.data.footer_primary_content.length > 0 &&
+                        <div className={`${styles.footerInfoContent} ${styles.footerPrimaryContent}`}>
+                                <div>
+                                    {data.prismicLayout.data.footer_primary_content.map(item => {
+                                        return <p>
+                                            {
+                                                item.bold == 'true' ? 
+                                                <b>{item.text}</b> 
+                                                :
+                                                <Link to={(item.link) && ((item.link.document && item.link.document[0].data.page_path) ? item.link.document[0].data.page_path : item.link.url)}>
+                                                    {item.text}
+                                                </Link>
+                                            }
+                                        </p>
+                                    })}
+                                </div>
+                        </div>
+                    }
                     <div className={styles.footerInfoContent}>
                         {
                             data.prismicLayout.data.footer_content &&

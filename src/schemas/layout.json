@@ -1,300 +1,307 @@
 {
-  "Main" : {
-    "title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Title",
-        "placeholder" : "Title that appears in CMS",
-        "useAsTitle" : true
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title",
+        "placeholder": "Title that appears in CMS",
+        "useAsTitle": true
       }
     }
   },
-  "Header" : {
-    "logo_primary_image" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : {
-          "width" : null,
-          "height" : null
+  "Header": {
+    "logo_primary_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": null,
+          "height": null
         },
-        "thumbnails" : [ ],
-        "label" : "Logo Primary Image"
+        "thumbnails": [],
+        "label": "Logo Primary Image"
       }
     },
-    "logo_text" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Logo Text"
+    "logo_text": {
+      "type": "Text",
+      "config": {
+        "label": "Logo Text"
       }
     },
-    "links" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "link_text" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "Link Text"
+    "links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "link_text": {
+            "type": "Text",
+            "config": {
+              "label": "Link Text"
             }
           },
-          "link" : {
-            "type" : "Link",
-            "config" : {
-              "label" : "Link"
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
             }
           }
         },
-        "label" : "Links"
+        "label": "Links"
       }
     },
-    "sublinks" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "parent_link" : {
-            "type" : "Number",
-            "config" : {
-              "label" : "Parent Link"
+    "sublinks": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "parent_link": {
+            "type": "Number",
+            "config": {
+              "label": "Parent Link"
             }
           },
-          "sublink_text" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "Sublink Text"
+          "sublink_text": {
+            "type": "Text",
+            "config": {
+              "label": "Sublink Text"
             }
           },
-          "sublink" : {
-            "type" : "Link",
-            "config" : {
-              "label" : "Sublink"
+          "sublink": {
+            "type": "Link",
+            "config": {
+              "label": "Sublink"
             }
           }
         },
-        "label" : "Sublinks"
+        "label": "Sublinks"
       }
     }
   },
-  "Footer" : {
-    "background_image" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : {
-          "width" : 1920,
-          "height" : 1080
+  "Footer": {
+    "background_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 1920,
+          "height": 1080
         },
-        "thumbnails" : [ ],
-        "label" : "Background Image"
+        "thumbnails": [],
+        "label": "Background Image"
       }
     },
-    "footer_content" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label" : "Footer Content"
+    "footer_primary_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Footer Primary Content"
       }
     },
-    "footer_buttons" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "button_text" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "Button Text"
+    "footer_content": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "Footer Content"
+      }
+    },
+    "footer_buttons": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "button_text": {
+            "type": "Text",
+            "config": {
+              "label": "Button Text"
             }
           },
-          "button_link" : {
-            "type" : "Link",
-            "config" : {
-              "label" : "Button Link"
+          "button_link": {
+            "type": "Link",
+            "config": {
+              "label": "Button Link"
             }
           }
         },
-        "label" : "Footer Buttons"
+        "label": "Footer Buttons"
       }
     },
-    "footer_links" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "link_text" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "Link Text"
+    "footer_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "link_text": {
+            "type": "Text",
+            "config": {
+              "label": "Link Text"
             }
           },
-          "link" : {
-            "type" : "Link",
-            "config" : {
-              "label" : "Link"
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
             }
           }
         },
-        "label" : "Footer Links"
+        "label": "Footer Links"
       }
     },
-    "link_hover_icons" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "image" : {
-            "type" : "Image",
-            "config" : {
-              "constraint" : {
-                "width" : 36,
-                "height" : 36
+    "link_hover_icons": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": 36,
+                "height": 36
               },
-              "thumbnails" : [ ],
-              "label" : "Image"
+              "thumbnails": [],
+              "label": "Image"
             }
           },
-          "parent_link" : {
-            "type" : "Number",
-            "config" : {
-              "label" : "Parent Link",
-              "placeholder" : "1"
+          "parent_link": {
+            "type": "Number",
+            "config": {
+              "label": "Parent Link",
+              "placeholder": "1"
             }
           },
-          "link" : {
-            "type" : "Link",
-            "config" : {
-              "label" : "Link"
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
             }
           }
         },
-        "label" : "Link Hover Icons"
+        "label": "Link Hover Icons"
       }
     }
   },
-  "Other" : {
-    "right_side_links" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "link_text" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "Link Text"
+  "Other": {
+    "right_side_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "link_text": {
+            "type": "Text",
+            "config": {
+              "label": "Link Text"
             }
           },
-          "link" : {
-            "type" : "Link",
-            "config" : {
-              "label" : "Link"
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
             }
           }
         },
-        "label" : "Right Side Links"
+        "label": "Right Side Links"
       }
     },
-    "right_side_link_hover_icons" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "image" : {
-            "type" : "Image",
-            "config" : {
-              "constraint" : {
-                "width" : 36,
-                "height" : 36
+    "right_side_link_hover_icons": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": 36,
+                "height": 36
               },
-              "thumbnails" : [ ],
-              "label" : "Image"
+              "thumbnails": [],
+              "label": "Image"
             }
           },
-          "parent_link" : {
-            "type" : "Number",
-            "config" : {
-              "label" : "Parent Link",
-              "placeholder" : "1"
+          "parent_link": {
+            "type": "Number",
+            "config": {
+              "label": "Parent Link",
+              "placeholder": "1"
             }
           },
-          "link" : {
-            "type" : "Link",
-            "config" : {
-              "label" : "Link"
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link"
             }
           }
         },
-        "label" : "Right Side Link Hover Icons"
+        "label": "Right Side Link Hover Icons"
       }
     },
-    "left_side_links" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "image" : {
-            "type" : "Image",
-            "config" : {
-              "constraint" : {
-                "width" : 100,
-                "height" : 100
+    "left_side_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {
+                "width": 100,
+                "height": 100
               },
-              "thumbnails" : [ ],
-              "label" : "Image"
+              "thumbnails": [],
+              "label": "Image"
             }
           },
-          "link_content" : {
-            "type" : "StructuredText",
-            "config" : {
-              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-              "label" : "Link Content"
+          "link_content": {
+            "type": "StructuredText",
+            "config": {
+              "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label": "Link Content"
             }
           },
-          "content_background_color" : {
-            "type" : "Color",
-            "config" : {
-              "label" : "Content Background Color"
+          "content_background_color": {
+            "type": "Color",
+            "config": {
+              "label": "Content Background Color"
             }
           }
         },
-        "label" : "Left Side Links"
+        "label": "Left Side Links"
       }
     }
   },
-  "SEO" : {
-    "seo_lang_code" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "SEO lang code",
-        "placeholder" : "en"
+  "SEO": {
+    "seo_lang_code": {
+      "type": "Text",
+      "config": {
+        "label": "SEO lang code",
+        "placeholder": "en"
       }
     },
-    "seo_title" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "SEO Title"
+    "seo_title": {
+      "type": "Text",
+      "config": {
+        "label": "SEO Title"
       }
     },
-    "seo_description" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "SEO Description"
+    "seo_description": {
+      "type": "Text",
+      "config": {
+        "label": "SEO Description"
       }
     },
-    "icon" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : {
-          "width" : 180,
-          "height" : 180
+    "icon": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 180,
+          "height": 180
         },
-        "thumbnails" : [ ],
-        "label" : "Icon"
+        "thumbnails": [],
+        "label": "Icon"
       }
     },
-    "theme_color" : {
-      "type" : "Color",
-      "config" : {
-        "label" : "Theme color"
+    "theme_color": {
+      "type": "Color",
+      "config": {
+        "label": "Theme color"
       }
     },
-    "website_url" : {
-      "type" : "Link",
-      "config" : {
-        "label" : "Website URL",
-        "placeholder" : "https://cubical.ag",
-        "select" : "web"
+    "website_url": {
+      "type": "Link",
+      "config": {
+        "label": "Website URL",
+        "placeholder": "https://cubical.ag",
+        "select": "web"
       }
     }
   }

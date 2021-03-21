@@ -227,6 +227,9 @@ const HomePage = () => {
                   slice_type
                   primary{
                     section_id
+                    contact_content{
+                      html
+                    }
                   }
                 }
                 ... on PrismicPageBodyIconsAndText {

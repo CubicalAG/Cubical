@@ -480,15 +480,22 @@
             "description": "Section with contact form",
             "icon": "message",
             "display": "list",
-            "non-repeat": {},
-            "repeat": {
+            "non-repeat": {
               "section_id": {
                 "type": "Text",
                 "config": {
                   "label": "Section ID"
                 }
+              },
+              "contact_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Contact Content"
+                }
               }
-            }
+            },
+            "repeat": {}
           },
           "icons_and_text": {
             "type": "Slice",
