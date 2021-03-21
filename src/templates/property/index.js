@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {SwiperSlide} from 'swiper/react'
-import {graphql} from 'gatsby'
+import {graphql, Link} from 'gatsby'
 import Image from 'gatsby-image'
 
 import styles from './immobilien-entry.module.scss'
@@ -17,6 +17,7 @@ import Map from '../../components/Map'
 import SeeMoreContainer from '../../components/SeeMoreContainer'
 import ItemAppearOverlay from '../../components/ItemAppearOverlay'
 import AppearOnViewContainer from '../../components/AppearOnViewContainer'
+import ButtonBordered from '../../components/ButtonBordered'
 
 const ImmobilienEntry = ({data}) => {
 
@@ -152,6 +153,13 @@ const ImmobilienEntry = ({data}) => {
                                 </div>
                             }
                         </div>
+                    </div>
+                    <div className={styles.aktuellesButton}>
+                        <ButtonBordered>
+                            <Link to={'/#aktuelles'}>
+                                Aktuelles
+                            </Link>
+                        </ButtonBordered>
                     </div>
                 </Section>
                 {

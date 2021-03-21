@@ -11,6 +11,11 @@
     }
 }
 
+.aktuelles-button{
+    display: flex;
+    justify-content: center;
+}
+
 .row-border-layout > :nth-child(even){
     @include breakpoint(sm){
         border-left:1px solid black;
