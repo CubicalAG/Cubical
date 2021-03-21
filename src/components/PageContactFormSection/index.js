@@ -193,11 +193,17 @@ const PageContactFormSection = ({data}) => {
           <div className={styles.contactFormContainer}>
               <ContactForm>
                   <h1 className={styles.contactHeading}>KONTAKT</h1>
+                  <p className={styles.contactDescription}>
+                    Schreiben Sie uns. Wir freuen usn auf Ihre Anfrage und melden uns so schnell wie möglich bei Ihnen zurück.
+                  </p>
               </ContactForm>
           </div>
           <div className={styles.mobileForm}>
               <ContactForm>
                   <h1 className={styles.contactHeading}>KONTAKT</h1>
+                  <p>
+                    Schreiben Sie uns. Wir freuen usn auf Ihre Anfrage und melden uns so schnell wie möglich bei Ihnen zurück.
+                  </p>
               </ContactForm>
           </div>
           <div className={styles.infoContent}>

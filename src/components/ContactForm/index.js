@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import styles from './contact-form.module.scss'
 import TextInputField from '../TextInputField'
 import TextareaField from '../TextareaField'
-import sendBlueImg from '../../img/sendBlue.svg'
+import sendBlueImg from '../../img/sendContactForm.svg'
 
 const ContactForm = ({children}) => {
 
@@ -25,6 +25,8 @@ const ContactForm = ({children}) => {
         if (
           !reasonOfContact ||
           !name ||
+          !tel ||
+          !callTime ||
           !(
             email &&
             email.match(
@@ -74,19 +76,32 @@ const ContactForm = ({children}) => {
                 <div className={styles.childContainer}>
                     {children}
                 </div>
-                <TextInputField placeholder='Name' name='name' value={name} onChange={setName}/> 
-                <TextInputField placeholder='E-Mail' type='email' name='email' value={email} onChange={setEmail}/>
-                <TextInputField placeholder='Telefonnummer' name='tel' value={tel} onChange={setTel}/>
-                <TextInputField placeholder='Gewünschte Anrufzeit' name='callTime' value={callTime} onChange={setCallTime}/>
-                <select name="reasonOfContact" onChange={(e) => setReasonOfContact(e.target.value)}>
-                  <option value="">Grund für die Kontaktaufnahme</option>
-                  <option value="Verkaufen">Verkaufen</option>
-                  <option value="Kaufen">Kaufen</option>
-                  <option value="Mieten">Mieten</option>
-                  <option value="Finanzierungsberatung">Finanzierungsberatung</option>
-                  <option value="Immobilienbewertung">Immobilienbewertung</option>
-                </select>
-                <TextareaField placeholder='Ihre Nachricht' name='msg' value={msg} onChange={setMsg}/>
+                <div className={styles.inputs}>
+                  <label>
+                    Name*
+                    <TextInputField name='name' value={name} onChange={setName}/> 
+                  </label>
+                  <label>
+                    Telefon*
+                    <TextInputField name='tel' value={tel} onChange={setTel}/>
+                  </label>
+                  <label>
+                    E-Mail*
+                    <TextInputField type='email' name='email' value={email} onChange={setEmail}/>
+                  </label>
+                  <label>
+                    Grund für die Kontaktaufnahme*
+                    <TextInputField name='reasonOfContact' value={reasonOfContact} onChange={setReasonOfContact}/>
+                  </label>
+                  <label>
+                    Gewünschte Anrufzeit*
+                    <TextInputField name='callTime' value={callTime} onChange={setCallTime}/>
+                  </label>
+                  <label className={styles.textareaInput}>
+                    Nachricht
+                    <TextareaField name='msg' value={msg} onChange={setMsg}/>
+                  </label>
+                </div>
                 <button 
                     className={styles.sendButton} 
                     onClick={(e) => handleSubmit(e)}
