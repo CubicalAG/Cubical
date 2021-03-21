@@ -236,8 +236,8 @@ main{
 }
 
 .mobile{
-    h5{
-        margin:0;
+    > button{
+        width:45px;
     }
     @include breakpoint(sm){
         display:none;

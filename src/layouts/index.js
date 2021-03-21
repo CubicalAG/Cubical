@@ -19,6 +19,7 @@ import ButtonBordered from '../components/ButtonBordered'
 import RoofSVG from '../components/RoofSVG'
 import MobileMenuLink from '../components/MobileMenuLink'
 import SEO from '../components/SEO'
+import menuIcon from '../img/menu-outline.svg'
 const LazyFooterIcon = React.lazy(() => 
     import('../components/FooterIcon')
 ) 
@@ -337,7 +338,9 @@ const Layout = ({children, location}) => {
                     ]}/> */}
                 </animated.ul>
                 <animated.div style={linkListProps} className={styles.mobile}>
-                    <h5 onClick={() => setMobileMenuActive(true)}>Menü</h5>
+                    <button onClick={() => setMobileMenuActive(true)}>
+                        <img src={menuIcon} alt='menu'/>
+                    </button>
                     <div className={`${styles.mobileMenu} ${mobileMenuActive && styles.mobileMenuActive}`}>
                         <img className={styles.closeMobileMenuButton} style={{alignSelf:'flex-start', width:40, marginBottom:15, cursor:'pointer'}} src={close} alt='close' onClick={() => setMobileMenuActive(false)}/>
                         {/* <MobileMenuLink link={{href:'/kaufen/', text: 'kaufen'}} onClick={() => setMobileMenuActive(false)}/>
