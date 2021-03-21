@@ -60,6 +60,13 @@ const PageReferenceSection = ({data:sliceData}) => {
 
   return(
     <Section id={(sliceData && sliceData.primary && sliceData.primary.section_id) ? data.primary.section_id : ''} fullWidth>
+        {
+            sliceData &&
+            sliceData.primary &&
+            sliceData.primary.section_content &&
+            sliceData.primary.section_content.html &&
+            <div className={styles.sectionContent} dangerouslySetInnerHTML={{__html:sliceData.primary.section_content.html}}></div>
+        }
         {data.references.edges && data.references.edges.map(({node:reference}, index) => {
             if(index < numOfLoadedItems){
                 return <div className={`${styles.referenceItem} ${styles.visibleItem}`}>

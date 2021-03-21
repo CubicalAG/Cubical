@@ -305,8 +305,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       section_heading: String
     }
 
-    type PrismicPageBodyReferenceSection implements Node{
+    type PrismicPageBodyReferenceSectionPrimary implements Node{
       section_id: String
+      section_content: HTML
+    }
+
+    type PrismicPageBodyReferenceSection implements Node{
+      primary: PrismicPageBodyReferenceSectionPrimary
       slice_type: String
     }
 
@@ -326,10 +331,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPageBodyHeroSliderPrimary implements Node{
       section_id: String
-    }
-
-    type PrismicPageBodyReferenceSection{
-      primary: PrimaryForSectionIdOnlySlices
     }
 
     type PrismicPageBodyMietenProperty{
