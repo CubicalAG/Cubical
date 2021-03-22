@@ -75,7 +75,7 @@ const PageReferenceSection = ({data:sliceData}) => {
   }, [])
 
   return(
-    filteredData &&
+    filteredData && filteredData.length > 0 &&
     <Section id={(sliceData && sliceData.primary && sliceData.primary.section_id) ? data.primary.section_id : ''} fullWidth>
         {
             sliceData &&
