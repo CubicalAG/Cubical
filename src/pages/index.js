@@ -179,6 +179,7 @@ const HomePage = () => {
                     section_content{
                       html
                     }
+                    reference_by_tag
                   }
                 }
                 ... on PrismicPageBodyRichTextSection {

@@ -12,7 +12,8 @@ const PageReferenceSection = ({data:sliceData}) => {
   
   const [numOfLoadedItems, setNumOfLoadedItems] = useState(1)
   const [scrollFromTop, setScrollFromTop] = useState(0)
-    
+  const [filteredData, setFilteredData] = useState('')
+
   const data = useStaticQuery(graphql`
     query PrismicSectionQuery {
         references: allPrismicReference(sort: {fields: last_publication_date, order: DESC}) {
@@ -32,6 +33,7 @@ const PageReferenceSection = ({data:sliceData}) => {
                             }
                         }
                     }
+                    reference_tag
                     cover_image {
                         alt
                         localFile {
@@ -58,7 +60,22 @@ const PageReferenceSection = ({data:sliceData}) => {
       window.scrollTo(0, scrollFromTop)
   }, [numOfLoadedItems])
 
+  useEffect(() => {
+    if(data && data.references && data.references.edges && data.references.edges.length > 0){
+        setFilteredData(data.references.edges.filter(({node:reference}) => {
+            if(reference && reference.data && reference.data.reference_tag && (reference.data.reference_tag == sliceData.primary.reference_by_tag)){
+                return true
+            }else if(sliceData.primary.reference_by_tag == null){
+                return true
+            }else{
+                return false
+            }
+        }))
+    }
+  }, [])
+
   return(
+    filteredData &&
     <Section id={(sliceData && sliceData.primary && sliceData.primary.section_id) ? data.primary.section_id : ''} fullWidth>
         {
             sliceData &&
@@ -67,7 +84,7 @@ const PageReferenceSection = ({data:sliceData}) => {
             sliceData.primary.section_content.html &&
             <div className={styles.sectionContent} dangerouslySetInnerHTML={{__html:sliceData.primary.section_content.html}}></div>
         }
-        {data.references.edges && data.references.edges.map(({node:reference}, index) => {
+        {filteredData && filteredData.map(({node:reference}, index) => {
             if(index < numOfLoadedItems){
                 return <div className={`${styles.referenceItem} ${styles.visibleItem}`}>
                 <Reference button={reference.data.button} buttonLink={reference.data.button_link} image={reference.data.cover_image && reference.data.cover_image.localFile.childImageSharp.fluid} alt={reference.data.cover_image && reference.data.cover_image.alt} quote={reference.data.heading} text={

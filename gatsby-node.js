@@ -239,6 +239,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       cover_image: LocalImageWithAlt
       heading: String
       button: String
+      reference_tag: String
     }
 
     type PrismicReference implements Node{
@@ -308,6 +309,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type PrismicPageBodyReferenceSectionPrimary implements Node{
       section_id: String
       section_content: HTML
+      reference_by_tag: String
     }
 
     type PrismicPageBodyReferenceSection implements Node{

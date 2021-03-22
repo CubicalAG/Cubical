@@ -291,6 +291,7 @@ export const PageQuery = graphql`
               section_content{
                 html
               }
+              reference_by_tag
             }
           }
           ... on PrismicPageBodyRichTextSection {
