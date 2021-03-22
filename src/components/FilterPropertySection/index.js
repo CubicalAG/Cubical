@@ -26,6 +26,7 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
                 html
               }
               category
+              abgeschlossenne
               description {
                 html
               }
@@ -116,6 +117,12 @@ const FilterPropertySection = ({kaufenProperties, mietenProperties}) => {
     //filter for Prismic lost data that cannot be removed
     let filteredArray = properties.filter(({node:property}) => {
       if(property.uid != "familienhaus"){
+        return true
+      }
+    })
+
+    filteredArray = filteredArray.filter(({node:property}) => {
+      if(property.data.abgeschlossenne == 'false' || !property.data.abgeschlossenne){
         return true
       }
     })

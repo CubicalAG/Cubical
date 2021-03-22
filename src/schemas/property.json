@@ -15,6 +15,13 @@
         "label": "Type of property"
       }
     },
+    "abgeschlossenne": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Abgeschlossenne"
+      }
+    },
     "category": {
       "type": "Text",
       "config": {
