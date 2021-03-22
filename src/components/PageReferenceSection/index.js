@@ -95,7 +95,7 @@ const PageReferenceSection = ({data:sliceData}) => {
             }
         })}
         {
-            data.references.edges && (data.references.edges.length > numOfLoadedItems) &&
+            filteredData && (filteredData.length > numOfLoadedItems) &&
             <div className={styles.seeMoreButton}>
                 <ButtonBordered onClick={() => {setScrollPosition();setNumOfLoadedItems(prevState => prevState + 5)}}>
                     Mehr Anzeigen
