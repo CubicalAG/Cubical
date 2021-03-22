@@ -113,6 +113,14 @@
     display:flex;
     margin-top:50px;
     @include breakpoint(sm){
+        > aside{
+            margin-bottom:100px;
+            a{
+                font-size:1.2rem;
+            }
+        }
+    }
+    @include breakpoint(sm){
         position:absolute;
         right:0px;
         top:50%;
