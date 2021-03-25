@@ -4,6 +4,8 @@ require('dotenv').config({
 
 const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
 
+process.env.GATSBY_CONCURRENT_DOWNLOAD = 1
+
 module.exports = {
   /* Plugins */
   plugins: [

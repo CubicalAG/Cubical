@@ -234,12 +234,27 @@ exports.createSchemaCustomization = ({ actions }) => {
       primary: HeroSliderPrimary
     }
 
+    type TypeOfProperty{
+      type_of_property: String
+    }
+
+    type TypeOfPropertyData{
+      data: TypeOfProperty
+    }
+
+    type PrismicReferenceButtonLink{
+      url: String
+      uid: String
+      document: TypeOfPropertyData
+    }
+
     type PrismicReferenceData{
       body: HTML
       cover_image: LocalImageWithAlt
       heading: String
       button: String
       reference_tag: String
+      button_link:PrismicReferenceButtonLink
     }
 
     type PrismicReference implements Node{
