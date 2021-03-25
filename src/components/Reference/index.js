@@ -56,7 +56,7 @@ const Reference = ({videoLink, image, quote, text, alt, button, buttonLink}) => 
                                             button &&
                                             <div className={styles.propertyButton}>
                                                 <ButtonBordered>
-                                                    <Link to={`${(buttonLink) && ((buttonLink.uid) ? `/${buttonLink.document.data && buttonLink.document.data.type_of_property ? 'mieten' : 'kaufen'}/${buttonLink.uid}` : buttonLink.url)}`}>
+                                                    <Link to={`${(buttonLink) && ((buttonLink.uid) ? `/${buttonLink.document && buttonLink.document.data && buttonLink.document.data.type_of_property ? 'mieten' : 'kaufen'}/${buttonLink.uid}` : buttonLink.url)}`}>
                                                         {button}
                                                     </Link>
                                                 </ButtonBordered>
