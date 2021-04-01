@@ -407,7 +407,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       preis: String
       other_information: OtherInformation
       ort: String
-      important_information: ImportantInformation
+      important_information: [ImportantInformation]
       images: [Image]
       description: HTML
       category: String
