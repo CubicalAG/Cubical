@@ -398,13 +398,19 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPropertyData{
       zimmer: String
+      zimmer_from: String
+      zimmer_to: String
       abgeschlossenne: String
       wohnflache: String
+      wohnflache_from: String
+      wohnflache_to: String
       property_heading: String
       property_geocode: PropertyGeocode
       property_document_card_text: String
       property_document: Url
       preis: String
+      preis_from: String
+      preis_to: String
       other_information: [OtherInformation]
       ort: String
       important_information: [ImportantInformation]

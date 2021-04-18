@@ -1,146 +1,168 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-import styles from './property-filter.module.scss'
-import RoofSVG from '../RoofSVG'
-import TiltableContainer from '../TiltableContainer'
+import styles from "./property-filter.module.scss";
+import RoofSVG from "../RoofSVG";
+import TiltableContainer from "../TiltableContainer";
 
-const PropertyFilter = ({data, filters, setFilters}) => {
-  
-  const [filterungArray, setFilterungArray] = useState([])
-  const [zimmerArray, setZimmerArray] = useState([])
-  const [ortArray, setOrtArray] = useState([])
-  const [filteredData, setFilteredData] = useState([])
-  
+const PropertyFilter = ({ data, filters, setFilters }) => {
+  const [filterungArray, setFilterungArray] = useState([]);
+  const [zimmerArray, setZimmerArray] = useState([]);
+  const [ortArray, setOrtArray] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
   useEffect(() => {
-    const filteredArray = data.filter(({node:property}) => {
-      if(property.uid != "familienhaus"){
-        return true
+    const filteredArray = data.filter(({ node: property }) => {
+      if (property.uid != "familienhaus") {
+        return true;
       }
-    })
-    
-    setFilteredData(filteredArray)
-  }, [data])
-  
+    });
+
+    setFilteredData(filteredArray);
+  }, [data]);
+
   const setArrayValues = (e) => {
-    const targetName = e.target.name
-    const targetValue = e.target.value
-    
-    if(!filters[targetName]){
-      setFilters(prevState => ({
+    const targetName = e.target.name;
+    const targetValue = e.target.value;
+
+    if (!filters[targetName]) {
+      setFilters((prevState) => ({
         ...prevState,
-        [targetName]:[targetValue]
-      }))
-    }else{
-      if(filters[targetName].findIndex(value => value == targetValue) == -1){
-        setFilters(prevState => ({
+        [targetName]: [targetValue],
+      }));
+    } else {
+      if (
+        filters[targetName].findIndex((value) => value == targetValue) == -1
+      ) {
+        setFilters((prevState) => ({
           ...prevState,
-          [targetName]: [...prevState[targetName],targetValue]
-        }))
-      }else{
-        setFilters(prevState => {
+          [targetName]: [...prevState[targetName], targetValue],
+        }));
+      } else {
+        setFilters((prevState) => {
           let valueArrayCopy = [...prevState[targetName]];
           return {
             ...prevState,
-            [targetName]: [...valueArrayCopy.filter(value => value != targetValue)]
-          }
-        }
-        )
+            [targetName]: [
+              ...valueArrayCopy.filter((value) => value != targetValue),
+            ],
+          };
+        });
       }
     }
-  }
-  
+  };
+
   const setStringValues = (e) => {
-    const targetName = e.target.name
-    const targetValue = e.target.value
-    
-    if(!filters[targetName]){
-      setFilters(prevState => ({
+    const targetName = e.target.name;
+    const targetValue = e.target.value;
+
+    if (!filters[targetName]) {
+      setFilters((prevState) => ({
         ...prevState,
-        [targetName]:targetValue
-      }))
-    }else{
-      setFilters(prevState => ({...prevState,[targetName]: targetValue}))
+        [targetName]: targetValue,
+      }));
+    } else {
+      setFilters((prevState) => ({ ...prevState, [targetName]: targetValue }));
     }
-  }
-  
+  };
+
   useEffect(() => {
-    let filterungSet = new Set(filteredData.map(({node:property}) => {
-      if(property.data.category){
-        return property.data.category
-      }
-    }))
-
-
-    setFilterungArray([...filterungSet])
-    
-    let zimmerSet = new Set(filteredData.map(({node:property}) => {
-      let zimmerMapping;
-      if(property.data.zimmer){
-        let zimmerNumber = Number(property.data.zimmer)
-        if(zimmerNumber < 2){
-          zimmerMapping = 'bis zu Zimmer'
-        }else if(zimmerNumber >= 2 && zimmerNumber < 3){
-          zimmerMapping = '2-3 Zimmer' 
-        }else if(zimmerNumber >= 3 && zimmerNumber < 4){
-          zimmerMapping = '3-4 Zimmer' 
-        }else if(zimmerNumber >= 4 && zimmerNumber < 5){
-          zimmerMapping = '4-5 Zimmer' 
-        }else if(zimmerNumber >= 5){
-          zimmerMapping = 'über 5 Zimmer'
+    let filterungSet = new Set(
+      filteredData.map(({ node: property }) => {
+        if (property.data.category) {
+          return property.data.category;
         }
-      }
-      if(zimmerMapping){
-        return zimmerMapping
-      }
-    }))
+      })
+    );
 
-    setZimmerArray([...zimmerSet])
+    setFilterungArray([...filterungSet]);
 
-    let ortSet = new Set(filteredData.map(({node:property}) => {
-      if(property.data.ort){
-        return property.data.ort
-      }
-    }))
+    let zimmerSet = new Set(
+      ...filteredData.map(({ node: property }) => {
+        let numberOfRooms = Number(property.data.zimmer);
+        let numberOfRoomsFrom;
+        let numberOfRoomsTo;
 
-    setOrtArray([...ortSet])
-    
-  }, [filteredData])
+        if (property.data.zimmer_from != undefined) {
+          numberOfRoomsFrom = Number(property.data.zimmer_from);
+        }
+        if (property.data.zimmer_to != undefined) {
+          numberOfRoomsTo = Number(property.data.zimmer_to);
+        }
 
-  return(
+        let zimmerMapping = [];
+
+        if (
+          (numberOfRooms && numberOfRooms < 2) ||
+          (numberOfRoomsTo != undefined && numberOfRoomsTo < 2)
+        ) {
+          zimmerMapping.push("bis zu Zimmer");
+        }
+        if ((numberOfRooms >= 2 && numberOfRooms < 3) || numberOfRoomsTo >= 3) {
+          zimmerMapping.push("2-3 Zimmer");
+        }
+        if ((numberOfRooms >= 3 && numberOfRooms < 4) || numberOfRoomsTo >= 4) {
+          zimmerMapping.push("3-4 Zimmer");
+        }
+        if ((numberOfRooms >= 4 && numberOfRooms < 5) || numberOfRoomsTo >= 5) {
+          zimmerMapping.push("4-5 Zimmer");
+        }
+        if (numberOfRooms >= 5 || numberOfRoomsTo > 5) {
+          zimmerMapping.push("über 5 Zimmer");
+        }
+
+        if (zimmerMapping) {
+          return zimmerMapping;
+        }
+      })
+    );
+
+    setZimmerArray([...zimmerSet]);
+
+    let ortSet = new Set(
+      filteredData.map(({ node: property }) => {
+        if (property.data.ort) {
+          return property.data.ort;
+        }
+      })
+    );
+
+    setOrtArray([...ortSet]);
+  }, [filteredData]);
+
+  return (
     <TiltableContainer>
       <form className={styles.propertyFilter}>
         <fieldset>
           <h5>Art</h5>
-          {
-            filterungArray.map(filter => {
-              return <label>
-                  <input
+          {filterungArray.map((filter) => {
+            return (
+              <label>
+                <input
                   onChange={setArrayValues}
-                  type="checkbox" name="filterung" value={filter} />
-                  {filter}
-                </label>
-            })
-          }
+                  type="checkbox"
+                  name="filterung"
+                  value={filter}
+                />
+                {filter}
+              </label>
+            );
+          })}
         </fieldset>
         <fieldset>
           <h5>Zimmer</h5>
-          <select onChange={setStringValues} name='zimmer'>
-            <option value=''>Alle</option>
-            {zimmerArray.map(zimmer => {
-                return <option value={zimmer}>
-                  {zimmer}
-                </option>
+          <select onChange={setStringValues} name="zimmer">
+            <option value="">Alle</option>
+            {zimmerArray.map((zimmer) => {
+              return <option value={zimmer}>{zimmer}</option>;
             })}
           </select>
         </fieldset>
         <fieldset>
           <h5>Ort</h5>
-          <select onChange={setStringValues} name='ort'>
-            <option value=''>Alle</option>
-            {ortArray.map(ort => {
-                return <option value={ort}>
-                  {ort}
-                </option>
+          <select onChange={setStringValues} name="ort">
+            <option value="">Alle</option>
+            {ortArray.map((ort) => {
+              return <option value={ort}>{ort}</option>;
             })}
           </select>
         </fieldset>
@@ -149,17 +171,27 @@ const PropertyFilter = ({data, filters, setFilters}) => {
           <div className={styles.rowSpacedBetween}>
             <label>
               Von
-              <input onChange={setStringValues} type='text' name='priceFrom' className={styles.shortUnderlineInput}/>
+              <input
+                onChange={setStringValues}
+                type="text"
+                name="priceFrom"
+                className={styles.shortUnderlineInput}
+              />
             </label>
             <label>
               Bis
-              <input onChange={setStringValues} type='text' name='priceTo' className={styles.shortUnderlineInput}/>
+              <input
+                onChange={setStringValues}
+                type="text"
+                name="priceTo"
+                className={styles.shortUnderlineInput}
+              />
             </label>
           </div>
         </fieldset>
       </form>
     </TiltableContainer>
-  )
-}
+  );
+};
 
-export default PropertyFilter
+export default PropertyFilter;

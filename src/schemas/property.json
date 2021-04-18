@@ -1,157 +1,193 @@
 {
-  "Main": {
-    "property_heading": {
-      "type": "Text",
-      "config": {
-        "label": "Property Heading"
+  "Main" : {
+    "property_heading" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Property Heading"
       }
     },
-    "type_of_property": {
-      "type": "Boolean",
-      "config": {
-        "placeholder_false": "Kaufen",
-        "placeholder_true": "Mieten",
-        "default_value": false,
-        "label": "Type of property"
+    "type_of_property" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "Kaufen",
+        "placeholder_true" : "Mieten",
+        "default_value" : false,
+        "label" : "Type of property"
       }
     },
-    "abgeschlossenne": {
-      "type": "Boolean",
-      "config": {
-        "default_value": false,
-        "label": "Abgeschlossenne"
+    "abgeschlossenne" : {
+      "type" : "Boolean",
+      "config" : {
+        "default_value" : false,
+        "label" : "Abgeschlossenne"
       }
     },
-    "category": {
-      "type": "Text",
-      "config": {
-        "label": "Category",
-        "placeholder": "Bauland"
+    "category" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Category",
+        "placeholder" : "Bauland"
       }
     },
-    "preis": {
-      "type": "Number",
-      "config": {
-        "label": "Preis"
+    "preis" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Preis"
       }
     },
-    "wohnflache": {
-      "type": "Number",
-      "config": {
-        "label": "Wohnflache",
-        "placeholder": "100"
+    "preis_from" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Preis From"
       }
     },
-    "zimmer": {
-      "type": "Number",
-      "config": {
-        "label": "Zimmer"
+    "preis_to" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Preis To"
       }
     },
-    "ort": {
-      "type": "Text",
-      "config": {
-        "label": "Ort",
-        "placeholder": "North Switzerland"
+    "wohnflache" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Wohnflache",
+        "placeholder" : "100"
       }
     },
-    "important_information": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "information_name": {
-            "type": "Text",
-            "config": {
-              "label": "Information name"
+    "wohnflache_from" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Wohnflache From"
+      }
+    },
+    "wohnflache_to" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Wohnflache To"
+      }
+    },
+    "zimmer" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Zimmer"
+      }
+    },
+    "zimmer_from" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Zimmer From"
+      }
+    },
+    "zimmer_to" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Zimmer To"
+      }
+    },
+    "ort" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Ort",
+        "placeholder" : "North Switzerland"
+      }
+    },
+    "important_information" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "information_name" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Information name"
             }
           },
-          "information_value": {
-            "type": "Text",
-            "config": {
-              "label": "Information value"
+          "information_value" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Information value"
             }
           }
         },
-        "label": "Important information"
+        "label" : "Important information"
       }
     },
-    "other_information": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "information_name": {
-            "type": "Text",
-            "config": {
-              "label": "Information name"
+    "other_information" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "information_name" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Information name"
             }
           },
-          "information_value": {
-            "type": "Text",
-            "config": {
-              "label": "Information value"
+          "information_value" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Information value"
             }
           }
         },
-        "label": "Other Information"
+        "label" : "Other Information"
       }
     },
-    "images": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "image": {
-            "type": "Image",
-            "config": {
-              "constraint": {
-                "width": 960,
-                "height": 720
+    "images" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : 960,
+                "height" : 720
               },
-              "thumbnails": [],
-              "label": "Image"
+              "thumbnails" : [ ],
+              "label" : "Image"
             }
           }
         },
-        "label": "Images"
+        "label" : "Images"
       }
     },
-    "description": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Description"
+    "description" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Description"
       }
     },
-    "besichtigung_information": {
-      "type": "StructuredText",
-      "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-        "label": "Besichtigung information"
+    "besichtigung_information" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+        "label" : "Besichtigung information"
       }
     },
-    "property_document_card_text": {
-      "type": "Text",
-      "config": {
-        "label": "Property document card text"
+    "property_document_card_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Property document card text"
       }
     },
-    "property_document": {
-      "type": "Link",
-      "config": {
-        "label": "Property Document"
+    "property_document" : {
+      "type" : "Link",
+      "config" : {
+        "label" : "Property Document"
       }
     },
-    "property_geocode": {
-      "type": "GeoPoint",
-      "config": {
-        "label": "Property Geocode"
+    "property_geocode" : {
+      "type" : "GeoPoint",
+      "config" : {
+        "label" : "Property Geocode"
       }
     }
   },
-  "Other": {
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "UID"
+  "Other" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID"
       }
     }
   }
