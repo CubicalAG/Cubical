@@ -40,18 +40,69 @@ const ImmobilienEntry = ({ data }) => {
                   <h5> AUF EINEN BLICK</h5>
                   <div className={styles.infoList}>
                     <span>Preis:</span>
-                    <span>CHF {data.prismicProperty.data.preis}</span>
+                    {data.prismicProperty.data.preis ? (
+                      <span>CHF {data.prismicProperty.data.preis}</span>
+                    ) : data.prismicProperty.data.preis_from &&
+                      data.prismicProperty.data.preis_to ? (
+                      <span>
+                        From CHF {data.prismicProperty.data.preis_from} to CHF{" "}
+                        {data.prismicProperty.data.preis_to}
+                      </span>
+                    ) : data.prismicProperty.data.preis_from ? (
+                      <span>
+                        From CHF {data.prismicProperty.data.preis_from}
+                      </span>
+                    ) : data.prismicProperty.data.preis_to ? (
+                      <span>To CHF {data.prismicProperty.data.preis_to}</span>
+                    ) : (
+                      ""
+                    )}
                     <br />
                     <span>Kategorie:</span>
                     <span>{data.prismicProperty.data.category}</span>
                     <br />
                     <span>Anzahl Zimmer:</span>
-                    <span>{data.prismicProperty.data.zimmer}</span>
+                    {data.prismicProperty.data.zimmer ? (
+                      <span>{data.prismicProperty.data.zimmer}</span>
+                    ) : data.prismicProperty.data.zimmer_from &&
+                      data.prismicProperty.data.zimmer_to ? (
+                      <span>
+                        From {data.prismicProperty.data.zimmer_from} to{" "}
+                        {data.prismicProperty.data.zimmer_to}
+                      </span>
+                    ) : data.prismicProperty.data.zimmer_from ? (
+                      <span>From {data.prismicProperty.data.zimmer_from}</span>
+                    ) : data.prismicProperty.data.zimmer_to ? (
+                      <span>Up to {data.prismicProperty.data.zimmer_to}</span>
+                    ) : (
+                      ""
+                    )}
                     <br />
                     <span>Wohnfläche:</span>
-                    <span>
-                      {data.prismicProperty.data.wohnflache}m<sup>2</sup>
-                    </span>
+                    {data.prismicProperty.data.wohnflache ? (
+                      <span>
+                        {data.prismicProperty.data.wohnflache} m<sup>2</sup>
+                      </span>
+                    ) : data.prismicProperty.data.wohnflache_from &&
+                      data.prismicProperty.data.wohnflache_to ? (
+                      <span>
+                        From {data.prismicProperty.data.wohnflache_from} m
+                        <sup>2</sup> to{" "}
+                        {data.prismicProperty.data.wohnflache_to} m<sup>2</sup>
+                      </span>
+                    ) : data.prismicProperty.data.wohnflache_from ? (
+                      <span>
+                        From {data.prismicProperty.data.wohnflache_from} m
+                        <sup>2</sup>
+                      </span>
+                    ) : data.prismicProperty.data.wohnflache_to ? (
+                      <span>
+                        To {data.prismicProperty.data.wohnflache_to} m
+                        <sup>2</sup>
+                      </span>
+                    ) : (
+                      ""
+                    )}
                     <br />
                     {data.prismicProperty.data.important_information &&
                       data.prismicProperty.data.important_information.length >
@@ -242,6 +293,8 @@ export const ImmobilienQuery = graphql`
           information_value
         }
         preis
+        preis_from
+        preis_to
         property_document {
           url
         }
@@ -253,7 +306,11 @@ export const ImmobilienQuery = graphql`
         property_heading
         type_of_property
         wohnflache
+        wohnflache_from
+        wohnflache_to
         zimmer
+        zimmer_from
+        zimmer_to
       }
     }
   }
