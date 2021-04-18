@@ -315,13 +315,13 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                           <p>{item.data.zimmer}</p>
                         ) : item.data.zimmer_from && item.data.zimmer_to ? (
                           <p>
-                            From {item.data.zimmer_from} to{" "}
+                            Von {item.data.zimmer_from} bis{" "}
                             {item.data.zimmer_to}
                           </p>
                         ) : item.data.zimmer_from ? (
-                          <p>From {item.data.zimmer_from}</p>
+                          <p>Von {item.data.zimmer_from}</p>
                         ) : item.data.zimmer_to ? (
-                          <p>Up to {item.data.zimmer_to}</p>
+                          <p>Bis {item.data.zimmer_to}</p>
                         ) : (
                           ""
                         )}
@@ -340,13 +340,13 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                           <p>CHF {item.data.preis}</p>
                         ) : item.data.preis_from && item.data.preis_to ? (
                           <p>
-                            From CHF {item.data.preis_from} to CHF{" "}
+                            Von CHF {item.data.preis_from} bis CHF{" "}
                             {item.data.preis_to}
                           </p>
                         ) : item.data.preis_from ? (
-                          <p>From CHF {item.data.preis_from}</p>
+                          <p>Von CHF {item.data.preis_from}</p>
                         ) : item.data.preis_to ? (
-                          <p>To CHF {item.data.preis_to}</p>
+                          <p>Bis CHF {item.data.preis_to}</p>
                         ) : (
                           ""
                         )}
@@ -362,16 +362,16 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                         ) : item.data.wohnflache_from &&
                           item.data.wohnflache_to ? (
                           <p>
-                            From {item.data.wohnflache_from} m<sup>2</sup> to{" "}
+                            Von {item.data.wohnflache_from} m<sup>2</sup> bis{" "}
                             {item.data.wohnflache_to} m<sup>2</sup>
                           </p>
                         ) : item.data.wohnflache_from ? (
                           <p>
-                            From {item.data.wohnflache_from} m<sup>2</sup>
+                            Von {item.data.wohnflache_from} m<sup>2</sup>
                           </p>
                         ) : item.data.wohnflache_to ? (
                           <p>
-                            To {item.data.wohnflache_to} m<sup>2</sup>
+                            Bis {item.data.wohnflache_to} m<sup>2</sup>
                           </p>
                         ) : (
                           ""

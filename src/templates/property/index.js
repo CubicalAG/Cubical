@@ -45,15 +45,15 @@ const ImmobilienEntry = ({ data }) => {
                     ) : data.prismicProperty.data.preis_from &&
                       data.prismicProperty.data.preis_to ? (
                       <span>
-                        From CHF {data.prismicProperty.data.preis_from} to CHF{" "}
+                        Von CHF {data.prismicProperty.data.preis_from} bis CHF{" "}
                         {data.prismicProperty.data.preis_to}
                       </span>
                     ) : data.prismicProperty.data.preis_from ? (
                       <span>
-                        From CHF {data.prismicProperty.data.preis_from}
+                        Von CHF {data.prismicProperty.data.preis_from}
                       </span>
                     ) : data.prismicProperty.data.preis_to ? (
-                      <span>To CHF {data.prismicProperty.data.preis_to}</span>
+                      <span>Bis CHF {data.prismicProperty.data.preis_to}</span>
                     ) : (
                       ""
                     )}
@@ -67,13 +67,13 @@ const ImmobilienEntry = ({ data }) => {
                     ) : data.prismicProperty.data.zimmer_from &&
                       data.prismicProperty.data.zimmer_to ? (
                       <span>
-                        From {data.prismicProperty.data.zimmer_from} to{" "}
+                        Von {data.prismicProperty.data.zimmer_from} bis{" "}
                         {data.prismicProperty.data.zimmer_to}
                       </span>
                     ) : data.prismicProperty.data.zimmer_from ? (
-                      <span>From {data.prismicProperty.data.zimmer_from}</span>
+                      <span>Von {data.prismicProperty.data.zimmer_from}</span>
                     ) : data.prismicProperty.data.zimmer_to ? (
-                      <span>Up to {data.prismicProperty.data.zimmer_to}</span>
+                      <span>Bis {data.prismicProperty.data.zimmer_to}</span>
                     ) : (
                       ""
                     )}
@@ -86,18 +86,18 @@ const ImmobilienEntry = ({ data }) => {
                     ) : data.prismicProperty.data.wohnflache_from &&
                       data.prismicProperty.data.wohnflache_to ? (
                       <span>
-                        From {data.prismicProperty.data.wohnflache_from} m
-                        <sup>2</sup> to{" "}
+                        Von {data.prismicProperty.data.wohnflache_from} m
+                        <sup>2</sup> bis{" "}
                         {data.prismicProperty.data.wohnflache_to} m<sup>2</sup>
                       </span>
                     ) : data.prismicProperty.data.wohnflache_from ? (
                       <span>
-                        From {data.prismicProperty.data.wohnflache_from} m
+                        Von {data.prismicProperty.data.wohnflache_from} m
                         <sup>2</sup>
                       </span>
                     ) : data.prismicProperty.data.wohnflache_to ? (
                       <span>
-                        To {data.prismicProperty.data.wohnflache_to} m
+                        Bis {data.prismicProperty.data.wohnflache_to} m
                         <sup>2</sup>
                       </span>
                     ) : (
