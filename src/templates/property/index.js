@@ -45,13 +45,11 @@ const ImmobilienEntry = ({ data }) => {
                     ) : data.prismicProperty.data.preis_from &&
                       data.prismicProperty.data.preis_to ? (
                       <span>
-                        Von CHF {data.prismicProperty.data.preis_from} bis CHF{" "}
+                        Ab CHF {data.prismicProperty.data.preis_from} bis CHF{" "}
                         {data.prismicProperty.data.preis_to}
                       </span>
                     ) : data.prismicProperty.data.preis_from ? (
-                      <span>
-                        Von CHF {data.prismicProperty.data.preis_from}
-                      </span>
+                      <span>Ab CHF {data.prismicProperty.data.preis_from}</span>
                     ) : data.prismicProperty.data.preis_to ? (
                       <span>Bis CHF {data.prismicProperty.data.preis_to}</span>
                     ) : (
@@ -67,11 +65,11 @@ const ImmobilienEntry = ({ data }) => {
                     ) : data.prismicProperty.data.zimmer_from &&
                       data.prismicProperty.data.zimmer_to ? (
                       <span>
-                        Von {data.prismicProperty.data.zimmer_from} bis{" "}
+                        Ab {data.prismicProperty.data.zimmer_from} bis{" "}
                         {data.prismicProperty.data.zimmer_to}
                       </span>
                     ) : data.prismicProperty.data.zimmer_from ? (
-                      <span>Von {data.prismicProperty.data.zimmer_from}</span>
+                      <span>Ab {data.prismicProperty.data.zimmer_from}</span>
                     ) : data.prismicProperty.data.zimmer_to ? (
                       <span>Bis {data.prismicProperty.data.zimmer_to}</span>
                     ) : (
@@ -86,13 +84,13 @@ const ImmobilienEntry = ({ data }) => {
                     ) : data.prismicProperty.data.wohnflache_from &&
                       data.prismicProperty.data.wohnflache_to ? (
                       <span>
-                        Von {data.prismicProperty.data.wohnflache_from} m
+                        Ab {data.prismicProperty.data.wohnflache_from} m
                         <sup>2</sup> bis{" "}
                         {data.prismicProperty.data.wohnflache_to} m<sup>2</sup>
                       </span>
                     ) : data.prismicProperty.data.wohnflache_from ? (
                       <span>
-                        Von {data.prismicProperty.data.wohnflache_from} m
+                        Ab {data.prismicProperty.data.wohnflache_from} m
                         <sup>2</sup>
                       </span>
                     ) : data.prismicProperty.data.wohnflache_to ? (
