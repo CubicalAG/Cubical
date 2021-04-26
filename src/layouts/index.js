@@ -344,6 +344,7 @@ const Layout = ({ children, location }) => {
                     href:
                       sublink.sublink &&
                       (sublink.sublink.document &&
+                      sublink.sublink.document[0] &&
                       sublink.sublink.document[0].data.page_path
                         ? sublink.sublink.document[0].data.page_path
                         : sublink.sublink.url),
@@ -430,6 +431,7 @@ const Layout = ({ children, location }) => {
                       href:
                         sublink.sublink &&
                         (sublink.sublink.document &&
+                        sublink.sublink.document[0] &&
                         sublink.sublink.document[0].data.page_path
                           ? sublink.sublink.document[0].data.page_path
                           : sublink.sublink.url),
@@ -442,6 +444,7 @@ const Layout = ({ children, location }) => {
                       href:
                         link.link &&
                         (link.link.document &&
+                        link.link.document[0] &&
                         link.link.document[0].data.page_path
                           ? link.link.document[0].data.page_path
                           : link.link.url),
@@ -516,6 +519,7 @@ const Layout = ({ children, location }) => {
                                 href={
                                   link.link &&
                                   (link.link.document &&
+                                  link.link.document[0] &&
                                   link.link.document[0].data.page_path
                                     ? link.link.document[0].data.page_path
                                     : link.link.url)
@@ -569,6 +573,7 @@ const Layout = ({ children, location }) => {
                                 href:
                                   link.link &&
                                   (link.link.document &&
+                                  link.link.document[0] &&
                                   link.link.document[0].data.page_path
                                     ? link.link.document[0].data.page_path
                                     : link.link.url),
@@ -590,6 +595,7 @@ const Layout = ({ children, location }) => {
                                           href={
                                             sublink.link &&
                                             (sublink.link.document &&
+                                            sublink.link.document[0] &&
                                             sublink.link.document[0].data
                                               .page_path
                                               ? sublink.link.document[0].data
@@ -656,6 +662,7 @@ const Layout = ({ children, location }) => {
                               to={
                                 item.link &&
                                 (item.link.document &&
+                                item.link.document[0] &&
                                 item.link.document[0].data.page_path
                                   ? item.link.document[0].data.page_path
                                   : item.link.url)
@@ -688,6 +695,7 @@ const Layout = ({ children, location }) => {
                       to={
                         button.button_link &&
                         (button.button_link.document &&
+                        button.button_link.document[0] &&
                         button.button_link.document[0].data.page_path
                           ? button.button_link.document[0].data.page_path
                           : button.button_link.url)
@@ -712,6 +720,7 @@ const Layout = ({ children, location }) => {
                       href:
                         link.link &&
                         (link.link.document &&
+                        link.link.document[0] &&
                         link.link.document[0].data.page_path
                           ? link.link.document[0].data.page_path
                           : link.link.url),
@@ -729,6 +738,7 @@ const Layout = ({ children, location }) => {
                                 href={
                                   sublink.link &&
                                   (sublink.link.document &&
+                                  sublink.link.document[0] &&
                                   sublink.link.document[0].data.page_path
                                     ? sublink.link.document[0].data.page_path
                                     : sublink.link.url)
