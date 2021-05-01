@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SwiperSlide } from "swiper/react";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, navigate } from "gatsby";
 import Image from "gatsby-image";
 
 import styles from "./immobilien-entry.module.scss";
@@ -9,9 +9,6 @@ import MarginContainer from "../../components/MarginContainer";
 import RoofSVG from "../../components/RoofSVG";
 import Slider from "../../components/Slider";
 
-import realEstate1 from "../../img/real-estate-1.png";
-import realEstate2 from "../../img/real-estate-2.png";
-import realEstate3 from "../../img/real-estate-3.png";
 import SliderController from "../../components/SliderController";
 import Map from "../../components/Map";
 import SeeMoreContainer from "../../components/SeeMoreContainer";
@@ -22,7 +19,23 @@ import ButtonBordered from "../../components/ButtonBordered";
 const ImmobilienEntry = ({ data }) => {
   const [swiper, setSwiper] = useState();
   const [activeSlide, setActiveSlide] = useState();
-
+  const handleContact = () => {
+    navigate(
+      `/kontakt?grund=${
+        data &&
+        data.prismicProperty &&
+        data.prismicProperty.data &&
+        data.prismicProperty.data.property_heading
+      }, ${
+        data &&
+        data.prismicProperty &&
+        data.prismicProperty.data &&
+        data.prismicProperty.data.category
+          ? "Mieten"
+          : "Kaufen"
+      }`
+    );
+  };
   return (
     <React.Fragment>
       <MarginContainer />
@@ -143,6 +156,12 @@ const ImmobilienEntry = ({ data }) => {
                 </div>
               </AppearOnViewContainer>
             </div>
+            <AppearOnViewContainer>
+              <div className={styles.contactButton}>
+                <p>Contact us about this property</p>
+                <ButtonBordered onClick={handleContact}>Contact</ButtonBordered>
+              </div>
+            </AppearOnViewContainer>
             <AppearOnViewContainer>
               <Slider setSwiper={setSwiper} setActiveSlide={setActiveSlide}>
                 {data.prismicProperty.data.images &&
