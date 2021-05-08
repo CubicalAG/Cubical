@@ -54,17 +54,38 @@ const ImmobilienEntry = ({ data }) => {
                   <div className={styles.infoList}>
                     <span>Preis:</span>
                     {data.prismicProperty.data.preis ? (
-                      <span>CHF {data.prismicProperty.data.preis}</span>
+                      <span>
+                        CHF{" "}
+                        {Number(data.prismicProperty.data.preis).toLocaleString(
+                          "de"
+                        )}
+                      </span>
                     ) : data.prismicProperty.data.preis_from &&
                       data.prismicProperty.data.preis_to ? (
                       <span>
-                        Ab CHF {data.prismicProperty.data.preis_from} bis CHF{" "}
-                        {data.prismicProperty.data.preis_to}
+                        Ab CHF{" "}
+                        {Number(
+                          data.prismicProperty.data.preis_from
+                        ).toLocaleString("de")}{" "}
+                        bis CHF{" "}
+                        {Number(
+                          data.prismicProperty.data.preis_to
+                        ).toLocaleString("de")}
                       </span>
                     ) : data.prismicProperty.data.preis_from ? (
-                      <span>Ab CHF {data.prismicProperty.data.preis_from}</span>
+                      <span>
+                        Ab CHF{" "}
+                        {Number(
+                          data.prismicProperty.data.preis_from
+                        ).toLocaleString("de")}
+                      </span>
                     ) : data.prismicProperty.data.preis_to ? (
-                      <span>Bis CHF {data.prismicProperty.data.preis_to}</span>
+                      <span>
+                        Bis CHF{" "}
+                        {Number(
+                          data.prismicProperty.data.preis_to
+                        ).toLocaleString("de")}
+                      </span>
                     ) : (
                       ""
                     )}

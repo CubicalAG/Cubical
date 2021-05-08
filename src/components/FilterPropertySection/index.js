@@ -198,8 +198,10 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
     filteredArray = filteredArray.filter(({ node: property }) => {
       if (
         (property.data.preis != undefined &&
-          Number(filters.priceFrom) <= Number(property.data.preis)) ||
+          Number(filters.priceFrom) >= Number(property.data.preis)) ||
         !filters.priceFrom ||
+        (property.data.preis_from != undefined &&
+          Number(filters.priceFrom) >= Number(property.data.preis_from)) ||
         (property.data.preis_to != undefined &&
           Number(filters.priceFrom) <= Number(property.data.preis_to))
       ) {
@@ -336,16 +338,26 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                       <SpacedItemsContainer>
                         <p>Preis</p>
                         {item.data.preis ? (
-                          <p>CHF {item.data.preis}</p>
+                          <p>
+                            CHF {Number(item.data.preis).toLocaleString("de")}
+                          </p>
                         ) : item.data.preis_from && item.data.preis_to ? (
                           <p>
-                            Ab CHF {item.data.preis_from} bis CHF{" "}
-                            {item.data.preis_to}
+                            Ab CHF{" "}
+                            {Number(item.data.preis_from).toLocaleString("de")}{" "}
+                            bis CHF{" "}
+                            {Number(item.data.preis_to).toLocaleString("de")}
                           </p>
                         ) : item.data.preis_from ? (
-                          <p>Ab CHF {item.data.preis_from}</p>
+                          <p>
+                            Ab CHF{" "}
+                            {Number(item.data.preis_from).toLocaleString("de")}
+                          </p>
                         ) : item.data.preis_to ? (
-                          <p>Bis CHF {item.data.preis_to}</p>
+                          <p>
+                            Bis CHF{" "}
+                            {Number(item.data.preis_to).toLocaleString("de")}
+                          </p>
                         ) : (
                           ""
                         )}
