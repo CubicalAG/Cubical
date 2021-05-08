@@ -28,7 +28,7 @@ const ContactForm = ({ children }) => {
   const [tel, setTel] = useState("");
   const [msg, setMsg] = useState("");
   const [reasonOfContact, setReasonOfContact] = useState("");
-  console.log(name, vorname, email, tel, msg, reasonOfContact);
+
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [successMessage, setSuccessMessage] = useState(undefined);
   const [fetching, setFetching] = useState(false);
