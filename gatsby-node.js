@@ -234,18 +234,18 @@ exports.createSchemaCustomization = ({ actions }) => {
       primary: HeroSliderPrimary
     }
 
-    type TypeOfProperty{
+    type TypeOfProperty @infer{
       type_of_property: String
+      page_path: String
     }
 
-    type TypeOfPropertyData{
-      data: TypeOfProperty
+    type TypeOfPropertyData @infer{
+      data: TypeOfProperty @infer
     }
 
     type PrismicReferenceButtonLink{
       url: String
       uid: String
-      document: TypeOfPropertyData
     }
 
     type PrismicReferenceData{
@@ -396,6 +396,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       image: LocalImageWithAlt
     }
 
+    type PrismicProperty implements Node{
+      data: PrismicPropertyData
+    }
+
     type PrismicPropertyData{
       zimmer: String
       zimmer_from: String
@@ -413,6 +417,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       preis_to: String
       other_information: [OtherInformation]
       ort: String
+      page_path: String
       important_information: [ImportantInformation]
       images: [Image]
       description: HTML

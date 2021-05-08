@@ -29,8 +29,15 @@ const PageReferenceSection = ({ data: sliceData }) => {
                 url
                 uid
                 document {
-                  data {
-                    type_of_property
+                  ... on PrismicPage {
+                    data {
+                      page_path
+                    }
+                  }
+                  ... on PrismicProperty {
+                    data {
+                      type_of_property
+                    }
                   }
                 }
               }
