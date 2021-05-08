@@ -650,114 +650,120 @@ const Layout = ({ children, location }) => {
               <div
                 className={`${styles.footerInfoContent} ${styles.footerPrimaryContent}`}
               >
-                <div>
-                  {data.prismicLayout.data.footer_primary_content.map(
-                    (item) => {
-                      return (
-                        <p>
-                          {item.bold == "true" ? (
-                            <b>{item.text}</b>
-                          ) : (
-                            <Link
-                              to={
-                                item.link &&
-                                (item.link.document &&
-                                item.link.document[0] &&
-                                item.link.document[0].data.page_path
-                                  ? item.link.document[0].data.page_path
-                                  : item.link.url)
-                              }
-                            >
-                              {item.text}
-                            </Link>
-                          )}
-                        </p>
-                      );
-                    }
+                {data.prismicLayout.data.footer_primary_content.map((item) => {
+                  return (
+                    <p>
+                      {item.bold == "true" ? (
+                        <b>{item.text}</b>
+                      ) : (
+                        <Link
+                          to={
+                            item.link &&
+                            (item.link.document &&
+                            item.link.document[0] &&
+                            item.link.document[0].data.page_path
+                              ? item.link.document[0].data.page_path
+                              : item.link.url)
+                          }
+                        >
+                          {item.text}
+                        </Link>
+                      )}
+                    </p>
+                  );
+                })}
+                <div
+                  className={`${styles.footerInfoContent} ${styles.footerContact}`}
+                >
+                  {data.prismicLayout.data.footer_content && (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: data.prismicLayout.data.footer_content.html,
+                      }}
+                    ></div>
                   )}
+                  <div className={styles.footerButtons}>
+                    {data.prismicLayout.data.footer_buttons &&
+                      data.prismicLayout.data.footer_buttons.length > 0 &&
+                      data.prismicLayout.data.footer_buttons.map((button) => {
+                        return (
+                          <Link
+                            to={
+                              button.button_link &&
+                              (button.button_link.document &&
+                              button.button_link.document[0] &&
+                              button.button_link.document[0].data.page_path
+                                ? button.button_link.document[0].data.page_path
+                                : button.button_link.url)
+                            }
+                            className={styles.horizontallyCentered}
+                          >
+                            <ButtonBordered>
+                              {button.button_text}
+                            </ButtonBordered>
+                          </Link>
+                        );
+                      })}
+                  </div>
                 </div>
               </div>
             )}
-          <div className={styles.footerInfoContent}>
-            {data.prismicLayout.data.footer_content && (
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: data.prismicLayout.data.footer_content.html,
-                }}
-              ></div>
-            )}
-            <div className={styles.footerButtons}>
-              {data.prismicLayout.data.footer_buttons &&
-                data.prismicLayout.data.footer_buttons.length > 0 &&
-                data.prismicLayout.data.footer_buttons.map((button) => {
-                  return (
-                    <Link
-                      to={
-                        button.button_link &&
-                        (button.button_link.document &&
-                        button.button_link.document[0] &&
-                        button.button_link.document[0].data.page_path
-                          ? button.button_link.document[0].data.page_path
-                          : button.button_link.url)
-                      }
-                      className={styles.horizontallyCentered}
-                    >
-                      <ButtonBordered>{button.button_text}</ButtonBordered>
-                    </Link>
-                  );
-                })}
-            </div>
-          </div>
         </div>
-        <div className={styles.footerNavigation}>
-          <AsideNavContainer rotated>
-            {data.prismicLayout.data.footer_links &&
-              data.prismicLayout.data.footer_links.length > 0 &&
-              data.prismicLayout.data.footer_links.map((link, index) => {
-                return (
-                  <NavLinkVertical
-                    link={{
-                      href:
-                        link.link &&
-                        (link.link.document &&
-                        link.link.document[0] &&
-                        link.link.document[0].data.page_path
-                          ? link.link.document[0].data.page_path
-                          : link.link.url),
-                      text: link.link_text,
-                    }}
-                  >
-                    <div className={styles.socialIcons}>
-                      {data.prismicLayout.data.link_hover_icons &&
-                        data.prismicLayout.data.link_hover_icons.length > 0 &&
-                        data.prismicLayout.data.link_hover_icons
-                          .filter((link) => link.parent_link == index + 1)
-                          .map((sublink) => {
-                            return (
-                              <a
-                                href={
-                                  sublink.link &&
-                                  (sublink.link.document &&
-                                  sublink.link.document[0] &&
-                                  sublink.link.document[0].data.page_path
-                                    ? sublink.link.document[0].data.page_path
-                                    : sublink.link.url)
-                                }
-                              >
-                                {sublink.image && sublink.image.localFile && (
-                                  <img
-                                    src={sublink.image.localFile.url}
-                                    alt={sublink.image.alt}
-                                  />
-                                )}
-                              </a>
-                            );
-                          })}
-                    </div>
-                  </NavLinkVertical>
-                );
-              })}
-            {/* <NavLinkVertical link={{href:'/impressum/', text:'IMPRESSUM'}}>
+        {data.prismicLayout.data.footer_links &&
+          data.prismicLayout.data.footer_links.length > 0 &&
+          data.prismicLayout.data.footer_links[0].link_text && (
+            <div className={styles.footerNavigation}>
+              <AsideNavContainer rotated>
+                {data.prismicLayout.data.footer_links &&
+                  data.prismicLayout.data.footer_links.length > 0 &&
+                  data.prismicLayout.data.footer_links.map((link, index) => {
+                    return (
+                      <NavLinkVertical
+                        link={{
+                          href:
+                            link.link &&
+                            (link.link.document &&
+                            link.link.document[0] &&
+                            link.link.document[0].data.page_path
+                              ? link.link.document[0].data.page_path
+                              : link.link.url),
+                          text: link.link_text,
+                        }}
+                      >
+                        <div className={styles.socialIcons}>
+                          {data.prismicLayout.data.link_hover_icons &&
+                            data.prismicLayout.data.link_hover_icons.length >
+                              0 &&
+                            data.prismicLayout.data.link_hover_icons
+                              .filter((link) => link.parent_link == index + 1)
+                              .map((sublink) => {
+                                return (
+                                  <a
+                                    href={
+                                      sublink.link &&
+                                      (sublink.link.document &&
+                                      sublink.link.document[0] &&
+                                      sublink.link.document[0].data.page_path
+                                        ? sublink.link.document[0].data
+                                            .page_path
+                                        : sublink.link.url)
+                                    }
+                                  >
+                                    {sublink.image &&
+                                      sublink.image.localFile && (
+                                        <img
+                                          src={sublink.image.localFile.url}
+                                          alt={sublink.image.alt}
+                                        />
+                                      )}
+                                  </a>
+                                );
+                              })}
+                        </div>
+                      </NavLinkVertical>
+                    );
+                  })}
+                {/* <NavLinkVertical link={{href:'/impressum/', text:'IMPRESSUM'}}>
                             
                         </NavLinkVertical>
                         <NavLinkVertical link={{href:false, text:'Folge uns'}}>
@@ -770,8 +776,9 @@ const Layout = ({ children, location }) => {
                                 </a>
                             </div>
                         </NavLinkVertical> */}
-          </AsideNavContainer>
-        </div>
+              </AsideNavContainer>
+            </div>
+          )}
       </FooterContainer>
       {contactFormTransition(
         (style, item) =>

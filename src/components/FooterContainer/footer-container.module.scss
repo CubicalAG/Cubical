@@ -1,20 +1,16 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.footer{
-    width:100%;
-    position:relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column-reverse;
-    background-color: #1995D27A;
-    @include breakpoint(sm){
-        min-height: 60vh;
-        padding:150px 0;
-    }
-    @include breakpoint(lg){
-        flex-direction: row;
-        min-height: 70vh;
-    }
+.footer {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  background-color: #1995d27a;
+  padding: 25px 0;
+  @include breakpoint(lg) {
+    flex-direction: row;
+  }
 }
