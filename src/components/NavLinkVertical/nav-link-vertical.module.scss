@@ -1,77 +1,77 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.nav-link-vertical{
-    display:flex;
-    position:relative;
-    padding:55px 15px;
-    margin:0;
-    @include breakpoint(sm){
-        transform: rotateZ(-90deg);
-    }
-    .main-button{
-        cursor: pointer;
-        display: inline-block;
-        padding:0;
-        width:max-content;
-        text-decoration: none;
-        transform:rotateZ(0deg) translate(0%, 0%);
-        transition:transform 0.25s;
-        text-transform: uppercase;
-        @include breakpoint(sm){
-            padding:15px;
-        }
-    }
-    a{
-        font-size:1.2rem;
-        @include breakpoint(sm){
-            font-size:1.5rem;
-        }
-        text-decoration: none;
-    }
-    .nav-link-vertical-children{
-        padding:45px;
-        font-size:1.5rem;
-        display:none;
-        position:absolute;
-        bottom:50%;
-        left:50%;
-        transform: translate(-50%, 0%);
-        @include breakpoint(sm){
-            bottom:100%;
-            left:50%;
-            padding:5px;
-            transform:translate(-50%, 0px) rotateZ(90deg);
-        }
-    }
-    .show-children{
-        display: block;
-    }
-}
-
-.nav-link-vertical:hover{
-    .main-button{
-        text-shadow: -0.06ex 0 black, 0.06ex 0 black;
-        @include breakpoint(sm){
-            transform:rotateZ(90deg)  translate(-50%, 0%);
-        }
-    }
-
-    .nav-link-vertical-children{
-        display:block;
-    }
-}
-
-.active{
-    .main-button{
-        transform:rotateZ(90deg)  translate(-50%, 0%);
-        text-shadow: -0.06ex 0 black, 0.06ex 0 black;
-    }
-
-    .nav-link-vertical-children{
-        display:block;
-    }
-}
-
-.vertical{
+.nav-link-vertical {
+  display: flex;
+  position: relative;
+  padding: 55px 15px;
+  margin: 0;
+  @include breakpoint(sm) {
     transform: rotateZ(-90deg);
+  }
+  .main-button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    width: max-content;
+    text-decoration: none;
+    transform: rotateZ(0deg) translate(0%, 0%);
+    transition: transform 0.25s;
+    text-transform: uppercase;
+    @include breakpoint(sm) {
+      padding: 15px;
+    }
+  }
+  a {
+    font-size: 1.2rem;
+    @include breakpoint(sm) {
+      font-size: 1.5rem;
+    }
+    text-decoration: none;
+  }
+  .nav-link-vertical-children {
+    padding: 45px;
+    font-size: 1.5rem;
+    display: none;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    @include breakpoint(sm) {
+      bottom: 50%;
+      left: -50%;
+      padding: 5px;
+      transform: translate(0%, 50%) rotateZ(90deg);
+    }
+  }
+  .show-children {
+    display: block;
+  }
+}
+
+.nav-link-vertical:hover {
+  // .main-button{
+  //     text-shadow: -0.06ex 0 black, 0.06ex 0 black;
+  //     @include breakpoint(sm){
+  //         transform:rotateZ(90deg)  translate(-50%, 0%);
+  //     }
+  // }
+
+  .nav-link-vertical-children {
+    display: block;
+  }
+}
+
+.active {
+  .main-button {
+    transform: rotateZ(90deg) translate(-50%, 0%);
+    text-shadow: -0.06ex 0 black, 0.06ex 0 black;
+  }
+
+  .nav-link-vertical-children {
+    display: block;
+  }
+}
+
+.vertical {
+  transform: rotateZ(-90deg);
 }
