@@ -29,9 +29,9 @@
   }
 }
 
-.contact-button {
-  margin: 50px 0;
-  text-align: center;
+.contact-button-wrapper {
+  display: flex;
+  justify-content: center;
   &:hover {
     button {
       animation: unset;
@@ -39,6 +39,30 @@
   }
   button {
     animation: jump 5s infinite;
+  }
+}
+
+.contact-button {
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  border-radius: 50%;
+  background-color: #0c5e96;
+  width: 120px;
+  margin-right: 10%;
+  font-size: 1.5rem;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 40px solid #0c5e96;
+    transform: rotate(35deg);
   }
 }
 

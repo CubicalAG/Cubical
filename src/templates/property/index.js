@@ -178,12 +178,6 @@ const ImmobilienEntry = ({ data }) => {
               </AppearOnViewContainer>
             </div>
             <AppearOnViewContainer>
-              <div className={styles.contactButton}>
-                <p>Contact us about this property</p>
-                <ButtonBordered onClick={handleContact}>Contact</ButtonBordered>
-              </div>
-            </AppearOnViewContainer>
-            <AppearOnViewContainer>
               <Slider setSwiper={setSwiper} setActiveSlide={setActiveSlide}>
                 {data.prismicProperty.data.images &&
                   data.prismicProperty.data.images.length > 0 &&
@@ -232,6 +226,16 @@ const ImmobilienEntry = ({ data }) => {
             </AppearOnViewContainer>
           </Section>
           <Section>
+            <AppearOnViewContainer>
+              <div className={styles.contactButtonWrapper}>
+                <button
+                  className={styles.contactButton}
+                  onClick={handleContact}
+                >
+                  Kontaktiere Sie Uns!
+                </button>
+              </div>
+            </AppearOnViewContainer>
             <div className={styles.rowBorderLayout}>
               <AppearOnViewContainer>
                 {data.prismicProperty.data.besichtigung_information &&
