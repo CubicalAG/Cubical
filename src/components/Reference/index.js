@@ -23,7 +23,7 @@ const Reference = ({
 }) => {
   const [showVideo, setShowVideo] = useState(false);
   const [seeMore, setSeeMore] = useState(false);
-  console.log(buttonLink);
+
   return (
     <article className={styles.reference}>
       <AppearOnViewContainer>

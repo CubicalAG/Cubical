@@ -1,20 +1,30 @@
-import React from 'react'
-import {useStaticQuery, graphql, Link} from 'gatsby'
+import React from "react";
+import { useStaticQuery, graphql, Link } from "gatsby";
 
-import styles from './page-contact-form-section.module.scss'
-import Section from '../Section'
-import ContactForm from '../ContactForm'
-import ButtonBordered from '../ButtonBordered'
+import styles from "./page-contact-form-section.module.scss";
+import Section from "../Section";
+import ContactForm from "../ContactForm";
+import ButtonBordered from "../ButtonBordered";
 
-const PageContactFormSection = ({data}) => {
-
-  return(
-    <Section fullWidth id={(data.primary && data.primary.section_id) ? data.primary.section_id : ''}>
+const PageContactFormSection = ({ data }) => {
+  return (
+    <Section
+      fullWidth
+      id={
+        data.primary && data.primary.section_id ? data.primary.section_id : ""
+      }
+    >
       <div className={styles.contactFormSection}>
         <div className={styles.illustration}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
             {/* <rect width="100%" height="100%" fill="#334657"></rect> */}
-            <circle cx="400" cy="300" r="270" fill="#FAEFBE" className={styles.sun}></circle>
+            <circle
+              cx="400"
+              cy="300"
+              r="270"
+              fill="#FAEFBE"
+              className={styles.sun}
+            ></circle>
             {/* <path fill="url(#exampleGradient)" d="M0 400H800V600H0z"></path> */}
             <defs>
               <radialGradient id="exampleGradient">
@@ -40,32 +50,56 @@ const PageContactFormSection = ({data}) => {
             <path fill="#083A57" d="M155 231H225V451H155z"></path>
             <path fill="#083A57" d="M185 151H355V451H185z"></path>
             <path fill="#334657" d="M195 171H280V177H195z"></path>
-            <path fill="#334657" d="M195 191H230V197H195z" className={styles.lights}></path>
+            <path
+              fill="#334657"
+              d="M195 191H230V197H195z"
+              className={styles.lights}
+            ></path>
             <path fill="#334657" d="M165 251H220V257H165z"></path>
-            <path fill="#334657" d="M205 265H230V271H205z" className={styles.lights}></path>
+            <path
+              fill="#334657"
+              d="M205 265H230V271H205z"
+              className={styles.lights}
+            ></path>
             <path fill="#083A57" d="M15 381H85V451H15z"></path>
             <path fill="#083A57" d="M55 351H95V451H55z"></path>
             <path fill="#083A57" d="M93 361H153V451H93z"></path>
             <path fill="#083A57" d="M690 371H750V451H690z"></path>
             <path fill="#083A57" d="M730 391H790V450H730z"></path>
             <path fill="#199FD9" d="M25 399H80V401H25z"></path>
-            <path fill="#199FD9" d="M65 419H110V421H65z" className={styles.lights}></path>
+            <path
+              fill="#199FD9"
+              d="M65 419H110V421H65z"
+              className={styles.lights}
+            ></path>
             <path fill="#199FD9" d="M95 378H110V380H95z"></path>
             <path fill="#199FD9" d="M703 399H738V401H703z"></path>
             <path fill="#199FD9" d="M770 409H778V411H770z"></path>
             <path fill="#199FD9" d="M773 402H778V404H773z"></path>
-            <path fill="#199FD9" d="M713 429H778V431H713z" className={styles.lights}></path>
+            <path
+              fill="#199FD9"
+              d="M713 429H778V431H713z"
+              className={styles.lights}
+            ></path>
             <path fill="#199FD9" d="M95 429H110V431H95z"></path>
             <path fill="#083A57" d="M385 111H505V451H385z"></path>
             <path fill="#334657" d="M397 125H407V131H397z"></path>
             <path fill="#334657" d="M417 125H427V131H417z"></path>
-            <path fill="#334657" d="M437 125H447V131H437z" className={styles.lights}></path>
+            <path
+              fill="#334657"
+              d="M437 125H447V131H437z"
+              className={styles.lights}
+            ></path>
             <path fill="#334657" d="M457 125H467V131H457z"></path>
             <path fill="#334657" d="M477 125H487V131H477z"></path>
             <path fill="#334657" d="M397 145H407V151H397z"></path>
             <path fill="#334657" d="M417 145H427V151H417z"></path>
             <path fill="#334657" d="M437 145H447V151H437z"></path>
-            <path fill="#334657" d="M457 145H467V151H457z" className={styles.lights}></path>
+            <path
+              fill="#334657"
+              d="M457 145H467V151H457z"
+              className={styles.lights}
+            ></path>
             <path fill="#334657" d="M477 145H487V151H477z"></path>
             <path fill="#334657" d="M397 165H407V171H397z"></path>
             <path fill="#334657" d="M417 165H427V171H417z"></path>
@@ -79,7 +113,11 @@ const PageContactFormSection = ({data}) => {
             <path fill="#334657" d="M477 185H487V191H477z"></path>
             <path fill="#334657" d="M477 205H487V211H477z"></path>
             <path fill="#083A57" d="M525 151H615V451H525z"></path>
-            <path fill="#334657" d="M555 165H600V171H555z" className={styles.lights}></path>
+            <path
+              fill="#334657"
+              d="M555 165H600V171H555z"
+              className={styles.lights}
+            ></path>
             <path fill="#334657" d="M535 185H560V191H535z"></path>
             <path fill="#083A57" d="M605 191H645V441H605z"></path>
             <path fill="#334657" d="M605 225H630V231H605z"></path>
@@ -136,12 +174,20 @@ const PageContactFormSection = ({data}) => {
             <path fill="#334657" d="M123 352H228V354H123z"></path>
             <path fill="#334657" d="M123 360H228V362H123z"></path>
             <path fill="#334657" d="M123 368H228V370H123z"></path>
-            <path fill="#334657" d="M123 376H228V378H123z" className={styles.lights}></path>
+            <path
+              fill="#334657"
+              d="M123 376H228V378H123z"
+              className={styles.lights}
+            ></path>
             <path fill="#334657" d="M123 384H228V386H123z"></path>
             <path fill="#334657" d="M123 392H228V394H123z"></path>
             <path fill="#334657" d="M123 400H228V402H123z"></path>
             <path fill="#334657" d="M123 408H228V410H123z"></path>
-            <path fill="#334657" d="M123 416H228V418H123z" className={styles.lights}></path>
+            <path
+              fill="#334657"
+              d="M123 416H228V418H123z"
+              className={styles.lights}
+            ></path>
             <path fill="#334657" d="M123 424H228V426H123z"></path>
             <path fill="#334657" d="M123 432H228V434H123z"></path>
             <path fill="#334657" d="M123 440H228V442H123z"></path>
@@ -174,45 +220,99 @@ const PageContactFormSection = ({data}) => {
             <path fill="#faefbe" d="M592 281H697V284H592z"></path>
             <path fill="#334657" d="M592 301H697V304H592z"></path>
             <path fill="#334657" d="M592 321H697V324H592z"></path>
-            <path fill="#faefbe" d="M592 341H697V344H592z" className={styles.lights}></path>
+            <path
+              fill="#faefbe"
+              d="M592 341H697V344H592z"
+              className={styles.lights}
+            ></path>
             <path fill="#334657" d="M592 361H697V364H592z"></path>
             <path fill="#faefbe" d="M592 381H697V384H592z"></path>
-            <path fill="#faefbe" d="M592 401H697V404H592z" className={styles.lights}></path>
+            <path
+              fill="#faefbe"
+              d="M592 401H697V404H592z"
+              className={styles.lights}
+            ></path>
             <path fill="#334657" d="M592 421H697V424H592z"></path>
             <path fill="#faefbe" d="M592 441H697V444H592z"></path>
-            <circle cx="40" cy="100" r="2" fill="#fff" className={styles.star}></circle>
-            <circle cx="120" cy="150" r="2" fill="#fff" className={styles.star}></circle>
-            <circle cx="740" cy="60" r="2" fill="#fff" className={styles.star}></circle>
-            <circle cx="240" cy="40" r="2" fill="#fff" className={styles.star}></circle>
-            <circle cx="70" cy="240" r="2" fill="#fff" className={styles.star}></circle>
-            <circle cx="690" cy="140" r="2" fill="#fff" className={styles.star}></circle>
-            <circle cx="790" cy="240" r="2" fill="#fff" className={styles.star}></circle>
+            <circle
+              cx="40"
+              cy="100"
+              r="2"
+              fill="#fff"
+              className={styles.star}
+            ></circle>
+            <circle
+              cx="120"
+              cy="150"
+              r="2"
+              fill="#fff"
+              className={styles.star}
+            ></circle>
+            <circle
+              cx="740"
+              cy="60"
+              r="2"
+              fill="#fff"
+              className={styles.star}
+            ></circle>
+            <circle
+              cx="240"
+              cy="40"
+              r="2"
+              fill="#fff"
+              className={styles.star}
+            ></circle>
+            <circle
+              cx="70"
+              cy="240"
+              r="2"
+              fill="#fff"
+              className={styles.star}
+            ></circle>
+            <circle
+              cx="690"
+              cy="140"
+              r="2"
+              fill="#fff"
+              className={styles.star}
+            ></circle>
+            <circle
+              cx="790"
+              cy="240"
+              r="2"
+              fill="#fff"
+              className={styles.star}
+            ></circle>
           </svg>
         </div>
         <div className={styles.contactFormAndInfoWrapper}>
           <div className={styles.contactFormContainer}>
-              <ContactForm>
-                  <h1 className={styles.contactHeading}>KONTAKT</h1>
-                  <p className={styles.contactDescription}>
-                    Schreiben Sie uns. Wir freuen usn auf Ihre Anfrage und melden uns so schnell wie möglich bei Ihnen zurück.
-                  </p>
-              </ContactForm>
+            <ContactForm>
+              <h1 className={styles.contactHeading}>KONTAKT</h1>
+              <p className={styles.contactDescription}>
+                Schreiben Sie uns. Wir freuen usn auf Ihre Anfrage und melden
+                uns so schnell wie möglich bei Ihnen zurück.
+              </p>
+            </ContactForm>
           </div>
           <div className={styles.mobileForm}>
-              <ContactForm>
-                  <h1 className={styles.contactHeading}>KONTAKT</h1>
-                  <p>
-                    Schreiben Sie uns. Wir freuen usn auf Ihre Anfrage und melden uns so schnell wie möglich bei Ihnen zurück.
-                  </p>
-              </ContactForm>
+            <ContactForm>
+              <h1 className={styles.contactHeading}>KONTAKT</h1>
+              <p>
+                Wir haben Ihr Interesse geweckt? Unser Team steht Ihnen gerne
+                zur Verfügung, um Ihnen die kundengerechte Beratung zu bieten.
+              </p>
+            </ContactForm>
           </div>
           <div className={styles.infoContent}>
-              {
-                  data.primary.contact_content &&
-                  <div dangerouslySetInnerHTML={{__html:data.primary.contact_content.html}}>
-                  </div>
-              }
-              {/* <div className={styles.infoButtons}>
+            {data.primary.contact_content && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: data.primary.contact_content.html,
+                }}
+              ></div>
+            )}
+            {/* <div className={styles.infoButtons}>
                   {queryData.prismicLayout.data.footer_buttons && 
                   queryData.prismicLayout.data.footer_buttons.length > 0 &&
                   queryData.prismicLayout.data.footer_buttons.map(button => {
@@ -227,7 +327,7 @@ const PageContactFormSection = ({data}) => {
         </div>
       </div>
     </Section>
-  )
-}
+  );
+};
 
-export default PageContactFormSection
+export default PageContactFormSection;

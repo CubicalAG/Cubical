@@ -23,12 +23,12 @@ const getReasonOfContact = (query) => {
 
 const ContactForm = ({ children }) => {
   const [name, setName] = useState("");
+  const [vorname, setVorname] = useState("");
   const [email, setEmail] = useState("");
   const [tel, setTel] = useState("");
-  const [callTime, setCallTime] = useState("");
   const [msg, setMsg] = useState("");
   const [reasonOfContact, setReasonOfContact] = useState("");
-
+  console.log(name, vorname, email, tel, msg, reasonOfContact);
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [successMessage, setSuccessMessage] = useState(undefined);
   const [fetching, setFetching] = useState(false);
@@ -41,7 +41,7 @@ const ContactForm = ({ children }) => {
       !reasonOfContact ||
       !name ||
       !tel ||
-      !callTime ||
+      !vorname ||
       !(
         email &&
         email.match(
@@ -54,7 +54,7 @@ const ContactForm = ({ children }) => {
       setErrorMessage(undefined);
       setFetching(true);
       fetch(
-        `/.netlify/functions/contactForm?name=${name}&email=${email}&tel=${tel}&callTime=${callTime}&reasonOfContact=${reasonOfContact}&msg=${msg}`,
+        `/.netlify/functions/contactForm?name=${name}&email=${email}&tel=${tel}&vorname=${vorname}&reasonOfContact=${reasonOfContact}&msg=${msg}`,
         {
           headers: {
             Accept: "application/json",
@@ -99,17 +99,16 @@ const ContactForm = ({ children }) => {
           <TextInputField name="name" value={name} onChange={setName} />
         </label>
         <label>
-          Telefon*
-          <TextInputField name="tel" value={tel} onChange={setTel} />
+          Vorname*
+          <TextInputField
+            name="vorname"
+            value={vorname}
+            onChange={setVorname}
+          />
         </label>
         <label>
-          E-Mail*
-          <TextInputField
-            type="email"
-            name="email"
-            value={email}
-            onChange={setEmail}
-          />
+          Telefon*
+          <TextInputField name="tel" value={tel} onChange={setTel} />
         </label>
         <label>
           Grund für die Kontaktaufnahme*
@@ -120,11 +119,12 @@ const ContactForm = ({ children }) => {
           />
         </label>
         <label>
-          Gewünschte Anrufzeit*
+          E-Mail*
           <TextInputField
-            name="callTime"
-            value={callTime}
-            onChange={setCallTime}
+            type="email"
+            name="email"
+            value={email}
+            onChange={setEmail}
           />
         </label>
         <label className={styles.textareaInput}>

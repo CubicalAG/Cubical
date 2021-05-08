@@ -1,303 +1,305 @@
-@import '../styles/utils/breakpoints.scss';
+@import "../styles/utils/breakpoints.scss";
 
-.layout{
-    width:100%;
+.layout {
+  width: 100%;
 }
 
-.logo-container{
-    width:30%;
-    z-index:5;
-    margin-left:50px;
-    @include breakpoint(sm){
-        width:20vw;
-        margin-left:5vw;
-    }
-    @include breakpoint(lg){
-        width:12.5vw;
-        margin-right:unset;
-    }
+.logo-container {
+  width: 30%;
+  z-index: 5;
+  margin-left: 50px;
+  @include breakpoint(sm) {
+    width: 20vw;
+    margin-left: 5vw;
+  }
+  @include breakpoint(lg) {
+    width: 12.5vw;
+    margin-right: unset;
+  }
 }
 
-.footer-primary-content{
-    margin-right: 25vw;
-    b{
-        margin:15px 0;
-        display:inline-block;
-        font-weight: 800;
-    }
-    a{
-        text-decoration: none;
-    }
-}
-.footer-info-content{
-    display:flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    text-align: left;
-    margin-bottom: 10px;
-    position:relative;
-    .footer-buttons{
-        button{
-            background:#0C5E96;
-            border-color:#0C5E96;
-            color:white !important;
-        }
-    }
-    *{
-        color:white;
-    }
-    img{
-        height:50px;
-        margin-bottom:20px;
-    }
-    b{
-        color: #0C5E96;
-    }
-    h2{
-        font-size:3rem;
-    }
-    p, a{
-        font-size: 1.75rem;
-    }
-    p{
-        margin:0;
-    }
-}
-
-.footer-buttons{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top:20px;
-}
-
-.footer-content{
-    display: flex;
-    flex-direction: column-reverse;
-    padding-bottom:50px;
-    @include breakpoint(sm){
-        padding-bottom:unset;
-        flex-direction: row;
-    }
-}
-
-.footer-icon-container{
-    position:relative;
-    margin:0 auto;
-    display:flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    width:200px;
-    justify-content: center;
-    @include breakpoint(sm){
-        width:250px;
-        margin-right:75px;
-    }
-    @include breakpoint(lg){
-        margin-right:100px;
-    }
-}
-
-.horizontally-centered{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.footer-primary-content {
+  margin-right: 25vw;
+  b {
+    margin: 15px 0;
+    display: inline-block;
+    font-weight: 800;
+  }
+  a {
     text-decoration: none;
-    margin-bottom:10px;
-    display:inline-block;
+  }
+}
+.footer-info-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 10px;
+  position: relative;
+  .footer-buttons {
+    button {
+      background: #0c5e96;
+      border-color: #0c5e96;
+      color: white !important;
+    }
+  }
+  * {
+    color: white;
+  }
+  img {
+    height: 50px;
+    margin-bottom: 20px;
+  }
+  b {
+    color: #0c5e96;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  p,
+  a {
+    font-size: 1.75rem;
+  }
+  p {
+    margin: 0;
+  }
 }
 
-.footer-navigation{
-    display:flex;
-    margin-top:50px;
-    @include breakpoint(sm){
-        > aside{
-            margin-bottom:100px;
-            a{
-                font-size:1.2rem;
-            }
-        }
-    }
-    @include breakpoint(sm){
-        position:absolute;
-        right:0px;
-        top:50%;
-        transform:translate(0, -50%) rotateZ(0deg);
-    }
-    @include breakpoint(lg){
-        right:0px;
-    }
+.footer-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.main-content-navigation{
-    position: sticky;
-    top:40px;
-    bottom:50px;
-    width:1px;
-    height:100vh;
-    z-index:5;
+.footer-content {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 50px;
+  @include breakpoint(sm) {
+    padding-bottom: unset;
+    flex-direction: row;
+  }
 }
 
-.navigation-sticky-container{
-    display:none;
-    @include breakpoint(sm){
-        display:flex;
-        position:absolute;
-        right: 10px;
-        top:50%;
-        transform:translate(0%, -50%);
-    }
-    @include breakpoint(lg){
-        right:10px;
-    }
+.footer-icon-container {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 200px;
+  justify-content: center;
+  @include breakpoint(sm) {
+    width: 250px;
+    margin-right: 75px;
+  }
+  @include breakpoint(lg) {
+    margin-right: 100px;
+  }
 }
 
-.navigation-sticky-container-left{
-    @include breakpoint(sm){
-        width:55px;
-        right:unset;
-        left:0px;
-        transform:translate(0, -50%);
-        ul{
-            flex-direction: column;
-        }
-        img{
-            width:100%;
-        }
-    }
+.horizontally-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
 }
 
-.left-side-link{
+.footer-navigation {
+  display: flex;
+  margin-top: 50px;
+  @include breakpoint(sm) {
+    > aside {
+      margin-bottom: 100px;
+      a {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  @include breakpoint(sm) {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translate(0, -50%) rotateZ(0deg);
+  }
+  @include breakpoint(lg) {
+    right: 0px;
+  }
+}
+
+.main-content-navigation {
+  position: sticky;
+  top: 40px;
+  bottom: 50px;
+  width: 1px;
+  height: 100vh;
+  z-index: 5;
+}
+
+.navigation-sticky-container {
+  display: none;
+  @include breakpoint(sm) {
     display: flex;
-    margin-bottom:10px;
-    transition:0.3s;
-    height:55px;
-    .link-content{
-        width:260px;
-        height:55px;
-        background:#2597D0;
-        padding:3px 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        * {
-            color:white;
-            text-decoration:none;
-            margin:0;
-        }
-        a {
-            text-decoration: underline;
-        }
-        p{
-            line-height: 2rem;
-            margin:0;
-        }
-    }
-    img{
-        width:55px;
-        height:55px;
-    }
-    &:hover{
-        transform:translate(calc(260px - 55px), 0);
-    }
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0%, -50%);
+  }
+  @include breakpoint(lg) {
+    right: 10px;
+  }
 }
 
-.left-side-nav-container{
-    transform:translate(calc(55px - 100%), 0);
-}
-    
-    .main-content{
-        flex-grow: 1;
-    width: 100%;
-}
-
-main{
-    display:flex;
-    justify-content: center;
-    width:100%;
-}
-
-.contact-form-container{
-    @include breakpoint(sm){
-        position:fixed;
-        top:50%;
-        left:50%;
-        transform:translate(-50%, -50%);
-        height:auto;
-        z-index:20;
+.navigation-sticky-container-left {
+  @include breakpoint(sm) {
+    width: 55px;
+    right: unset;
+    left: 0px;
+    transform: translate(0, -50%);
+    ul {
+      flex-direction: column;
     }
+    img {
+      width: 100%;
+    }
+  }
 }
 
-.social-icons{
-    display:flex;
-    align-items: center;
-    position:absolute;
-    padding-right:20px;
-    top:50%;
-    right:0;
-    transform:translate(0, -50%);
-    width:auto;
-    height:50px;
-    a{
-        width:30px;
-        margin-left:5px;
-        transition:0.3s;
-    }
-    a:hover{
-        transform:scale(1.2);
-    }
-}
-
-.mobile-form{
+.left-side-link {
+  display: flex;
+  margin-bottom: 10px;
+  transition: 0.3s;
+  height: 55px;
+  .link-content {
+    width: 260px;
+    height: 55px;
+    background: #2597d0;
+    padding: 3px 20px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index:6;
-    background:white;
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    @include breakpoint(sm){
-        display:none;
-    }
-}
-
-.mobile{
-    > button{
-        width:45px;
-    }
-    @include breakpoint(sm){
-        display:none;
-    }
-}
-
-.mobile-menu{
-    position:fixed;
-    display:flex;
     flex-direction: column;
-    top:0;
-    left:0;
-    padding:85px 15px;
-    background: white;
-    z-index:0;
-    width:100%;
-    height:100vh;
-    overflow: auto;
-    transform: translateY(100%);
-    opacity:0;
-    transition:0.5s;
+    justify-content: center;
+    * {
+      color: white;
+      text-decoration: none;
+      margin: 0;
+    }
+    a {
+      text-decoration: underline;
+    }
+    p {
+      line-height: 2rem;
+      margin: 0;
+    }
+  }
+  img {
+    width: 55px;
+    height: 55px;
+  }
+  &:hover {
+    transform: translate(calc(260px - 55px), 0);
+  }
 }
 
-.mobile-menu-active{
-    opacity:1;
-    transform:translateY(0%);
+.left-side-nav-container {
+  transform: translate(calc(55px - 100%), 0);
 }
 
-.close-mobile-menu-button{
-    position:absolute;
-    top:10px;
-    left:15px;
+.main-content {
+  flex-grow: 1;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-form-container {
+  @include breakpoint(sm) {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    z-index: 20;
+  }
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  padding-right: 20px;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  width: auto;
+  height: 50px;
+  a {
+    width: 30px;
+    margin-left: 5px;
+    transition: 0.3s;
+  }
+  a:hover {
+    transform: scale(1.2);
+  }
+}
+
+.mobile-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  background: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include breakpoint(sm) {
+    display: none;
+  }
+}
+
+.mobile {
+  > button {
+    width: 45px;
+  }
+  @include breakpoint(sm) {
+    display: none;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  padding: 85px 15px;
+  background: white;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.mobile-menu-active {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.close-mobile-menu-button {
+  position: absolute;
+  top: 10px;
+  left: 15px;
 }
