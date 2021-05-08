@@ -11,6 +11,7 @@ import TiltableContainer from "../TiltableContainer";
 import AppearOnViewContainer from "../AppearOnViewContainer";
 
 const ImageInfoItem = ({ heading, title, image, children, link, data }) => {
+  console.log(data);
   return (
     <li className={styles.imageInfoItem}>
       {data && (
@@ -23,6 +24,8 @@ const ImageInfoItem = ({ heading, title, image, children, link, data }) => {
                 data.card_link.document[0] &&
                 data.card_link.document[0].data.page_path
                   ? data.card_link.document[0].data.page_path
+                  : data.card_link.uid
+                  ? `/${data.card_link.uid}`
                   : data.card_link.url)
               }
             >

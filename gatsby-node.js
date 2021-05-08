@@ -488,9 +488,7 @@ exports.createPages = async ({ graphql, actions }) => {
   properties.forEach((edge) => {
     if (edge.node.uid) {
       createPage({
-        path: `/${edge.node.data.type_of_property ? "mieten" : "kaufen"}/${
-          edge.node.uid
-        }`,
+        path: edge.node.uid,
         component: propertyTemplate,
         context: {
           uid: edge.node.uid,

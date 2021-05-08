@@ -85,14 +85,7 @@ const Reference = ({
                             to={`${
                               buttonLink &&
                               (buttonLink.uid
-                                ? `/${
-                                    buttonLink.document &&
-                                    buttonLink.document[0] &&
-                                    buttonLink.document[0].data &&
-                                    buttonLink.document[0].data.type_of_property
-                                      ? "mieten"
-                                      : "kaufen"
-                                  }/${buttonLink.uid}`
+                                ? `/${buttonLink.uid}`
                                 : buttonLink.document[0]
                                 ? buttonLink.document[0].data &&
                                   buttonLink.document[0].data.page_path

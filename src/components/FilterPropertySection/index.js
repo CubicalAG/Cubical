@@ -178,7 +178,6 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
       if (numberOfRooms >= 5 || numberOfRoomsTo > 5) {
         zimmerMapping.push("über 5 Zimmer");
       }
-      console.log();
       if (zimmerMapping.includes(filters.zimmer) || !filters.zimmer) {
         return true;
       }
@@ -390,13 +389,7 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                       </SpacedItemsContainer>
                     </BottomBorderedContainer>
                     <ButtonBordered>
-                      <Link
-                        to={`/${
-                          item.data.type_of_property ? "mieten" : "kaufen"
-                        }/${item.uid}`}
-                      >
-                        Weitere Infos
-                      </Link>
+                      <Link to={`/${item.uid}`}>Weitere Infos</Link>
                     </ButtonBordered>
                   </TextImageBox>
                 </animated.div>
