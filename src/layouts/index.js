@@ -222,6 +222,8 @@ const Layout = ({ children, location }) => {
         let scrolledPixels = vhToPixel(65);
         if (window.scrollY > Number(scrolledPixels)) {
           setShowNavIcons(true);
+        } else if (location.pathname === "/kontakt") {
+          setShowNavIcons(true);
         } else {
           setShowNavIcons(false);
         }
@@ -654,7 +656,18 @@ const Layout = ({ children, location }) => {
                   return (
                     <p>
                       {item.bold == "true" ? (
-                        <b>{item.text}</b>
+                        <Link
+                          to={
+                            item.link &&
+                            (item.link.document &&
+                            item.link.document[0] &&
+                            item.link.document[0].data.page_path
+                              ? item.link.document[0].data.page_path
+                              : item.link.url)
+                          }
+                        >
+                          <b>{item.text}</b>
+                        </Link>
                       ) : (
                         <Link
                           to={

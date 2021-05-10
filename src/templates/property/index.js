@@ -232,7 +232,7 @@ const ImmobilienEntry = ({ data }) => {
                   className={styles.contactButton}
                   onClick={handleContact}
                 >
-                  Kontaktiere Sie Uns!
+                  Kontaktieren Sie Uns!
                 </button>
               </div>
             </AppearOnViewContainer>
