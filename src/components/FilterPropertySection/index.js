@@ -285,7 +285,10 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
         </div>
         <div className={styles.properties}>
           <div className={`${styles.infoAndSorting} ${styles.rowSpaced}`}>
-            <h2>{filteredData.length} Immobilien gefunden</h2>
+            <h2>
+              {filteredData.length}{" "}
+              {filteredData.length > 1 ? "Immobilien" : "Immobilie"} gefunden
+            </h2>
             {/* <PropertySorting sorting={sorting} setSorting={setSorting}/> */}
           </div>
           {transitions((style, { node: item }, t, index) => {
@@ -338,24 +341,24 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                         <p>Preis</p>
                         {item.data.preis ? (
                           <p>
-                            CHF {Number(item.data.preis).toLocaleString("de")}
+                            CHF {Number(item.data.preis).toLocaleString("en")}
                           </p>
                         ) : item.data.preis_from && item.data.preis_to ? (
                           <p>
                             Ab CHF{" "}
-                            {Number(item.data.preis_from).toLocaleString("de")}{" "}
+                            {Number(item.data.preis_from).toLocaleString("en")}{" "}
                             bis CHF{" "}
-                            {Number(item.data.preis_to).toLocaleString("de")}
+                            {Number(item.data.preis_to).toLocaleString("en")}
                           </p>
                         ) : item.data.preis_from ? (
                           <p>
                             Ab CHF{" "}
-                            {Number(item.data.preis_from).toLocaleString("de")}
+                            {Number(item.data.preis_from).toLocaleString("en")}
                           </p>
                         ) : item.data.preis_to ? (
                           <p>
                             Bis CHF{" "}
-                            {Number(item.data.preis_to).toLocaleString("de")}
+                            {Number(item.data.preis_to).toLocaleString("en")}
                           </p>
                         ) : (
                           ""

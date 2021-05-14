@@ -57,7 +57,7 @@ const ImmobilienEntry = ({ data }) => {
                       <span>
                         CHF{" "}
                         {Number(data.prismicProperty.data.preis).toLocaleString(
-                          "de"
+                          "en"
                         )}
                       </span>
                     ) : data.prismicProperty.data.preis_from &&
@@ -66,25 +66,25 @@ const ImmobilienEntry = ({ data }) => {
                         Ab CHF{" "}
                         {Number(
                           data.prismicProperty.data.preis_from
-                        ).toLocaleString("de")}{" "}
+                        ).toLocaleString("en")}{" "}
                         bis CHF{" "}
                         {Number(
                           data.prismicProperty.data.preis_to
-                        ).toLocaleString("de")}
+                        ).toLocaleString("en")}
                       </span>
                     ) : data.prismicProperty.data.preis_from ? (
                       <span>
                         Ab CHF{" "}
                         {Number(
                           data.prismicProperty.data.preis_from
-                        ).toLocaleString("de")}
+                        ).toLocaleString("en")}
                       </span>
                     ) : data.prismicProperty.data.preis_to ? (
                       <span>
                         Bis CHF{" "}
                         {Number(
                           data.prismicProperty.data.preis_to
-                        ).toLocaleString("de")}
+                        ).toLocaleString("en")}
                       </span>
                     ) : (
                       ""
