@@ -55,36 +55,39 @@ const ImmobilienEntry = ({ data }) => {
                     <span>Preis:</span>
                     {data.prismicProperty.data.preis ? (
                       <span>
-                        CHF{" "}
                         {Number(data.prismicProperty.data.preis).toLocaleString(
                           "en"
-                        )}
+                        )}{" "}
+                        CHF
                       </span>
                     ) : data.prismicProperty.data.preis_from &&
                       data.prismicProperty.data.preis_to ? (
                       <span>
-                        Ab CHF{" "}
+                        Ab{" "}
                         {Number(
                           data.prismicProperty.data.preis_from
                         ).toLocaleString("en")}{" "}
-                        bis CHF{" "}
+                        CHF bis{" "}
                         {Number(
                           data.prismicProperty.data.preis_to
-                        ).toLocaleString("en")}
+                        ).toLocaleString("en")}{" "}
+                        CHF
                       </span>
                     ) : data.prismicProperty.data.preis_from ? (
                       <span>
-                        Ab CHF{" "}
+                        Ab{" "}
                         {Number(
                           data.prismicProperty.data.preis_from
-                        ).toLocaleString("en")}
+                        ).toLocaleString("en")}{" "}
+                        CHF
                       </span>
                     ) : data.prismicProperty.data.preis_to ? (
                       <span>
-                        Bis CHF{" "}
+                        Bis{" "}
                         {Number(
                           data.prismicProperty.data.preis_to
-                        ).toLocaleString("en")}
+                        ).toLocaleString("en")}{" "}
+                        CHF
                       </span>
                     ) : (
                       ""

@@ -341,24 +341,27 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                         <p>Preis</p>
                         {item.data.preis ? (
                           <p>
-                            CHF {Number(item.data.preis).toLocaleString("en")}
+                            {Number(item.data.preis).toLocaleString("en")} CHF
                           </p>
                         ) : item.data.preis_from && item.data.preis_to ? (
                           <p>
-                            Ab CHF{" "}
+                            Ab{" "}
                             {Number(item.data.preis_from).toLocaleString("en")}{" "}
-                            bis CHF{" "}
-                            {Number(item.data.preis_to).toLocaleString("en")}
+                            CHF bis{" "}
+                            {Number(item.data.preis_to).toLocaleString("en")}{" "}
+                            CHF
                           </p>
                         ) : item.data.preis_from ? (
                           <p>
-                            Ab CHF{" "}
-                            {Number(item.data.preis_from).toLocaleString("en")}
+                            Ab{" "}
+                            {Number(item.data.preis_from).toLocaleString("en")}{" "}
+                            CHF
                           </p>
                         ) : item.data.preis_to ? (
                           <p>
-                            Bis CHF{" "}
-                            {Number(item.data.preis_to).toLocaleString("en")}
+                            Bis{" "}
+                            {Number(item.data.preis_to).toLocaleString("en")}{" "}
+                            CHF
                           </p>
                         ) : (
                           ""
