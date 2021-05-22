@@ -46,7 +46,8 @@ module.exports.handler = async function (event, context) {
     await sgMail.send(msg);
     let successBody = JSON.stringify({
       status: "success",
-      message: "Your message has been sent!",
+      message:
+        "Vielen Dank. Wir haben Ihre Anfrage erhalten. Unser Team wird schnellstmöglich innerhalb der nächsten Tagen mit den notwendigen Informationen auf Sie zurückkommen. Für Ihr Verständnis und Ihre Geduld bedanken wir uns im Voraus.",
     });
     return {
       statusCode: 200,

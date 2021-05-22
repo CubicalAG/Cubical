@@ -15,6 +15,7 @@ import SeeMoreContainer from "../../components/SeeMoreContainer";
 import ItemAppearOverlay from "../../components/ItemAppearOverlay";
 import AppearOnViewContainer from "../../components/AppearOnViewContainer";
 import ButtonBordered from "../../components/ButtonBordered";
+import numberWithUpperCommas from "../../utils/numberWithUpperCommas";
 
 const ImmobilienEntry = ({ data }) => {
   const [swiper, setSwiper] = useState();
@@ -26,13 +27,6 @@ const ImmobilienEntry = ({ data }) => {
         data.prismicProperty &&
         data.prismicProperty.data &&
         data.prismicProperty.data.property_heading
-      }, ${
-        data &&
-        data.prismicProperty &&
-        data.prismicProperty.data &&
-        data.prismicProperty.data.category
-          ? "Mieten"
-          : "Kaufen"
       }`
     );
   };
@@ -55,8 +49,8 @@ const ImmobilienEntry = ({ data }) => {
                     <span>Preis:</span>
                     {data.prismicProperty.data.preis ? (
                       <span>
-                        {Number(data.prismicProperty.data.preis).toLocaleString(
-                          "en"
+                        {numberWithUpperCommas(
+                          Number(data.prismicProperty.data.preis)
                         )}{" "}
                         CHF
                       </span>
@@ -64,29 +58,29 @@ const ImmobilienEntry = ({ data }) => {
                       data.prismicProperty.data.preis_to ? (
                       <span>
                         Ab{" "}
-                        {Number(
-                          data.prismicProperty.data.preis_from
-                        ).toLocaleString("en")}{" "}
+                        {numberWithUpperCommas(
+                          Number(data.prismicProperty.data.preis_from)
+                        )}{" "}
                         CHF bis{" "}
-                        {Number(
-                          data.prismicProperty.data.preis_to
-                        ).toLocaleString("en")}{" "}
+                        {numberWithUpperCommas(
+                          Number(data.prismicProperty.data.preis_to)
+                        )}{" "}
                         CHF
                       </span>
                     ) : data.prismicProperty.data.preis_from ? (
                       <span>
                         Ab{" "}
-                        {Number(
-                          data.prismicProperty.data.preis_from
-                        ).toLocaleString("en")}{" "}
+                        {numberWithUpperCommas(
+                          Number(data.prismicProperty.data.preis_from)
+                        )}{" "}
                         CHF
                       </span>
                     ) : data.prismicProperty.data.preis_to ? (
                       <span>
                         Bis{" "}
-                        {Number(
-                          data.prismicProperty.data.preis_to
-                        ).toLocaleString("en")}{" "}
+                        {numberWithUpperCommas(
+                          Number(data.prismicProperty.data.preis_to)
+                        )}{" "}
                         CHF
                       </span>
                     ) : (
@@ -211,34 +205,35 @@ const ImmobilienEntry = ({ data }) => {
                 )}
             </AppearOnViewContainer>
             <AppearOnViewContainer>
-              <SeeMoreContainer>
-                <div className={styles.content}>
-                  {data.prismicProperty.data.description &&
-                    data.prismicProperty.data.description.html && (
-                      <React.Fragment>
-                        <h5> BESCHREIBUNG</h5>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: data.prismicProperty.data.description.html,
-                          }}
-                        ></div>
-                      </React.Fragment>
-                    )}
-                </div>
-              </SeeMoreContainer>
+              <div className={styles.content}>
+                {data.prismicProperty.data.description &&
+                  data.prismicProperty.data.description.html && (
+                    <React.Fragment>
+                      <h5> BESCHREIBUNG</h5>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: data.prismicProperty.data.description.html,
+                        }}
+                      ></div>
+                    </React.Fragment>
+                  )}
+              </div>
             </AppearOnViewContainer>
           </Section>
           <Section>
-            <AppearOnViewContainer>
-              <div className={styles.contactButtonWrapper}>
-                <button
-                  className={styles.contactButton}
-                  onClick={handleContact}
-                >
-                  Kontaktieren Sie Uns!
-                </button>
-              </div>
-            </AppearOnViewContainer>
+            {data.prismicProperty.data &&
+              data.prismicProperty.data.abgeschlossenne === "false" && (
+                <AppearOnViewContainer>
+                  <div className={styles.contactButtonWrapper}>
+                    <button
+                      className={styles.contactButton}
+                      onClick={handleContact}
+                    >
+                      Kontaktieren Sie Uns!
+                    </button>
+                  </div>
+                </AppearOnViewContainer>
+              )}
             <div className={styles.rowBorderLayout}>
               <AppearOnViewContainer>
                 {data.prismicProperty.data.besichtigung_information &&
@@ -356,6 +351,7 @@ export const ImmobilienQuery = graphql`
         zimmer
         zimmer_from
         zimmer_to
+        abgeschlossenne
       }
     }
   }

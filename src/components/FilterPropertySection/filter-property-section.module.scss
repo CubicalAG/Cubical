@@ -41,6 +41,9 @@
   h2 {
     font-size: 3rem;
   }
+  @include breakpoint(sm) {
+    width: 75%;
+  }
   @include breakpoint(lg) {
     width: 100%;
   }

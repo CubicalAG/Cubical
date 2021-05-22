@@ -49,7 +49,9 @@ const ContactForm = ({ children }) => {
         )
       )
     ) {
-      setErrorMessage("Required fields not filled!");
+      setErrorMessage(
+        "Leider konnten wir Ihre Anfrage nicht erhalten. Bitte füllen Sie hierfür alle notwendigen Felder vollständig aus."
+      );
     } else {
       setErrorMessage(undefined);
       setFetching(true);
@@ -108,7 +110,12 @@ const ContactForm = ({ children }) => {
         </label>
         <label>
           Telefon*
-          <TextInputField name="tel" value={tel} onChange={setTel} />
+          <TextInputField
+            name="tel"
+            type="number"
+            value={tel}
+            onChange={setTel}
+          />
         </label>
         <label>
           Grund für die Kontaktaufnahme*

@@ -195,7 +195,7 @@ const Layout = ({ children, location }) => {
 
     setTimeout(() => {
       dispatch({ type: "PAGE_LOADED_MINIMAL" });
-    }, 2500);
+    }, 1500);
   }, []);
 
   const navIconsTransition = useTransition(showNavIcons, {
@@ -237,7 +237,7 @@ const Layout = ({ children, location }) => {
   const linkListProps = useSpring({
     opacity: pageLoaded && pageLoadedMinimal ? 1 : 0,
     config: {
-      duration: 200,
+      duration: 0,
     },
     ref: linkListPropsRef,
   });

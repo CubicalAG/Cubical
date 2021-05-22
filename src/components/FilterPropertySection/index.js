@@ -13,6 +13,7 @@ import ButtonBordered from "../ButtonBordered";
 import styles from "./filter-property-section.module.scss";
 import TiltableContainer from "../TiltableContainer";
 import PropertySorting from "../PropertySorting";
+import numberWithUpperCommas from "../../utils/numberWithUpperCommas";
 
 const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
   const data = useStaticQuery(graphql`
@@ -303,7 +304,12 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                       item.data.images[0].image.localFile &&
                       item.data.images[0].image.localFile.childImageSharp.fluid
                     }
-                    alt={item.data.images[0].image.alt}
+                    alt={
+                      item.data.images &&
+                      item.data.images.length > 0 &&
+                      item.data.images[0].image &&
+                      item.data.images[0].image.alt
+                    }
                   >
                     <h3>{item.data.property_heading}</h3>
                     <BottomBorderedContainer>
@@ -341,26 +347,30 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                         <p>Preis</p>
                         {item.data.preis ? (
                           <p>
-                            {Number(item.data.preis).toLocaleString("en")} CHF
+                            {numberWithUpperCommas(Number(item.data.preis))} CHF
                           </p>
                         ) : item.data.preis_from && item.data.preis_to ? (
                           <p>
                             Ab{" "}
-                            {Number(item.data.preis_from).toLocaleString("en")}{" "}
+                            {numberWithUpperCommas(
+                              Number(item.data.preis_from)
+                            )}{" "}
                             CHF bis{" "}
-                            {Number(item.data.preis_to).toLocaleString("en")}{" "}
+                            {numberWithUpperCommas(Number(item.data.preis_to))}{" "}
                             CHF
                           </p>
                         ) : item.data.preis_from ? (
                           <p>
                             Ab{" "}
-                            {Number(item.data.preis_from).toLocaleString("en")}{" "}
+                            {numberWithUpperCommas(
+                              Number(item.data.preis_from)
+                            )}{" "}
                             CHF
                           </p>
                         ) : item.data.preis_to ? (
                           <p>
                             Bis{" "}
-                            {Number(item.data.preis_to).toLocaleString("en")}{" "}
+                            {numberWithUpperCommas(Number(item.data.preis_to))}{" "}
                             CHF
                           </p>
                         ) : (

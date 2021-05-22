@@ -1,111 +1,115 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.contact-form{
-    position:relative;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    width:100%;
-    height:100%;
-    padding: 25px 25px;
+.contact-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 25px 25px;
+  max-width: 450px;
+  min-width: 300px;
+  margin-bottom: 0;
+  @include breakpoint(sm) {
     max-width: 450px;
-    min-width:300px;
-    margin-bottom:0;
-    @include breakpoint(sm){
-        max-width: 450px;
-        min-width:450px;
+    min-width: 450px;
+  }
+  .inputs {
+    width: 100%;
+    input,
+    textarea,
+    select {
+      margin-bottom: 10px;
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
     }
-    .inputs{
-        width:100%;
-        input, textarea, select{
-            margin-bottom:10px;
-            width:100%;
-            border:none;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-        }
-        label{
-            width:100%;
-            display: inline-block;
-            @include breakpoint(sm){
-                width:49%;
-            }
-        }
-        label:nth-child(odd){
-            @include breakpoint(sm){
-                margin-right:2%;
-            }
-        }
-        .textarea-input{
-            @include breakpoint(sm){
-                width:100%;
-            }
-        }
-        input {
-            margin-bottom: 20px;
-        }
-        textarea{
-            border: 2px solid rgba(0, 0, 0, 0.2);
-        }
-        select{
-            border-width: 1px;
-            padding:5px;
-            background: none;
-        }
+    label {
+      width: 100%;
+      display: inline-block;
+      @include breakpoint(sm) {
+        width: 49%;
+      }
     }
-    .send-button{
-        width:50px;
-        align-self:center;
-        @include breakpoint(sm){
-            align-self:flex-end;
-        }
+    label:nth-child(odd) {
+      @include breakpoint(sm) {
+        margin-right: 2%;
+      }
     }
-    .childContainer{
-        width:100%;
+    .textarea-input {
+      @include breakpoint(sm) {
+        width: 100%;
+      }
     }
+    input {
+      margin-bottom: 20px;
+    }
+    textarea {
+      border: 2px solid rgba(0, 0, 0, 0.2);
+    }
+    select {
+      border-width: 1px;
+      padding: 5px;
+      background: none;
+    }
+  }
+  .send-button {
+    width: 50px;
+    align-self: center;
+    @include breakpoint(sm) {
+      align-self: flex-end;
+    }
+  }
+  .childContainer {
+    width: 100%;
+  }
 }
 
-.error-message, .success-message{
-    max-width:246px;
-    padding:15px;
-    margin:0;
-    margin-top:10px;
-    text-align: center;
+.error-message,
+.success-message {
+  max-width: 246px;
+  padding: 15px;
+  margin: 0;
+  margin-top: 10px;
+  text-align: center;
 }
 
-.error-message{
-    background:rgba(255, 0, 0, 0.5);
+.error-message {
+  background: rgba(255, 0, 0, 0.5);
 }
 
-.success-message{
-    background:rgba(0, 255, 0, 0.5);
+.success-message {
+  color: white;
+  background: #1895d1;
 }
 
-.loading-indicator-container{
-    position:relative;
-    height:50px;
-    max-width:246px;
+.loading-indicator-container {
+  position: relative;
+  height: 50px;
+  max-width: 246px;
 }
 
-.loading-indicator{
-    border-radius: 50%;
-    width:25px;
-    height:25px;
-    background:#1995D2;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    animation: loading 1s infinite;
+.loading-indicator {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background: #1995d2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: loading 1s infinite;
 }
 
-@keyframes loading{
-    0%{
-        transform: translate(-50%, -50%) scale(0.7);
-    }
-    50%{
-        transform: translate(-50%, -50%) scale(1.3);
-    }
-    100%{
-        transform: translate(-50%, -50%) scale(0.7);
-    }
+@keyframes loading {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
 }
