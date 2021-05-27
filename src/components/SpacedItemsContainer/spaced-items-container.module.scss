@@ -1,5 +1,8 @@
-.spaced-items-container{
-    width:100%;
-    display: flex;
-    justify-content: space-between;
+.spaced-items-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  > p {
+    white-space: nowrap;
+  }
 }

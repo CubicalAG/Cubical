@@ -34,7 +34,7 @@
     margin: 0;
   }
   p:nth-last-of-type(1) b {
-    margin-bottom: 15px;
+    margin-bottom: 0px;
   }
   p:nth-last-of-type(3) b {
     margin-top: 15px;
@@ -51,6 +51,7 @@
   text-align: left;
   margin-bottom: 10px;
   position: relative;
+  margin-top: 15px;
   .footer-buttons {
     button {
       background: #0c5e96;
