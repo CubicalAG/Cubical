@@ -290,7 +290,7 @@ const PageContactFormSection = ({ data }) => {
             <ContactForm>
               <h1 className={styles.contactHeading}>KONTAKT</h1>
               <p className={styles.contactDescription}>
-                Schreiben Sie uns. Wir freuen usn auf Ihre Anfrage und melden
+                Schreiben Sie uns. Wir freuen uns auf Ihre Anfrage und melden
                 uns so schnell wie möglich bei Ihnen zurück.
               </p>
             </ContactForm>

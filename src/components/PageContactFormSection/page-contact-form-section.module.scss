@@ -1,156 +1,177 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.contact-form-section{
-  min-height:115vh;
+.contact-form-section {
+  min-height: 115vh;
   position: relative;
-  margin-bottom:240px;
-  @include breakpoint(sm){
-    margin-bottom:100px;
-    margin-top:100px;
-    min-height:65vh;
+  margin-bottom: 240px;
+  @include breakpoint(sm) {
+    margin-bottom: 100px;
+    margin-top: 100px;
+    min-height: 65vh;
     padding-bottom: 0;
   }
-  @include breakpoint(lg){
-    margin-bottom:150px;
-    margin-top:200px;
-    min-height:85vh;
+  @include breakpoint(lg) {
+    margin-bottom: 150px;
+    margin-top: 200px;
+    min-height: 85vh;
     padding-bottom: 0;
   }
 }
 
-.info-content{
-  margin-top:20px;
-  display:flex;
+.info-content {
+  margin-top: 20px;
+  display: flex;
   align-items: center;
   flex-direction: column;
   text-align: center;
   margin-bottom: 10px;
-  position:relative;
-  .info-buttons{
-    button{
-      color:#1995D2;
+  position: relative;
+  .info-buttons {
+    button {
+      color: #1995d2;
     }
   }
-  img{
-    height:50px;
-    margin-bottom:20px;
+  img {
+    height: 50px;
+    margin-bottom: 20px;
   }
-  h2{
-    font-size:3rem;
+  h2 {
+    font-size: 3rem;
   }
-  p{
+  p {
     font-size: 1.5rem;
-    margin:0;
+    margin: 0;
   }
-  @include breakpoint(sm){
-    margin-top:0;
+  @include breakpoint(sm) {
+    margin-top: 0;
   }
 }
 
-.info-buttons{
+.info-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top:20px;
+  margin-top: 20px;
 }
 
-.contact-form-and-info-wrapper{
-  padding:40px 0px;
-  margin:0 auto;
+.contact-form-and-info-wrapper {
+  padding: 40px 0px;
+  margin: 0 auto;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
-  width:100%;
-  display:flex;
+  width: 100%;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  margin-top:50px;
-  @include breakpoint(sm){
-    margin-top:0;
+  margin-top: 50px;
+  @include breakpoint(sm) {
+    margin-top: 0;
     flex-direction: row;
     justify-content: space-evenly;
   }
-  @include breakpoint(lg){
-    width:800px;
+  @include breakpoint(lg) {
+    width: 800px;
   }
 }
 
-.contact-heading{
-  font-size:2.5rem;
+.contact-heading {
+  font-size: 2.5rem;
 }
 
-.contact-description{
-  margin-bottom:45px;
+.contact-description {
+  margin-bottom: 45px;
 }
 
 @keyframes sun {
-  0%   {transform: translateY(0)}
-  25%  {transform: translateY(85px)}
-  75%  {transform: translateY(-15px)}
-  100% {transform: translateY(0)}
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(85px);
+  }
+  75% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .sun {
   animation: sun 10s linear infinite;
 }
 
-@keyframes lights
-{0% {opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} 
+@keyframes lights {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .lights {
-  animation: lights 2s infinite ease-in-out; }
-
+  animation: lights 2s infinite ease-in-out;
+}
 
 @keyframes star {
-  0%   {transform: translateY(0)}
-  25%  {transform: translateY(15px)}
-  75%  {transform: translateY(-15px)}
-  100% {transform: translateY(0)}
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(15px);
+  }
+  75% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .star {
   animation: star 10s linear infinite;
 }
 
-.illustration{
-  position:absolute;
-  width:100%;
-  opacity:0.1;
+.illustration {
+  position: absolute;
+  width: 100%;
+  opacity: 0.1;
   overflow: hidden;
-  bottom:0;
-  left:50%;
+  bottom: 0;
+  left: 50%;
   transform: translate(-50%, 85%);
-  @include breakpoint(sm){
-    bottom:unset;
-    width:100%;
+  @include breakpoint(sm) {
+    bottom: unset;
+    width: 100%;
     transform: translate(-50%, -50%);
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
   }
-  @include breakpoint(lg){
-    width:50vh;
+  @include breakpoint(lg) {
+    width: 50vh;
   }
 }
 
-.contact-form-container{
+.contact-form-container {
   display: none;
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     display: flex;
-      height:auto;
-      z-index:1;
+    height: auto;
+    z-index: 1;
   }
 }
 
-.mobile-form{
+.mobile-form {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index:1;
-  background:white;
-  @include breakpoint(sm){
-      display:none;
+  z-index: 1;
+  background: white;
+  @include breakpoint(sm) {
+    display: none;
   }
 }
