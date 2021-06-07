@@ -1,8 +1,16 @@
-.text-input-field{
-    background: none;
-    padding:5px;
-    border:2px solid black;
-    width:290px;
-    border-radius: 0;
-    background:transparent;
+.text-input-field {
+  background: none;
+  padding: 5px;
+  border: 2px solid black;
+  width: 290px;
+  border-radius: 0;
+  background: transparent;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
 }
