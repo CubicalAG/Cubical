@@ -1,67 +1,72 @@
-@import './utils/breakpoints.scss';
+@import "./utils/breakpoints.scss";
 
-html{
-    font-size:10px;
-    *{
-        color:black;
-        font-family: 'Nunito', Arial, Helvetica, sans-serif;
-    }
-    scroll-behavior: smooth;
+html {
+  font-size: 10px;
+  * {
+    color: black;
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
+  }
+  scroll-behavior: smooth;
 }
 
-button{
-    background: none;
-    border:none;
-    cursor: pointer;
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-h1{
-    font-weight:800;
-    font-size:3.85rem;
-    @include breakpoint(lg){
-        font-size: 7rem;
-    }
+h1 {
+  font-weight: 800;
+  font-size: 3.85rem;
+  @include breakpoint(lg) {
+    font-size: 7rem;
+  }
 }
 
-h2{
-    font-size: 2.5rem;
-    font-weight:500;
-    @include breakpoint(sm){
-        font-size: 3.5rem;
-    }
-    @include breakpoint(lg){
-        font-size:6.5rem;
-    }
+h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  @include breakpoint(sm) {
+    font-size: 3.5rem;
+  }
+  @include breakpoint(lg) {
+    font-size: 6.5rem;
+  }
 }
 
-h3{
-    font-size:2.5rem;
-    @include breakpoint(lg){
-        line-height: 5rem;
-        font-size:3rem;
-    }
+h3 {
+  font-size: 2.5rem;
+  @include breakpoint(lg) {
+    line-height: 5rem;
+    font-size: 3rem;
+  }
 }
 
-h5{
-    font-size: 1.5rem;
-    font-weight: 800;
+h5 {
+  font-size: 1.5rem;
+  font-weight: 800;
 }
 
-p{
-    font-size:1.5rem;
-    line-height: 2.75rem;
-    margin:0;
-    margin:5px 0;
+p {
+  font-size: 1.5rem;
+  line-height: 2.75rem;
+  margin: 0;
+  margin: 5px 0;
 }
 
-a, span{
-    font-size:1.5rem;
+a,
+span {
+  font-size: 1.5rem;
 }
 
-a:hover{
-    color:#47A8D7;
+a:hover {
+  color: #f04d23;
 }
 
-input, textarea, select, option, label{
-    font-size:16px;
+input,
+textarea,
+select,
+option,
+label {
+  font-size: 16px;
 }

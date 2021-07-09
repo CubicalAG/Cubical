@@ -1,85 +1,85 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.row-border-layout{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction:column;
-    justify-content: space-between;
-    margin:50px 0;
-    @include breakpoint(sm){
-        flex-direction:row;
-    }
+.row-border-layout {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 50px 0;
+  @include breakpoint(sm) {
+    flex-direction: row;
+  }
 }
 
-.row-border-layout > :nth-child(even){
-    @include breakpoint(sm){
-        border-left:1px solid black;
-        padding-left:25px;
-    }
+.row-border-layout > :nth-child(even) {
+  @include breakpoint(sm) {
+    border-left: 1px solid black;
+    padding-left: 25px;
+  }
 }
 
-.row-border-layout > *{
-    width:100%;
-    margin-bottom:50px;
-    @include breakpoint(sm){
-        margin-bottom:unset;
-        width:49.5%;
-    }
+.row-border-layout > * {
+  width: 100%;
+  margin-bottom: 50px;
+  @include breakpoint(sm) {
+    margin-bottom: unset;
+    width: 49.5%;
+  }
 }
 
-.info-list{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 25px;
-    > span{
-        line-height: 2.5rem;
-        width:max-content;
+.info-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  > span {
+    line-height: 2.5rem;
+    width: max-content;
+  }
+  > span:nth-of-type(odd) {
+    width: 150px;
+  }
+  > span:nth-of-type(even) {
+    flex-grow: 1;
+    min-width: 150px;
+    @include breakpoint(lg) {
+      min-width: 275px;
     }
-    > span:nth-of-type(odd){
-        width:150px;
-    }
-    > span:nth-of-type(even){
-        flex-grow: 1;
-        min-width: 150px;
-        @include breakpoint(lg){
-            min-width:275px;
-        }
-    }
+  }
 }
 
-.map-container{
-    height:50vh;
+.map-container {
+  height: 50vh;
 }
 
-.content{
-    ul{
-        list-style: none;
-        font-size:1.5rem;
-        font-weight: 800;
-        margin-left:0;
-        position:relative;
-        margin-bottom:40px;
-        li{
-            display: flex;
-            align-items:center;
-        }
-        li::before{
-            content: '';
-            background:#1995D2;
-            display: inline-block;
-            height:2px;
-            width:10px;
-            bottom:50%;
-            margin-right:2.5px;
-        }
-    }
-}
-
-.box{
-    width:300px;
+.content {
+  ul {
     list-style: none;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-left: 0;
+    position: relative;
+    margin-bottom: 40px;
+    li {
+      display: flex;
+      align-items: center;
+    }
+    li::before {
+      content: "";
+      background: #f04d23;
+      display: inline-block;
+      height: 2px;
+      width: 10px;
+      bottom: 50%;
+      margin-right: 2.5px;
+    }
+  }
 }
 
-.property-title{
-    font-size:4rem;
+.box {
+  width: 300px;
+  list-style: none;
+}
+
+.property-title {
+  font-size: 4rem;
 }

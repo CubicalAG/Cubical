@@ -1,44 +1,44 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.item-appear-overlay{
-    width:100%;
-    height:auto;
-    background:#1995D2;
-    position:relative;
-    .main-content{
-        padding:30px;
-        *{
-            color:white;
-            font-weight: 200;
-            text-transform: uppercase;
-        }
+.item-appear-overlay {
+  width: 100%;
+  height: auto;
+  background: #f04d23;
+  position: relative;
+  .main-content {
+    padding: 30px;
+    * {
+      color: white;
+      font-weight: 200;
+      text-transform: uppercase;
     }
-    .overlay-content{ 
-        transition:0.3s;
-        opacity: 0;
-        position:absolute;
-        height:100%;
-        width:100%;
-        top:0;
-        display:flex;
-        justify-content: space-evenly;
-        align-items: center;
-        padding:30px;
-        background:rgba(0, 43, 102, 1);
-        svg{
-            width:75px;
-        }
-        a:nth-of-type(2){
-            display:none;
-            @include breakpoint(lg){
-                display: unset;
-            }
-        }
+  }
+  .overlay-content {
+    transition: 0.3s;
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px;
+    background: rgba(0, 43, 102, 1);
+    svg {
+      width: 75px;
     }
+    a:nth-of-type(2) {
+      display: none;
+      @include breakpoint(lg) {
+        display: unset;
+      }
+    }
+  }
 }
 
-.item-appear-overlay:hover{
-    .overlay-content{
-        opacity:1;
-    }
+.item-appear-overlay:hover {
+  .overlay-content {
+    opacity: 1;
+  }
 }

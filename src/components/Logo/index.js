@@ -122,8 +122,8 @@ const Logo = ({ afterLogoAnimations = [] }) => {
                       y1="0"
                       y2="0%"
                     >
-                      <stop stopColor="#26baff" offset="0%" />
-                      <stop stopColor="#004d80" offset="100%" />
+                      <stop stopColor="#f04d23" offset="0%" />
+                      <stop stopColor="#BD3C1C" offset="100%" />
                     </linearGradient>
                   </defs>
                   <text

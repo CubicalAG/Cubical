@@ -1,85 +1,85 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.nav-link{
-    padding:40px 10px 15px;
-    position: relative;
-    font-size:1.5rem;
-    margin-bottom:0;
-    span{
-        display: inline-block;
-        border-bottom: 1px solid transparent;
-        transition: 0.3s;
+.nav-link {
+  padding: 40px 10px 15px;
+  position: relative;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  span {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+  }
+  > a {
+    @include breakpoint(sm) {
+      font-size: 1rem;
     }
-    > a{
-        @include breakpoint(sm){
-            font-size:1rem;
-        }
-        @include breakpoint(lg){
-            font-size:unset;
-        }
+    @include breakpoint(lg) {
+      font-size: unset;
     }
-    a{
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-    li:hover{
-        > a {
-            span{
-                color:#47A8D7;
-                border-bottom: 1px solid #47A8D7;
-            }
-            > svg path {
-                fill:#47A8D7;
-            }
-        }
-    }
-}
-
-.sub-links{
-    flex-direction: column;
-    display:none;
-    position:absolute;
-    top:71.2px;
-    width: max-content;
-    min-width: max-content;
-    margin:0;
-    padding:0;
-    padding-top:15px;
-    padding-left:15px;
-    padding-bottom: 10px;
-    transition:0.1s;
-    background:rgba(255, 255, 255, 0.8);
-    a {
-        font-size: 1.3rem;
-        margin-right:30px;
-    }
-
-    .sub-links-link{
-        width:max-content;
-    }
-}
-.nav-link:hover{
-    > .sub-links{
-        display: flex;
-    }
+  }
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  li:hover {
     > a {
-        span{
-            color:#47A8D7;
-            border-bottom: 1px solid #47A8D7;
-        }
-        > svg path {
-            fill:#47A8D7;
-        }
+      span {
+        color: #f04d23;
+        border-bottom: 1px solid #f04d23;
+      }
+      > svg path {
+        fill: #f04d23;
+      }
     }
+  }
 }
 
-.active{
-    color:#47A8D7;
-    span{
-        color:#47A8D7;
-        border-bottom: 1px solid #47A8D7;
+.sub-links {
+  flex-direction: column;
+  display: none;
+  position: absolute;
+  top: 71.2px;
+  width: max-content;
+  min-width: max-content;
+  margin: 0;
+  padding: 0;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  transition: 0.1s;
+  background: rgba(255, 255, 255, 0.8);
+  a {
+    font-size: 1.3rem;
+    margin-right: 30px;
+  }
+
+  .sub-links-link {
+    width: max-content;
+  }
+}
+.nav-link:hover {
+  > .sub-links {
+    display: flex;
+  }
+  > a {
+    span {
+      color: #f04d23;
+      border-bottom: 1px solid #f04d23;
     }
-    > svg path{
-        fill:#47A8D7;
+    > svg path {
+      fill: #f04d23;
     }
+  }
+}
+
+.active {
+  color: #f04d23;
+  span {
+    color: #f04d23;
+    border-bottom: 1px solid #f04d23;
+  }
+  > svg path {
+    fill: #f04d23;
+  }
 }

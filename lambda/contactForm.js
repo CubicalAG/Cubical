@@ -13,30 +13,30 @@ module.exports.handler = async function (event, context) {
     from: SENDGRID_TO_EMAIL,
     subject: "Cubical Kontakt",
     html: `
-        <h1 style='color: #1995D2;'>Cubical Kontakt Form</h1>
-            <table style='margin-bottom:15px; border:1px solid #1995D2;border-collapse: collapse'>
+        <h1 style='color: #f04d23;'>Cubical Kontakt Form</h1>
+            <table style='margin-bottom:15px; border:1px solid #f04d23;border-collapse: collapse'>
                 <tr>
-                  <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Name</th>
-                  <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.name}</td>
+                  <th style='padding:2.5px; border:1px solid #f04d23; text-align:center;background: #f04d23; color: white'>Name</th>
+                  <td style='padding:2.5px; border:1px solid #f04d23; text-align:center; color: #f04d23;'>${data.name}</td>
                 </tr>
                 <tr>
-                  <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Vorname</th>
-                  <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.vorname}</td>
+                  <th style='padding:2.5px; border:1px solid #f04d23; text-align:center;background: #f04d23; color: white'>Vorname</th>
+                  <td style='padding:2.5px; border:1px solid #f04d23; text-align:center; color: #f04d23;'>${data.vorname}</td>
                 </tr>       
                 <tr>
-                  <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Email</th>
-                  <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.email}</td>
+                  <th style='padding:2.5px; border:1px solid #f04d23; text-align:center;background: #f04d23; color: white'>Email</th>
+                  <td style='padding:2.5px; border:1px solid #f04d23; text-align:center; color: #f04d23;'>${data.email}</td>
                 </tr>
                 <tr>
-                  <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Telefonnummer</th>
-                  <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.tel}</td>
+                  <th style='padding:2.5px; border:1px solid #f04d23; text-align:center;background: #f04d23; color: white'>Telefonnummer</th>
+                  <td style='padding:2.5px; border:1px solid #f04d23; text-align:center; color: #f04d23;'>${data.tel}</td>
                 </tr>
                 <tr>
-                  <th style='padding:2.5px; border:1px solid #1995D2; text-align:center;background: #1995D2; color: white'>Grund für die Kontaktaufnahme</th>
-                  <td style='padding:2.5px; border:1px solid #1995D2; text-align:center; color: #1995D2;'>${data.reasonOfContact}</td>
+                  <th style='padding:2.5px; border:1px solid #f04d23; text-align:center;background: #f04d23; color: white'>Grund für die Kontaktaufnahme</th>
+                  <td style='padding:2.5px; border:1px solid #f04d23; text-align:center; color: #f04d23;'>${data.reasonOfContact}</td>
                 </tr>       
             </table>         
-        <p style='color: #1995D2;'>Message: ${data.msg}</p>
+        <p style='color: #f04d23;'>Message: ${data.msg}</p>
         `,
   };
   try {

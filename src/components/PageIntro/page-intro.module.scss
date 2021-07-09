@@ -1,45 +1,45 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.intro-text{
-    width:100%;
-    margin:auto;
-    margin-top:50px;
-    @include breakpoint(sm){
-        margin-top:0px;
-        padding-left:35px;
-        border-left:2px solid #009DFF;
-    }
+.intro-text {
+  width: 100%;
+  margin: auto;
+  margin-top: 50px;
+  @include breakpoint(sm) {
+    margin-top: 0px;
+    padding-left: 35px;
+    border-left: 2px solid #2e3192;
+  }
 }
 
-.content-row{
-    @include breakpoint(sm){
-        display:flex;
-    }
-    > * {
-       flex-basis:50%; 
-    }
+.content-row {
+  @include breakpoint(sm) {
+    display: flex;
+  }
+  > * {
+    flex-basis: 50%;
+  }
 }
 
-.heading{
-    @include breakpoint(sm){
-        margin-right:30px;
-        h1{
-            font-size: 5rem;
-        }
-        h2{
-            font-size:4rem;
-        }
-        h3{
-            font-size:3rem;
-        }
-        h4{
-            font-size:2.5rem;
-        }
-        h5{
-            font-size:2rem;
-        }
-        h6{
-            font-size:1.75rem;
-        }
+.heading {
+  @include breakpoint(sm) {
+    margin-right: 30px;
+    h1 {
+      font-size: 5rem;
     }
+    h2 {
+      font-size: 4rem;
+    }
+    h3 {
+      font-size: 3rem;
+    }
+    h4 {
+      font-size: 2.5rem;
+    }
+    h5 {
+      font-size: 2rem;
+    }
+    h6 {
+      font-size: 1.75rem;
+    }
+  }
 }

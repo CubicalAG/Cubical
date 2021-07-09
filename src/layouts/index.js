@@ -304,7 +304,7 @@ const Layout = ({ children, location }) => {
           <link
             rel="mask-icon"
             href={data.prismicLayout.data.icon.url}
-            color="#1995d2"
+            color="#f04d23"
           />
         )}
         {data.prismicLayout.data.icon && data.prismicLayout.data.icon.url && (

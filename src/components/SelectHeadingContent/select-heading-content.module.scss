@@ -1,30 +1,31 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.select-heading-content{
-    margin-top:35px;
-    margin-bottom:35px;
-    display:flex;
-    flex-direction: column;
-    
-    .headings{
-        padding-right:40px;
-        h5{
-            width:max-content;
-            cursor:pointer;
-            transition:0.4s;
-        }
-        h5:hover, .active-heading{
-            color: #47A8D7;
-            path{
-                fill:#47A8D7;
-            }
-        }
+.select-heading-content {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+
+  .headings {
+    padding-right: 40px;
+    h5 {
+      width: max-content;
+      cursor: pointer;
+      transition: 0.4s;
     }
-    @include breakpoint(sm){
-        flex-direction: row;
+    h5:hover,
+    .active-heading {
+      color: #f04d23;
+      path {
+        fill: #f04d23;
+      }
     }
+  }
+  @include breakpoint(sm) {
+    flex-direction: row;
+  }
 }
 
-.column-direction{
-    flex-direction: column;
+.column-direction {
+  flex-direction: column;
 }

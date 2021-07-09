@@ -8,6 +8,7 @@
   width: 30%;
   z-index: 5;
   margin-left: 50px;
+  height: 100%;
   @include breakpoint(sm) {
     width: 20vw;
     margin-left: 5vw;
