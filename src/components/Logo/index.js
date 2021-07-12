@@ -65,10 +65,10 @@ const Logo = ({ afterLogoAnimations = [] }) => {
 
   const paddingAnimation = useSpring({
     from: {
-      paddingBottom: "1.5rem",
+      paddingBottom: "2rem",
     },
     to: {
-      paddingBottom: pageLoaded && pageLoadedMinimal ? "0rem" : "1.5rem",
+      paddingBottom: pageLoaded && pageLoadedMinimal ? "0rem" : "2rem",
     },
     delay: pageLoaded && pageLoadedMinimal ? 0 : 0,
     ref: wholeLogo,

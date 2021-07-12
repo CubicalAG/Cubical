@@ -1,10 +1,10 @@
-require('dotenv').config({
+require("dotenv").config({
   path: `.env`,
-})
+});
 
-const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
+const prismicHtmlSerializer = require("./src/gatsby/htmlSerializer");
 
-process.env.GATSBY_CONCURRENT_DOWNLOAD = 1
+process.env.GATSBY_CONCURRENT_DOWNLOAD = 1;
 
 module.exports = {
   /* Plugins */
@@ -31,27 +31,27 @@ module.exports = {
         functionsOutput: `${__dirname}/functions`,
       },
     },
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-lodash',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-emotion",
+    "gatsby-plugin-lodash",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     `gatsby-plugin-layout`,
     `gatsby-plugin-sass`,
     {
-      resolve: 'gatsby-source-prismic',
+      resolve: "gatsby-source-prismic",
       options: {
         // repositoryName: 'mladenovic',
-        repositoryName: 'cubical',
+        repositoryName: "cubical",
         accessToken: `${process.env.PRISMIC_API_KEY}`,
         schemas: {
-          page: require('./src/schemas/page.json'),
-          layout: require('./src/schemas/layout.json'),
-          reference: require('./src/schemas/reference.json'),
-          property: require('./src/schemas/property.json'),
+          page: require("./src/schemas/page.json"),
+          layout: require("./src/schemas/layout.json"),
+          reference: require("./src/schemas/reference.json"),
+          property: require("./src/schemas/property.json"),
         },
         shouldNormalizeImage: ({ node, key, value }) => {
-          return true
+          return true;
         },
         // Get the correct URLs in blog posts
         // linkResolver: () => (doc) => {
@@ -67,30 +67,30 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: "gatsby-plugin-typography",
       options: {
-        pathToConfigModule: 'config/typography.js',
+        pathToConfigModule: "config/typography.js",
       },
     },
     {
-      resolve: 'gatsby-plugin-react-leaflet',
+      resolve: "gatsby-plugin-react-leaflet",
       options: {
-        linkStyles: true // (default: true) Enable/disable loading stylesheets via CDN
-      }
+        linkStyles: true, // (default: true) Enable/disable loading stylesheets via CDN
+      },
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Nunito:wght@100;200;300;400;600;800;900` // you can also specify font weights and styles
+          `Nunito:wght@100;200;300;400;600;800;900`, // you can also specify font weights and styles
         ],
-        display: 'swap'
-      }
+        display: "swap",
+      },
     },
     {
       resolve: `gatsby-plugin-tidio-chat`,
       options: {
-        tidioKey:process.env.TIDIO_ID,
+        tidioKey: process.env.TIDIO_ID,
         enableDuringDevelop: true,
       },
     },
@@ -98,7 +98,7 @@ module.exports = {
       resolve: `gatsby-plugin-react-redux`,
       options: {
         // [required] - path to your createStore module
-        pathToCreateStoreModule: './src/state/createStore/index.js',
+        pathToCreateStoreModule: "./src/state/createStore/index.js",
         // [optional] - options passed to `serialize-javascript`
         // info: https://github.com/yahoo/serialize-javascript#options
         // will be merged with these defaults:
@@ -113,27 +113,27 @@ module.exports = {
         // [optional] - if true will clean up after itself on the client, default:
         cleanupOnClient: true,
         // [optional] - name of key on `window` where serialized state will be stored, default:
-        windowKey: '__PRELOADED_STATE__',
+        windowKey: "__PRELOADED_STATE__",
       },
     },
     // Must be placed at the end
-    'gatsby-plugin-remove-serviceworker',
+    "gatsby-plugin-remove-serviceworker",
     {
-      resolve: 'gatsby-plugin-netlify',
+      resolve: "gatsby-plugin-netlify",
       options: {
         headers: {
-          '/public/**/*.html': [
-            'cache-control: public',
-            'cache-control:  max-age=0',
-            'cache-control: must-revalidate',
+          "/public/**/*.html": [
+            "cache-control: public",
+            "cache-control:  max-age=0",
+            "cache-control: must-revalidate",
           ],
-          '/public/page-data/*': [
-            'cache-control: public',
-            'cache-control:  max-age=0',
-            'cache-control: must-revalidate',
+          "/public/page-data/*": [
+            "cache-control: public",
+            "cache-control:  max-age=0",
+            "cache-control: must-revalidate",
           ],
         },
       },
     }, // make sure to keep it last in the array
   ],
-}
+};

@@ -33,13 +33,16 @@
   // -webkit-text-fill-color: transparent;
   // -moz-text-fill-color: transparent;
   tspan {
-    font-family: "Tactic Round Ext Exd Blk";
-    font-size: 0.75rem;
+    font-family: "Poppins Regular";
+    font-weight: normal;
+    font-size: 1.2rem;
+    padding-top: 100px;
+    display: inline-block;
     @include breakpoint(sm) {
-      font-size: 1rem;
+      font-size: 1.75rem;
     }
     @include breakpoint(lg) {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
     }
   }
 }
