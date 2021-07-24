@@ -51,10 +51,10 @@ const Logo = ({ afterLogoAnimations = [] }) => {
 
   const logoProps = useSpring({
     from: {
-      transform: "scale(0.5)",
+      transform: "scale(1.75)",
     },
     to: {
-      transform: pageLoaded && pageLoadedMinimal ? "scale(1)" : "scale(1.75)",
+      transform: "scale(1)",
     },
     delay: pageLoaded && pageLoadedMinimal ? 0 : 100,
     config: {
@@ -68,9 +68,8 @@ const Logo = ({ afterLogoAnimations = [] }) => {
       paddingBottom: "2rem",
     },
     to: {
-      paddingBottom: pageLoaded && pageLoadedMinimal ? "0rem" : "2rem",
+      paddingBottom: "0rem",
     },
-    delay: pageLoaded && pageLoadedMinimal ? 0 : 0,
     ref: wholeLogo,
   });
 

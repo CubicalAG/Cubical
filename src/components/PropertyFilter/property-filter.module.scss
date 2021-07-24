@@ -1,51 +1,53 @@
-.property-filter{
-  width:100%;
-  padding:20px;
-  min-width:170px;
+.property-filter {
+  width: 100%;
+  padding: 20px;
+  min-width: 170px;
   label {
-    padding-left:10px;
+    padding-left: 10px;
     display: flex;
     align-items: center;
-    margin-bottom:10px;
-    font-size:1.3rem;
-    > input{
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    > input {
       margin-right: 5px;
     }
   }
 
-  select{
-    width:100%;
-    width:calc(100% - 20px);
-    padding:7.5px;
-    margin-left:10px;
-    margin-right:10px;
-    font-size:1.3rem;
+  select {
+    background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+)
+      no-repeat 95% 50%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    width: calc(100% - 20px);
+    padding: 7.5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1.3rem;
   }
-  
-  fieldset{
-    border:none;
+  fieldset {
+    border: none;
   }
-
 }
 
-.row-spaced-between{
-  display:flex;
+.row-spaced-between {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   label {
     align-items: flex-end;
-    min-width:120px;
-    width:40%;
-    max-width:150px;
+    min-width: 120px;
+    width: 40%;
+    max-width: 150px;
   }
-  input{
-    margin-left:10px;
+  input {
+    margin-left: 10px;
   }
 }
 
-.short-underline-input{
-  width:100%;
-  border:none;
-  border-bottom:1px solid #707070;
+.short-underline-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #707070;
 }

@@ -9,22 +9,17 @@ import styles from "./layout.module.scss";
 import Logo from "../components/Logo";
 import FooterContainer from "../components/FooterContainer";
 import BackgroundImage from "../components/BackgroundImage";
-import flagImg from "../img/flag.svg";
 import AsideNavContainer from "../components/AsideNavContainer";
 import NavLinkVertical from "../components/NavLinkVertical";
 import ContactForm from "../components/ContactForm";
 import close from "../img/close.svg";
 import closeBlue from "../img/closeBlue.svg";
 import ButtonBordered from "../components/ButtonBordered";
-import RoofSVG from "../components/RoofSVG";
 import MobileMenuLink from "../components/MobileMenuLink";
 import SEO from "../components/SEO";
 import menuIcon from "../img/menu-outline.svg";
-const LazyFooterIcon = React.lazy(() => import("../components/FooterIcon"));
 
 const Layout = ({ children, location }) => {
-  const isSSR = typeof window === "undefined";
-
   const data = useStaticQuery(graphql`
     query LayoutQuery {
       prismicLayout {
@@ -235,7 +230,7 @@ const Layout = ({ children, location }) => {
   const pageLoadedMinimal = useSelector((state) => state.pageLoadedMinimal);
 
   const linkListProps = useSpring({
-    opacity: pageLoaded && pageLoadedMinimal ? 1 : 0,
+    opacity: pageLoaded ? 1 : 0,
     config: {
       duration: 0,
     },
@@ -244,10 +239,9 @@ const Layout = ({ children, location }) => {
 
   const logoProps = useSpring({
     position: "absolute",
-    top: pageLoaded && pageLoadedMinimal ? "0%" : "-50%",
-    right: pageLoaded && pageLoadedMinimal ? "0%" : "50%",
-    transform:
-      pageLoaded && pageLoadedMinimal ? "translateX(0%)" : "translateX(50%)",
+    top: pageLoaded ? "0%" : "-50%",
+    right: pageLoaded ? "0%" : "50%",
+    transform: pageLoaded ? "translateX(0%)" : "translateX(50%)",
     config: {
       duration: 200,
     },
@@ -368,32 +362,6 @@ const Layout = ({ children, location }) => {
                 />
               );
             })}
-          {/* <NavLink link={{href:'/kontakt/', text: 'kontakt'}} deactivated onClick={() => dispatch({type:'toggle_contact_form'})}/> */}
-          {/* <NavLink link={{href:'/immobilien/', text: 'immobilien'}} subLinks={[
-                        {href:'/immobilien/kaufen/', text: 'kaufen'},
-                        {href:'/immobilien/mieten/', text: 'mieten'},
-                    ]}/>
-                    <NavLink link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
-                        {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
-                        {href:'/dienstleistungen/finanzierungsberatung/', text: 'finanzierungsberatung'},
-                    ]}/>
-                    <NavLink link={{href:'/uber-uns/', text: 'ÜBER UNS'}}/> */}
-          {/* <NavLink link={{href:'/immobilien/', text: 'immobilien'}}/>
-                    <NavLink link={{href:'/blog/', text: 'blog'}}/>
-                    <NavLink deactivated link={{href:'/dienstleistungen/', text: 'dienstleistungen'}} subLinks={[
-                        {href:'/dienstleistungen/verkaufen/', text: 'verkaufen'},
-                        {href:'/dienstleistungen/vermieten/', text: 'vermieten'},
-                        {href:'/dienstleistungen/investieren-begleiten/', text: 'investieren & begleiten'}
-                    ]}/>
-                    <NavLink link={{href:'/gut-zu-wissen/', text: 'gut zu wissen'}}/>
-                    <NavLink link={{href:'/referenzen/', text: 'referenzen'}}/>
-                    <NavLink link={{href:'/ueber-uns/', text: 'über uns'}} subLinks={[
-                        {href:'/ueber-uns/team/', text: 'team'},
-                        {href:'/ueber-uns/medien/', text: 'medien'},
-                        {href:'/ueber-uns/soziales-engagement/', text: 'soziales engagement'},
-                        {href:'/ueber-uns/partner/', text: 'partner'},
-                        {href:'/ueber-uns/stellen/', text: 'stellen'},
-                    ]}/> */}
         </animated.ul>
         <animated.div style={linkListProps} className={styles.mobile}>
           <button onClick={() => setMobileMenuActive(true)}>

@@ -11,8 +11,6 @@ import property from "../../img/property.png";
 import ButtonBordered from "../ButtonBordered";
 
 import styles from "./filter-property-section.module.scss";
-import TiltableContainer from "../TiltableContainer";
-import PropertySorting from "../PropertySorting";
 import numberWithUpperCommas from "../../utils/numberWithUpperCommas";
 
 const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
@@ -27,6 +25,7 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
               }
               category
               abgeschlossenne
+              verkaufen
               description {
                 html
               }
@@ -132,6 +131,14 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
         property.data.abgeschlossenne == "false" ||
         !property.data.abgeschlossenne
       ) {
+        return true;
+      }
+    });
+
+    // verkaufen filter
+
+    filteredArray = filteredArray.filter(({ node: property }) => {
+      if (property.data.verkaufen == "true") {
         return true;
       }
     });

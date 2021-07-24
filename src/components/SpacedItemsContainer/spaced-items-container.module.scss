@@ -5,4 +5,7 @@
   > p {
     white-space: nowrap;
   }
+  > p:nth-of-type(odd) {
+    font-weight: bold;
+  }
 }

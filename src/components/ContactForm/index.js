@@ -135,7 +135,7 @@ const ContactForm = ({ children }) => {
           />
         </label>
         <label className={styles.textareaInput}>
-          Nachricht
+          Nachricht/Bemerkung
           <TextareaField name="msg" value={msg} onChange={setMsg} />
         </label>
       </div>

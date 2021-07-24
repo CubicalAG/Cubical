@@ -10,7 +10,9 @@ const LazyPageRegularCardsSection = React.lazy(() =>
 const LazyPageIrregularCardsSection = React.lazy(() =>
   import("../components/PageIrregularCardsSection")
 );
-import PageMapSection from "../components/PageMapSection";
+const LazyPageMapSection = React.lazy(() =>
+  import("../components/PageMapSection")
+);
 const LazyPageKaufenPropertySection = React.lazy(() =>
   import("../components/PageKaufenPropertySection")
 );
@@ -162,6 +164,14 @@ const HomePage = () => {
               slice_type
               primary {
                 section_id
+              }
+            }
+            ... on PrismicPageBodyMap {
+              slice_type
+              primary {
+                longitude
+                latitude
+                zoom
               }
             }
             ... on PrismicPageBodyOffsetCards {
@@ -390,6 +400,12 @@ const HomePage = () => {
               return (
                 <React.Suspense fallback="Loading">
                   <LazyPageImageSection data={slice} />
+                </React.Suspense>
+              );
+            case "map":
+              return (
+                <React.Suspense fallback="Loading">
+                  <LazyPageMapSection data={slice} />
                 </React.Suspense>
               );
             default:

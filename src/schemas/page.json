@@ -11,81 +11,7 @@
       "type": "Slices",
       "fieldset": "Slice zone",
       "config": {
-        "labels": {
-          "hero_slider": [
-            {
-              "name": "hero_slider",
-              "display": "Hero Slider"
-            }
-          ],
-          "intro_text": [],
-          "regular_cards": [
-            {
-              "name": "regular_cards",
-              "display": "Regular Cards"
-            }
-          ],
-          "irregular_cards": [
-            {
-              "name": "irregular_cards",
-              "display": "Irregular Cards"
-            }
-          ],
-          "kaufen_property_section": [
-            {
-              "name": "kaufen_property",
-              "display": "Kaufen Property"
-            }
-          ],
-          "mieten_property": [
-            {
-              "name": "mieten_property",
-              "display": "Mieten Property"
-            }
-          ],
-          "simple_order_section": [
-            {
-              "name": "simple_order_section",
-              "display": "Simple Order Section"
-            }
-          ],
-          "reference_section": [
-            {
-              "name": "reference_section",
-              "display": "Reference Section"
-            }
-          ],
-          "offset_cards": [
-            {
-              "name": "offset_cards",
-              "display": "Offset Cards"
-            }
-          ],
-          "rich_text_section": [
-            {
-              "name": "rich_text_section",
-              "display": "Rich Text Section"
-            }
-          ],
-          "contact_form_section": [
-            {
-              "name": "contact_form",
-              "display": "Contact Form"
-            }
-          ],
-          "icons_and_text": [
-            {
-              "name": "icons_and_text",
-              "display": "icons_and_text"
-            }
-          ],
-          "image": [
-            {
-              "name": "image",
-              "display": "image"
-            }
-          ]
-        },
+        "labels": null,
         "choices": {
           "hero_slider": {
             "type": "Slice",
@@ -115,7 +41,8 @@
               "ribbon_link": {
                 "type": "Link",
                 "config": {
-                  "label": "Ribbon Link"
+                  "label": "Ribbon Link",
+                  "select": null
                 }
               }
             },
@@ -149,14 +76,14 @@
               "heading": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Heading"
                 }
               },
               "body1": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Body"
                 }
               }
@@ -212,7 +139,7 @@
               "card_body": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Card Body",
                   "placeholder": "Longer card text"
                 }
@@ -220,7 +147,8 @@
               "card_link": {
                 "type": "Link",
                 "config": {
-                  "label": "Card Link"
+                  "label": "Card Link",
+                  "select": null
                 }
               }
             }
@@ -266,14 +194,15 @@
               "card_body": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Card Body"
                 }
               },
               "card_link": {
                 "type": "Link",
                 "config": {
-                  "label": "Card Link"
+                  "label": "Card Link",
+                  "select": null
                 }
               }
             }
@@ -339,7 +268,7 @@
               "body1": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Body"
                 }
               },
@@ -352,7 +281,8 @@
               "button_link": {
                 "type": "Link",
                 "config": {
-                  "label": "Button Link"
+                  "label": "Button Link",
+                  "select": null
                 }
               },
               "image": {
@@ -377,7 +307,7 @@
               "select_heading_content_body": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Select Heading Content:Body"
                 }
               }
@@ -399,7 +329,7 @@
               "section_content": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Section Content"
                 }
               },
@@ -459,7 +389,8 @@
               "card_link": {
                 "type": "Link",
                 "config": {
-                  "label": "Card Link"
+                  "label": "Card Link",
+                  "select": null
                 }
               }
             }
@@ -480,7 +411,7 @@
               "body1": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Body"
                 }
               }
@@ -503,7 +434,7 @@
               "contact_content": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Contact Content"
                 }
               }
@@ -526,7 +457,7 @@
               "above_icons_text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Above icons text"
                 }
               }
@@ -546,7 +477,7 @@
               "below_icon_text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Below Icon Text"
                 }
               }
@@ -568,7 +499,7 @@
               "above_image_text": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "Above image text"
                 }
               },
@@ -592,12 +523,40 @@
               "after_click_content": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
                   "label": "After click content",
                   "placeholder": "Some text to appear after image is clicked"
                 }
               }
             }
+          },
+          "map": {
+            "type": "Slice",
+            "fieldset": "Map",
+            "description": "Adds Map section",
+            "icon": "map",
+            "display": "list",
+            "non-repeat": {
+              "longitude": {
+                "type": "Text",
+                "config": {
+                  "label": "Longitude"
+                }
+              },
+              "latitude": {
+                "type": "Text",
+                "config": {
+                  "label": "Latitude"
+                }
+              },
+              "zoom": {
+                "type": "Text",
+                "config": {
+                  "label": "Zoom"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

@@ -27,6 +27,9 @@ exports.createSchemaCustomization = ({ actions }) => {
     card_image: LocalImageWithAlt
     heading: String
     small_heading: String
+    longitude: String
+    latitude: String
+    zoom: String
   }
 
   type SliceItemsArray @infer{
@@ -368,6 +371,17 @@ exports.createSchemaCustomization = ({ actions }) => {
       slice_type: String
     }
 
+    type PrismicPageBodyMapPrimary {
+      longitude: String
+      latitude: String
+      zoom: String
+    }
+
+    type PrismicPageBodyMap implements Node{
+      primary: PrismicPageBodyMapPrimary
+      slice_type: String
+    }
+
     type PrimaryForSectionIdOnlySlices{
       section_id: String
     }
@@ -405,6 +419,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       zimmer_from: String
       zimmer_to: String
       abgeschlossenne: String
+      verkaufen: String
       wohnflache: String
       wohnflache_from: String
       wohnflache_to: String
