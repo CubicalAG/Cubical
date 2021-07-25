@@ -47,6 +47,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     card_image: LocalImageWithAlt
     heading: String
     small_heading: String
+    document_name: String
+    document: Url
   }
   
   type Url{
@@ -367,8 +369,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type PrismicPageBodyContactFormSection implements Node{
-      primary: PrismicPageBodyContactFormSectionPrimary
       slice_type: String
+      primary: PrismicPageBodyContactFormSectionPrimary
     }
 
     type PrismicPageBodyMapPrimary {
@@ -379,6 +381,18 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPageBodyMap implements Node{
       primary: PrismicPageBodyMapPrimary
+      slice_type: String
+    }
+    
+    type PrismicPageBodyDocumentListPrimary {
+      section_id: String
+      start_content: HTML
+      end_content: HTML
+    }
+
+    type PrismicPageBodyDocumentList implements Node{
+      primary: PrismicPageBodyDocumentListPrimary
+      items: [SliceItemsArray]
       slice_type: String
     }
 

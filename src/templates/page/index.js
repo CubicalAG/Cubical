@@ -13,6 +13,9 @@ const LazyPageIrregularCardsSection = React.lazy(() =>
 const LazyPageMapSection = React.lazy(() =>
   import("../../components/PageMapSection")
 );
+const LazyPageDocumentListSection = React.lazy(() =>
+  import("../../components/PageDocumentListSection")
+);
 const LazyPageKaufenPropertySection = React.lazy(() =>
   import("../../components/PageKaufenPropertySection")
 );
@@ -189,6 +192,12 @@ const Page = ({ data }) => {
                   <LazyPageMapSection data={slice} />
                 </React.Suspense>
               );
+            case "document_list":
+              return (
+                <React.Suspense fallback="Loading">
+                  <LazyPageDocumentListSection data={slice} />
+                </React.Suspense>
+              );
             default:
               return;
           }
@@ -326,6 +335,24 @@ export const PageQuery = graphql`
               longitude
               latitude
               zoom
+            }
+          }
+          ... on PrismicPageBodyDocumentList {
+            slice_type
+            primary {
+              section_id
+              start_content {
+                html
+              }
+              end_content {
+                html
+              }
+            }
+            items {
+              document_name
+              document {
+                url
+              }
             }
           }
           ... on PrismicPageBodyOffsetCards {

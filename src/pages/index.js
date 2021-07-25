@@ -174,6 +174,24 @@ const HomePage = () => {
                 zoom
               }
             }
+            ... on PrismicPageBodyDocumentList {
+              slice_type
+              primary {
+                section_id
+                start_content{
+                  html
+                }
+                end_content{
+                  html
+                }
+              }
+              items {
+                document_name
+                document {
+                  url
+                }
+              }
+            }
             ... on PrismicPageBodyOffsetCards {
               slice_type
               primary {
@@ -406,6 +424,12 @@ const HomePage = () => {
               return (
                 <React.Suspense fallback="Loading">
                   <LazyPageMapSection data={slice} />
+                </React.Suspense>
+              );
+            case "document_list":
+              return (
+                <React.Suspense fallback="Loading">
+                  <LazyPageDocumentListSection data={slice} />
                 </React.Suspense>
               );
             default:

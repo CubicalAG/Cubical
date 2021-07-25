@@ -557,6 +557,50 @@
               }
             },
             "repeat": {}
+          },
+          "document_list": {
+            "type": "Slice",
+            "fieldset": "Document List",
+            "description": "Section with rich text and documents",
+            "icon": "playlist_play",
+            "display": "list",
+            "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              },
+              "start_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label": "Start content"
+                }
+              },
+              "end_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label": "End content"
+                }
+              }
+            },
+            "repeat": {
+              "document_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Document name"
+                }
+              },
+              "document": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Document"
+                }
+              }
+            }
           }
         }
       }
