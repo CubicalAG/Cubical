@@ -13,6 +13,9 @@ const LazyPageIrregularCardsSection = React.lazy(() =>
 const LazyPageMapSection = React.lazy(() =>
   import("../components/PageMapSection")
 );
+const LazyPageTagFilterCardsSection = React.lazy(() =>
+  import("../components/PageTagFilterCardsSection")
+);
 const LazyPageKaufenPropertySection = React.lazy(() =>
   import("../components/PageKaufenPropertySection")
 );
@@ -174,14 +177,74 @@ const HomePage = () => {
                 zoom
               }
             }
+            ... on PrismicPageBodyTagFilterCards {
+              slice_type
+              primary {
+                section_id
+                start_content {
+                  html
+                }
+              }
+              items {
+                tag_card_image {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 400, quality: 100) {
+                        ...GatsbyImageSharpFluid_withWebp
+                      }
+                    }
+                  }
+                  alt
+                }
+                tag
+                card_title
+                card_body{
+                  html
+                }
+                email
+                social_link_1
+                social_link_2
+                social_link_3
+                social_icon_1 {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 80, quality: 100) {
+                        ...GatsbyImageSharpFluid_withWebp
+                      }
+                    }
+                  }
+                  alt
+                }
+                social_icon_2 {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 80, quality: 100) {
+                        ...GatsbyImageSharpFluid_withWebp
+                      }
+                    }
+                  }
+                  alt
+                }
+                social_icon_3 {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 80, quality: 100) {
+                        ...GatsbyImageSharpFluid_withWebp
+                      }
+                    }
+                  }
+                  alt
+                }
+              }
+            }
             ... on PrismicPageBodyDocumentList {
               slice_type
               primary {
                 section_id
-                start_content{
+                start_content {
                   html
                 }
-                end_content{
+                end_content {
                   html
                 }
               }
@@ -430,6 +493,12 @@ const HomePage = () => {
               return (
                 <React.Suspense fallback="Loading">
                   <LazyPageDocumentListSection data={slice} />
+                </React.Suspense>
+              );
+            case "tag_filter_cards":
+              return (
+                <React.Suspense fallback="Loading">
+                  <LazyPageTagFilterCardsSection data={slice} />
                 </React.Suspense>
               );
             default:

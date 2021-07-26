@@ -230,7 +230,7 @@ const Layout = ({ children, location }) => {
   const pageLoadedMinimal = useSelector((state) => state.pageLoadedMinimal);
 
   const linkListProps = useSpring({
-    opacity: pageLoaded ? 1 : 0,
+    opacity: pageLoaded && pageLoadedMinimal ? 1 : 0,
     config: {
       duration: 0,
     },
@@ -324,9 +324,7 @@ const Layout = ({ children, location }) => {
             />
           )}
       </SEO>
-      <NavMenuContainer
-        navMenuContainerAnimationRef={navMenuContainerAnimationRef}
-      >
+      <NavMenuContainer navMenuContainerAnimationRef={navMenuContainerAnimationRef}>
         <animated.ul style={linkListProps}>
           {data.prismicLayout.data.links &&
             data.prismicLayout.data.links.length > 0 &&

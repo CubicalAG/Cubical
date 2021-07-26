@@ -601,6 +601,117 @@
                 }
               }
             }
+          },
+          "tag_filter_cards": {
+            "type": "Slice",
+            "fieldset": "Tag Filter Cards",
+            "description": "Filter cards section",
+            "icon": "art_track",
+            "display": "list",
+            "non-repeat": {
+              "section_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Section ID"
+                }
+              },
+              "start_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "label": "Start content"
+                }
+              }
+            },
+            "repeat": {
+              "tag_card_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 400,
+                    "height": 600
+                  },
+                  "thumbnails": [],
+                  "label": "Tag card image"
+                }
+              },
+              "social_icon_1": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 80,
+                    "height": 80
+                  },
+                  "thumbnails": [],
+                  "label": "Social Icon 1"
+                }
+              },
+              "social_icon_2": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 80,
+                    "height": 80
+                  },
+                  "thumbnails": [],
+                  "label": "Social Icon 2"
+                }
+              },
+              "social_icon_3": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 80,
+                    "height": 80
+                  },
+                  "thumbnails": [],
+                  "label": "Social Icon 3"
+                }
+              },
+              "tag": {
+                "type": "Text",
+                "config": {
+                  "label": "Tag"
+                }
+              },
+              "card_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Card title"
+                }
+              },
+              "card_body": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "Card body"
+                }
+              },
+              "email": {
+                "type": "Text",
+                "config": {
+                  "label": "Email"
+                }
+              },
+              "social_link_1": {
+                "type": "Text",
+                "config": {
+                  "label": "Social link 1"
+                }
+              },
+              "social_link_2": {
+                "type": "Text",
+                "config": {
+                  "label": "Social link 2"
+                }
+              },
+              "social_link_3": {
+                "type": "Text",
+                "config": {
+                  "label": "Social link 3"
+                }
+              }
+            }
           }
         }
       }

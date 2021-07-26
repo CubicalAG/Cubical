@@ -49,6 +49,16 @@ exports.createSchemaCustomization = ({ actions }) => {
     small_heading: String
     document_name: String
     document: Url
+    tag: String
+    tag_card_image: LocalImageWithAlt @infer
+    card_title: String
+    email: String
+    social_icon_1: LocalImageWithAlt
+    social_link_1: String
+    social_icon_2: LocalImageWithAlt
+    social_link_2: String
+    social_icon_3: LocalImageWithAlt
+    social_link_3: String
   }
   
   type Url{
@@ -392,6 +402,17 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type PrismicPageBodyDocumentList implements Node{
       primary: PrismicPageBodyDocumentListPrimary
+      items: [SliceItemsArray]
+      slice_type: String
+    }
+
+    type PrismicPageBodyTagFilterCardsPrimary {
+      section_id: String
+      start_content: HTML
+    }
+
+    type PrismicPageBodyTagFilterCards implements Node{
+      primary: PrismicPageBodyTagFilterCardsPrimary
       items: [SliceItemsArray]
       slice_type: String
     }
