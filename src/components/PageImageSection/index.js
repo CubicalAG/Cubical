@@ -43,60 +43,47 @@ const PageImageSection = ({ data }) => {
                 }}
               ></div>
             )}
-          {/* {
-            data &&
-            data.primary &&
-            data.primary.image &&
-            data.primary.image.localFile &&
-            data.primary.image.localFile.childImageSharp &&
-            data.primary.image.localFile.childImageSharp.fluid &&
-            <div className={styles.image}>
-              <Image 
-                fluid={data.primary.image.localFile.childImageSharp.fluid}
-                alt={data.primary.image.alt}
-                usemap="#imagemap"
-              />
-            </div>
-          } */}
           {data &&
             data.primary &&
             data.primary.image &&
             data.primary.image.localFile &&
             data.primary.image.localFile.childImageSharp &&
             data.primary.image.localFile.childImageSharp.fluid && (
-              <div className={styles.image}>
+              <div className={`${styles.image} ${data.items.length !== 4 && styles.fullWidthImage}`}>
                 <img
                   ref={imageRef}
                   src={data.primary.image.localFile.url}
                   alt={data.primary.image.alt}
                   usemap="#imagemap"
                 />
-                <div className={styles.overlays}>
-                  <div
-                    onClick={() => setOpenContentIndex(0)}
-                    className={`${
-                      openContentIndex === 0 && styles.activeOverlay
-                    }`}
-                  ></div>
-                  <div
-                    onClick={() => setOpenContentIndex(1)}
-                    className={`${
-                      openContentIndex === 1 && styles.activeOverlay
-                    }`}
-                  ></div>
-                  <div
-                    onClick={() => setOpenContentIndex(2)}
-                    className={`${
-                      openContentIndex === 2 && styles.activeOverlay
-                    }`}
-                  ></div>
-                  <div
-                    onClick={() => setOpenContentIndex(3)}
-                    className={`${
-                      openContentIndex === 3 && styles.activeOverlay
-                    }`}
-                  ></div>
-                </div>
+                {data && data.items && data.items.length === 4 && (
+                  <div className={styles.overlays}>
+                    <div
+                      onClick={() => setOpenContentIndex(0)}
+                      className={`${
+                        openContentIndex === 0 && styles.activeOverlay
+                      }`}
+                    ></div>
+                    <div
+                      onClick={() => setOpenContentIndex(1)}
+                      className={`${
+                        openContentIndex === 1 && styles.activeOverlay
+                      }`}
+                    ></div>
+                    <div
+                      onClick={() => setOpenContentIndex(2)}
+                      className={`${
+                        openContentIndex === 2 && styles.activeOverlay
+                      }`}
+                    ></div>
+                    <div
+                      onClick={() => setOpenContentIndex(3)}
+                      className={`${
+                        openContentIndex === 3 && styles.activeOverlay
+                      }`}
+                    ></div>
+                  </div>
+                )}
                 <map name="imagemap">
                   {data &&
                     data.items &&

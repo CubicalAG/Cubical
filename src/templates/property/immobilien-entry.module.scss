@@ -96,6 +96,7 @@
     width: max-content;
   }
   > span:nth-of-type(odd) {
+    font-weight: bold;
     width: 150px;
     @include breakpoint(xs) {
       width: 35%;

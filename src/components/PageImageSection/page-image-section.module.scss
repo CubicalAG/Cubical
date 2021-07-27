@@ -1,57 +1,61 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.text-content{
-  margin-bottom:30px;
-  @include breakpoint(sm){
-    margin-bottom:60px;
+.text-content {
+  margin-bottom: 30px;
+  @include breakpoint(sm) {
+    margin-bottom: 60px;
   }
 }
 
-.image{
-  width:100%;
-  margin:auto;
+.image {
+  width: 100%;
+  margin: auto;
   position: relative;
-  area{
+  area {
     cursor: pointer;
   }
-  >img{
-    width:100%;
+  > img {
+    width: 100%;
   }
-  margin-bottom:40px;
-  @include breakpoint(sm){
-    width:70%;
+  margin-bottom: 40px;
+  @include breakpoint(sm) {
+    width: 70%;
     margin-bottom: 50px;
   }
 }
 
-.section-container{
-  .content{
+.full-width-image {
+  width: 100%;
+}
+
+.section-container {
+  .content {
     display: none;
   }
-  .active-content{
+  .active-content {
     display: block;
   }
 }
 
-.overlays{
-  position:absolute;
+.overlays {
+  position: absolute;
   display: flex;
   flex-wrap: wrap;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  > div{
-    background:rgba(255, 255, 255, 0.6);
-    width:50%;
-    height:50%;
-    transition:0.3s;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  > div {
+    background: rgba(255, 255, 255, 0.6);
+    width: 50%;
+    height: 50%;
+    transition: 0.3s;
     cursor: pointer;
-    &:hover{
-      background:rgba(255, 255, 255, 0);
+    &:hover {
+      background: rgba(255, 255, 255, 0);
     }
-    &.active-overlay{
-      background:rgba(255, 255, 255, 0);
+    &.active-overlay {
+      background: rgba(255, 255, 255, 0);
     }
   }
 }
