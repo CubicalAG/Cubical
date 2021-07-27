@@ -286,7 +286,7 @@ main {
   > button {
     width: 45px;
   }
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     display: none;
   }
 }

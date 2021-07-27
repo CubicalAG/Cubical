@@ -18,11 +18,11 @@
     > ul{
         display: none;
         margin:0;
-        @include breakpoint(sm){
+        @include breakpoint(md){
             display: flex;
         }
     }
-    @include breakpoint(sm){
+    @include breakpoint(md){
         padding:unset;
         padding-top:15px;
         justify-content: center;
@@ -50,7 +50,7 @@
 .relative-menu{
     width:100%;
     padding:10px 15px;
-    @include breakpoint(sm){
+    @include breakpoint(md){
         padding:10px 5vw;
     }
     @include breakpoint(lg){
