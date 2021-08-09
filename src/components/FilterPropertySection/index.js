@@ -376,6 +376,7 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                       item.data.images[0].image &&
                       item.data.images[0].image.alt
                     }
+                    imageHref={`/${item.uid}`}
                   >
                     <h3>{item.data.property_heading}</h3>
                     <BottomBorderedContainer>
