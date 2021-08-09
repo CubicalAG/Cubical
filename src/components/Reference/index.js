@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "gatsby-image";
 
 import styles from "./reference.module.scss";
@@ -23,6 +23,27 @@ const Reference = ({
 }) => {
   const [showVideo, setShowVideo] = useState(false);
   const [seeMore, setSeeMore] = useState(false);
+
+  const imageNode = useMemo(() => {
+    if (buttonLink) {
+      return (
+        <Link
+          to={`${
+            buttonLink &&
+            (buttonLink.uid
+              ? `/${buttonLink.uid}`
+              : buttonLink.document[0]
+              ? buttonLink.document[0].data &&
+                buttonLink.document[0].data.page_path
+              : buttonLink.url)
+          }`}
+        >
+          <Image fluid={image} alt={alt} />;
+        </Link>
+      );
+    }
+    return <Image fluid={image} alt={alt} />;
+  }, [image, alt]);
 
   return (
     <article className={styles.reference}>
@@ -49,15 +70,7 @@ const Reference = ({
                 seeMore ? styles.shrinked : ""
               }`}
             >
-              <Image fluid={image} alt={alt} />
-              {/* {showVideo &&
-                                <div className={styles.referenceVideo}>
-                                    <iframe width="100%" height="100%" src={videoLink} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    <button onClick={() => setShowVideo(false)}>
-                                        <img src={closeCircle} alt='close'/>
-                                    </button>
-                                </div>
-                            } */}
+              {imageNode}
             </div>
             <figcaption
               className={`${styles.textOverlay} ${
