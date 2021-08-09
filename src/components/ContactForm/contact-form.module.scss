@@ -68,6 +68,7 @@
 
 .error-message,
 .success-message {
+  color:white;
   max-width: 246px;
   padding: 15px;
   margin: 0;
@@ -76,12 +77,11 @@
 }
 
 .error-message {
-  background: rgba(255, 0, 0, 0.5);
+  background: #f04d23;
 }
 
 .success-message {
-  color: white;
-  background: #1895d1;
+  background: #2e3192;
 }
 
 .loading-indicator-container {
