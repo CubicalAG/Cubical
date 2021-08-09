@@ -203,17 +203,76 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
 
     //price from filter
     filteredArray = filteredArray.filter(({ node: property }) => {
-      if (
-        (property.data.preis != undefined &&
-          Number(filters.priceFrom) >= Number(property.data.preis)) ||
-        !filters.priceFrom ||
-        (property.data.preis_from != undefined &&
-          Number(filters.priceFrom) >= Number(property.data.preis_from)) ||
-        (property.data.preis_to != undefined &&
-          Number(filters.priceFrom) <= Number(property.data.preis_to))
-      ) {
+      const propertyPrice = property.data.preis;
+      const propertyPriceFrom = property.data.preis_from;
+      const propertyPriceTo = property.data.preis_to;
+      const { priceFrom, priceTo } = filters;
+
+      if (priceFrom && priceTo) {
+        if (propertyPrice) {
+          return (
+            Number(propertyPrice) >= Number(priceFrom) &&
+            Number(propertyPrice) <= Number(priceTo)
+          );
+        } else if (propertyPriceFrom && propertyPriceTo) {
+          return (
+            Number(propertyPriceFrom) <= Number(priceFrom) &&
+            Number(propertyPriceTo) <= Number(priceTo) &&
+            Number(propertyPriceTo) >= Number(priceFrom) &&
+            Number(propertyPriceFrom) <= Number(priceTo)
+          );
+        } else if (propertyPriceFrom) {
+          return (
+            Number(propertyPriceFrom) <= Number(priceFrom) &&
+            Number(propertyPriceFrom) <= Number(priceTo)
+          );
+        } else if (propertyPriceTo) {
+          return (
+            Number(propertyPriceTo) >= Number(priceFrom) &&
+            Number(propertyPriceTo) <= Number(priceTo)
+          );
+        }
+      } else if (priceFrom) {
+        if (propertyPrice) {
+          return Number(propertyPrice) <= Number(priceFrom);
+        } else if (propertyPriceFrom && propertyPriceTo) {
+          return (
+            Number(propertyPriceFrom) <= Number(priceFrom) &&
+            Number(propertyPriceTo) >= Number(priceFrom)
+          );
+        } else if (propertyPriceFrom) {
+          return Number(propertyPriceFrom) <= Number(priceFrom);
+        } else if (propertyPriceTo) {
+          return Number(propertyPriceTo) >= Number(priceFrom);
+        }
+      } else if (priceTo) {
+        if (propertyPrice) {
+          return Number(propertyPrice) <= Number(priceTo);
+        } else if (propertyPriceFrom && propertyPriceTo) {
+          return (
+            Number(propertyPriceTo) <= Number(priceTo) &&
+            Number(propertyPriceFrom) <= Number(priceTo)
+          );
+        } else if (propertyPriceFrom) {
+          return Number(propertyPriceFrom) <= Number(priceTo);
+        } else if (propertyPriceTo) {
+          return Number(propertyPriceTo) <= Number(priceTo);
+        }
+      } else {
         return true;
       }
+
+      // if (
+      //   (property.data.preis != undefined &&
+      //     Number(filters.priceFrom) >= Number(property.data.preis)) ||
+      //   !filters.priceFrom ||
+      //   (property.data.preis_from != undefined &&
+      //     Number(filters.priceFrom) >= Number(property.data.preis_from)) ||
+      //   (property.data.preis_to != undefined &&
+      //     Number(filters.priceFrom) <= Number(property.data.preis_to))
+      // ) {
+      //   return true;
+      // }
     });
 
     //price to filter
