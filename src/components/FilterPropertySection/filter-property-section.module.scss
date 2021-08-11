@@ -45,9 +45,11 @@
     width: 75%;
   }
   @include breakpoint(lg) {
-    width: 65%;
+    margin-left: 15%;
+    width: 75%;
   }
   @include breakpoint(xl) {
+    margin-left:unset;
     width: 100%;
   }
 }
@@ -58,7 +60,7 @@
   position: relative;
   @include breakpoint(lg) {
     width: 18vw;
-    right: 19.5vw;
+    right: 10vw;
   }
   @include breakpoint(xl) {
     width: 15vw;
