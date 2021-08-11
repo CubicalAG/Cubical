@@ -8,7 +8,7 @@ import { Link } from "gatsby";
 
 const TextImageBox = ({ children, reverse, image, alt, imageHref }) => {
   const imageNode = useMemo(() => {
-    if (image.src) {
+    if (image?.src) {
       if (imageHref) {
         return (
           <Link to={imageHref}>
