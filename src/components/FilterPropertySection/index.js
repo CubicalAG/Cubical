@@ -216,14 +216,14 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
           );
         } else if (propertyPriceFrom && propertyPriceTo) {
           return (
-            Number(propertyPriceFrom) <= Number(priceFrom) &&
+            Number(propertyPriceFrom) >= Number(priceFrom) &&
             Number(propertyPriceTo) <= Number(priceTo) &&
             Number(propertyPriceTo) >= Number(priceFrom) &&
             Number(propertyPriceFrom) <= Number(priceTo)
           );
         } else if (propertyPriceFrom) {
           return (
-            Number(propertyPriceFrom) <= Number(priceFrom) &&
+            Number(propertyPriceFrom) >= Number(priceFrom) &&
             Number(propertyPriceFrom) <= Number(priceTo)
           );
         } else if (propertyPriceTo) {
@@ -234,14 +234,14 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
         }
       } else if (priceFrom) {
         if (propertyPrice) {
-          return Number(propertyPrice) <= Number(priceFrom);
+          return Number(propertyPrice) >= Number(priceFrom);
         } else if (propertyPriceFrom && propertyPriceTo) {
           return (
-            Number(propertyPriceFrom) <= Number(priceFrom) &&
+            Number(propertyPriceFrom) >= Number(priceFrom) &&
             Number(propertyPriceTo) >= Number(priceFrom)
           );
         } else if (propertyPriceFrom) {
-          return Number(propertyPriceFrom) <= Number(priceFrom);
+          return Number(propertyPriceFrom) >= Number(priceFrom);
         } else if (propertyPriceTo) {
           return Number(propertyPriceTo) >= Number(priceFrom);
         }
