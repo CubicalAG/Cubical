@@ -76,45 +76,53 @@ const PropertyFilter = ({ data, filters, setFilters }) => {
 
     setFilterungArray([...filterungSet]);
 
-    let zimmerSet = new Set(
-      ...filteredData.map(({ node: property }) => {
-        let numberOfRooms = Number(property.data.zimmer);
-        let numberOfRoomsFrom;
-        let numberOfRoomsTo;
+    const zimmerArr = filteredData.map(({ node: property }) => {
+      let numberOfRooms = Number(property.data.zimmer);
+      let numberOfRoomsFrom;
+      let numberOfRoomsTo;
 
-        if (property.data.zimmer_from != undefined) {
-          numberOfRoomsFrom = Number(property.data.zimmer_from);
-        }
-        if (property.data.zimmer_to != undefined) {
-          numberOfRoomsTo = Number(property.data.zimmer_to);
-        }
+      if (property.data.zimmer_from != undefined) {
+        numberOfRoomsFrom = Number(property.data.zimmer_from);
+      }
+      if (property.data.zimmer_to != undefined) {
+        numberOfRoomsTo = Number(property.data.zimmer_to);
+      }
 
-        let zimmerMapping = [];
+      let zimmerMapping = [];
 
-        if (
-          (numberOfRooms && numberOfRooms < 2) ||
-          (numberOfRoomsTo != undefined && numberOfRoomsTo < 2)
-        ) {
-          zimmerMapping.push("bis zu Zimmer");
-        }
-        if ((numberOfRooms >= 2 && numberOfRooms < 3) || numberOfRoomsTo >= 3) {
-          zimmerMapping.push("2-3 Zimmer");
-        }
-        if ((numberOfRooms >= 3 && numberOfRooms < 4) || numberOfRoomsTo >= 4) {
-          zimmerMapping.push("3-4 Zimmer");
-        }
-        if ((numberOfRooms >= 4 && numberOfRooms < 5) || numberOfRoomsTo >= 5) {
-          zimmerMapping.push("4-5 Zimmer");
-        }
-        if (numberOfRooms >= 5 || numberOfRoomsTo > 5) {
-          zimmerMapping.push("über 5 Zimmer");
-        }
+      if (
+        (numberOfRooms && numberOfRooms < 2) ||
+        (numberOfRoomsTo != undefined && numberOfRoomsTo < 2)
+      ) {
+        zimmerMapping.push("bis zu Zimmer");
+      }
+      if ((numberOfRooms >= 2 && numberOfRooms < 3) || numberOfRoomsTo >= 3) {
+        zimmerMapping.push("2-3 Zimmer");
+      }
+      if ((numberOfRooms >= 3 && numberOfRooms < 4) || numberOfRoomsTo >= 4) {
+        zimmerMapping.push("3-4 Zimmer");
+      }
+      if ((numberOfRooms >= 4 && numberOfRooms < 5) || numberOfRoomsTo >= 5) {
+        zimmerMapping.push("4-5 Zimmer");
+      }
+      if (numberOfRooms >= 5 || numberOfRoomsTo > 5) {
+        zimmerMapping.push("über 5 Zimmer");
+      }
 
-        if (zimmerMapping) {
-          return zimmerMapping;
-        }
-      })
-    );
+      if (zimmerMapping) {
+        return zimmerMapping;
+      }
+    });
+
+    const zimmerArrShallow = [];
+
+    zimmerArr.forEach((arr) => {
+      arr.forEach((value) => {
+        zimmerArrShallow.push(value);
+      });
+    });
+
+    let zimmerSet = new Set(zimmerArrShallow);
 
     setZimmerArray([...zimmerSet]);
 
