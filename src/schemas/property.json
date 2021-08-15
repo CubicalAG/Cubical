@@ -29,11 +29,19 @@
         "label" : "Verkaufen"
       }
     },
-    "category" : {
-      "type" : "Text",
+    "categories" : {
+      "type" : "Group",
       "config" : {
-        "label" : "Category",
-        "placeholder" : "Bauland"
+        "fields" : {
+          "category" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Category",
+              "placeholder" : "Bauland"
+            }
+          }
+        },
+        "label" : "Categories"
       }
     },
     "preis" : {

@@ -66,13 +66,17 @@ const PropertyFilter = ({ data, filters, setFilters }) => {
   };
 
   useEffect(() => {
-    let filterungSet = new Set(
-      filteredData.map(({ node: property }) => {
-        if (property.data.category) {
-          return property.data.category;
-        }
-      })
-    );
+    let propertyCategories = [];
+
+    filteredData.forEach(({ node: property }) => {
+      if (property.data.categories && property.data.categories.length > 0) {
+        property.data.categories.forEach((categoryNode) =>
+          propertyCategories.push(categoryNode.category)
+        );
+      }
+    });
+
+    let filterungSet = new Set(propertyCategories);
 
     setFilterungArray([...filterungSet]);
 

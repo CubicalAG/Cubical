@@ -367,7 +367,7 @@ export const PageQuery = graphql`
               }
               tag
               card_title
-              card_body{
+              card_body {
                 html
               }
               email
@@ -419,8 +419,13 @@ export const PageQuery = graphql`
             }
             items {
               document_name
-              document {
+              page_link {
                 url
+                document {
+                  data {
+                    page_path
+                  }
+                }
               }
             }
           }

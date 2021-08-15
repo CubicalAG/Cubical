@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,uBAAuB,CAAC;EACtB,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;CAS/B;;AAZD,AAIE,uBAJqB,GAInB,CAAC,CAAC;EACF,UAAU,EAAE,KAAK;EACjB,YAAY,EAAE,IAAI;CACnB;;AAPH,AAQE,uBARqB,GAQnB,CAAC,AAAA,YAAa,CAAA,GAAG,EAAE;EACnB,YAAY,EAAE,GAAG;EACjB,WAAW,EAAE,IAAI;CAClB",
+    "sources": [
+        "spaced-items-container.module.scss"
+    ],
+    "names": [],
+    "file": "spaced-items-container.module.css"
+}

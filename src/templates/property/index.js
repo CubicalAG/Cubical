@@ -307,7 +307,9 @@ export const ImmobilienQuery = graphql`
         besichtigung_information {
           html
         }
-        category
+        categories{
+          category
+        }
         description {
           html
         }

@@ -198,7 +198,7 @@ const HomePage = () => {
                 }
                 tag
                 card_title
-                card_body{
+                card_body {
                   html
                 }
                 email
@@ -250,8 +250,13 @@ const HomePage = () => {
               }
               items {
                 document_name
-                document {
+                page_link {
                   url
+                  document {
+                    data {
+                      page_path
+                    }
+                  }
                 }
               }
             }

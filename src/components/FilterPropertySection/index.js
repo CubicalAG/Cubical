@@ -23,7 +23,9 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
               besichtigung_information {
                 html
               }
-              category
+              categories {
+                category
+              }
               abgeschlossenne
               verkaufen
               description {
@@ -144,11 +146,20 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
     });
 
     filteredArray = filteredArray.filter(({ node: property }) => {
+      if (!filters.filterung || filters.filterung.length <= 0) {
+        return true;
+      }
+
+      let checker = (arr, target) => target.every((v) => arr.includes(v));
+
       if (
-        (filters.filterung &&
-          filters.filterung.indexOf(property.data.category) != -1) ||
-        !filters.filterung ||
-        filters.filterung.length <= 0
+        filters.filterung &&
+        property.data.categories &&
+        property.data.categories.length > 0 &&
+        checker(
+          property.data.categories.map((categoryNode) => categoryNode.category),
+          filters.filterung
+        )
       ) {
         return true;
       }
@@ -382,7 +393,17 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                     <BottomBorderedContainer>
                       <SpacedItemsContainer>
                         <p>Filterung</p>
-                        <p>{item.data.category}</p>
+                        <p>
+                          {item.data.categories &&
+                            item.data.categories.length > 0 &&
+                            item.data.categories.map((categoryNode, index) => {
+                              if (index !== 0) {
+                                return `, ${categoryNode.category}`;
+                              }
+
+                              return `${categoryNode.category}`;
+                            })}
+                        </p>
                       </SpacedItemsContainer>
                     </BottomBorderedContainer>
                     <BottomBorderedContainer>

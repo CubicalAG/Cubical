@@ -3,9 +3,11 @@
   display: flex;
   justify-content: space-between;
   > p {
-    white-space: nowrap;
+    text-align: right;
+    padding-left: 30px;
   }
   > p:nth-of-type(odd) {
+    padding-left: 0px;
     font-weight: bold;
   }
 }

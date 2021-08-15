@@ -48,7 +48,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     heading: String
     small_heading: String
     document_name: String
-    document: Url
+    page_link: Link @infer
     tag: String
     tag_card_image: LocalImageWithAlt @infer
     card_title: String
@@ -436,6 +436,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       information_value: String
     }
 
+    type PropertyCategory{
+      category: String
+    }
+
     type LocalImageWithAlt @fileByRelativePath{
       alt:String
       localFile: File 
@@ -471,7 +475,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       important_information: [ImportantInformation]
       images: [Image]
       description: HTML
-      category: String
+      categories: [PropertyCategory]
       besichtigung_information: HTML
     }
   `;

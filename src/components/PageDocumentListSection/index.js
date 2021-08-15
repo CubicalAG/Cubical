@@ -25,7 +25,14 @@ const PageDocumentListSection = ({ data }) => {
           {data.items.map((item) => {
             return (
               <li className={styles.documentListItem}>
-                <Link to={item.document.url}>
+                <Link
+                  to={
+                    item.page_link &&
+                    (item.page_link.document && item.page_link.document[0] && item.page_link.document[0].data.page_path
+                      ? item.page_link.document[0].data.page_path
+                      : item.page_link.url)
+                  }
+                >
                   {item.document_name}
                   <img src={forwardArrowImg} alt="see document" />
                 </Link>
