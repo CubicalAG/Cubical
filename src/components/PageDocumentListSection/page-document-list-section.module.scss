@@ -10,7 +10,11 @@
     text-decoration: none;
     color: #2e3192;
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+    @include breakpoint(sm){
+      font-size: 2.5rem;
+
+    }
   }
   @include breakpoint(sm) {
     width: 80%;
