@@ -128,7 +128,28 @@ const PropertyFilter = ({ data, filters, setFilters }) => {
 
     let zimmerSet = new Set(zimmerArrShallow);
 
-    setZimmerArray([...zimmerSet]);
+    let createZimmerOrderedArray = (zimmerSet) => {
+      let zimmerValues = [];
+      if ([...zimmerSet].includes("bis zu Zimmer")) {
+        zimmerValues.push("bis zu Zimmer");
+      }
+      if ([...zimmerSet].includes("2-3 Zimmer")) {
+        zimmerValues.push("2-3 Zimmer");
+      }
+      if ([...zimmerSet].includes("3-4 Zimmer")) {
+        zimmerValues.push("3-4 Zimmer");
+      }
+      if ([...zimmerSet].includes("4-5 Zimmer")) {
+        zimmerValues.push("4-5 Zimmer");
+      }
+      if ([...zimmerSet].includes("über 5 Zimmer")) {
+        zimmerValues.push("über 5 Zimmer");
+      }
+
+      return zimmerValues;
+    };
+
+    setZimmerArray(createZimmerOrderedArray(zimmerSet));
 
     let ortSet = new Set(
       filteredData.map(({ node: property }) => {

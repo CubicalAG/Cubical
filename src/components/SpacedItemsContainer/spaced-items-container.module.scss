@@ -5,9 +5,11 @@
   > p {
     text-align: right;
     padding-left: 30px;
+    width: 100%;
   }
   > p:nth-of-type(odd) {
     padding-left: 0px;
     font-weight: bold;
+    width: unset;
   }
 }
