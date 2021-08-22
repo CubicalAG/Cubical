@@ -75,10 +75,21 @@
   }
   @include breakpoint(sm) {
     .card {
-      width: 20%;
+      width: 30%;
+    }
+    .card:not(:nth-of-type(2n + 1)) {
+      margin-left: 0;
+    }
+    .card:not(:nth-of-type(3n + 1)) {
+      margin-left: 3.33%;
+    }
+  }
+  @include breakpoint(md) {
+    .card {
+      width: 22%;
     }
     .card:not(:nth-of-type(4n + 1)) {
-      margin-left: 6.66%;
+      margin-left: 3.99%;
     }
   }
 }
