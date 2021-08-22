@@ -38,7 +38,7 @@ const Reference = ({
               : buttonLink.url)
           }`}
         >
-          <Image fluid={image} alt={alt} />;
+          <Image fluid={image} alt={alt} />
         </Link>
       );
     }
