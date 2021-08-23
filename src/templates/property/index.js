@@ -30,6 +30,7 @@ const ImmobilienEntry = ({ data }) => {
       }`
     );
   };
+  console.log(data.prismicProperty.data);
   return (
     <React.Fragment>
       <MarginContainer />
@@ -88,7 +89,19 @@ const ImmobilienEntry = ({ data }) => {
                     )}
                     <br />
                     <span>Kategorie:</span>
-                    <span>{data.prismicProperty.data.category}</span>
+                    <span>
+                      {data.prismicProperty.data.categories &&
+                        data.prismicProperty.data.categories.length > 0 &&
+                        data.prismicProperty.data.categories.map(
+                          (categoryNode, index) => {
+                            if (index !== 0) {
+                              return `, ${categoryNode.category}`;
+                            }
+
+                            return `${categoryNode.category}`;
+                          }
+                        )}
+                    </span>
                     <br />
                     <span>Anzahl Zimmer:</span>
                     {data.prismicProperty.data.zimmer ? (
@@ -307,7 +320,7 @@ export const ImmobilienQuery = graphql`
         besichtigung_information {
           html
         }
-        categories{
+        categories {
           category
         }
         description {
