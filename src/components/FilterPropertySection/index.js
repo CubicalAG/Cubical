@@ -272,18 +272,6 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
       } else {
         return true;
       }
-
-      // if (
-      //   (property.data.preis != undefined &&
-      //     Number(filters.priceFrom) >= Number(property.data.preis)) ||
-      //   !filters.priceFrom ||
-      //   (property.data.preis_from != undefined &&
-      //     Number(filters.priceFrom) >= Number(property.data.preis_from)) ||
-      //   (property.data.preis_to != undefined &&
-      //     Number(filters.priceFrom) <= Number(property.data.preis_to))
-      // ) {
-      //   return true;
-      // }
     });
 
     //price to filter

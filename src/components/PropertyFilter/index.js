@@ -70,9 +70,11 @@ const PropertyFilter = ({ data, filters, setFilters }) => {
 
     filteredData.forEach(({ node: property }) => {
       if (property.data.categories && property.data.categories.length > 0) {
-        property.data.categories.forEach((categoryNode) =>
-          propertyCategories.push(categoryNode.category)
-        );
+        property.data.categories.forEach((categoryNode) => {
+          if (categoryNode.category !== null) {
+            return propertyCategories.push(categoryNode.category);
+          }
+        });
       }
     });
 

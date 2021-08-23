@@ -2,13 +2,16 @@
   ul {
     list-style: none;
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 400;
     margin-left: 0;
     position: relative;
     margin-bottom: 40px;
     li {
       display: flex;
       align-items: center;
+      > * {
+        display: contents;
+      }
     }
     li::before {
       content: "";
