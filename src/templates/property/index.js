@@ -103,7 +103,7 @@ const ImmobilienEntry = ({ data }) => {
                         )}
                     </span>
                     <br />
-                    <span>Anzahl Zimmer:</span>
+                    <span>Zimmer:</span>
                     {data.prismicProperty.data.zimmer ? (
                       <span>{data.prismicProperty.data.zimmer}</span>
                     ) : data.prismicProperty.data.zimmer_from &&
