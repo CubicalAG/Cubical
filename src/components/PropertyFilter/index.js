@@ -100,7 +100,7 @@ const PropertyFilter = ({ data, filters, setFilters }) => {
         (numberOfRooms && numberOfRooms < 2) ||
         (numberOfRoomsTo != undefined && numberOfRoomsTo < 2)
       ) {
-        zimmerMapping.push("bis zu Zimmer");
+        zimmerMapping.push("1-2 Zimmer");
       }
       if ((numberOfRooms >= 2 && numberOfRooms < 3) || numberOfRoomsTo >= 3) {
         zimmerMapping.push("2-3 Zimmer");
@@ -132,8 +132,8 @@ const PropertyFilter = ({ data, filters, setFilters }) => {
 
     let createZimmerOrderedArray = (zimmerSet) => {
       let zimmerValues = [];
-      if ([...zimmerSet].includes("bis zu Zimmer")) {
-        zimmerValues.push("bis zu Zimmer");
+      if ([...zimmerSet].includes("1-2 Zimmer")) {
+        zimmerValues.push("1-2 Zimmer");
       }
       if ([...zimmerSet].includes("2-3 Zimmer")) {
         zimmerValues.push("2-3 Zimmer");
@@ -193,7 +193,7 @@ const PropertyFilter = ({ data, filters, setFilters }) => {
           </select>
         </fieldset>
         <fieldset>
-          <h5>Ort</h5>
+          <h5>Verfügbare Orte</h5>
           <select onChange={setStringValues} name="ort">
             <option value="">Alle</option>
             {ortArray.map((ort) => {

@@ -183,7 +183,7 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
         (numberOfRooms && numberOfRooms < 2) ||
         (numberOfRoomsTo != undefined && numberOfRoomsTo < 2)
       ) {
-        zimmerMapping.push("bis zu Zimmer");
+        zimmerMapping.push("1-2 Zimmer");
       }
       if ((numberOfRooms >= 2 && numberOfRooms < 3) || numberOfRoomsTo >= 3) {
         zimmerMapping.push("2-3 Zimmer");
