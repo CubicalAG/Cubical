@@ -11,9 +11,9 @@ module.exports.handler = async function (event, context) {
   const msg = {
     to: SENDGRID_TO_EMAIL,
     from: SENDGRID_TO_EMAIL,
-    subject: "Cubical Kontakt",
+    subject: "Fiducia Kontakt",
     html: `
-        <h1 style='color: #f04d23;'>Cubical Kontakt Form</h1>
+        <h1 style='color: #f04d23;'>Fiducia Kontakt Form</h1>
             <table style='margin-bottom:15px; border:1px solid #f04d23;border-collapse: collapse'>
                 <tr>
                   <th style='padding:2.5px; border:1px solid #f04d23; text-align:center;background: #f04d23; color: white'>Name</th>

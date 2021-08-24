@@ -101,7 +101,7 @@ const Logo = ({ afterLogoAnimations = [] }) => {
               <img
                 className={styles.logoImage}
                 src={data.prismicLayout.data.logo_primary_image.localFile.url}
-                alt="cubical.ag - the keys to your home"
+                alt="fiducia.ag - the keys to your home"
               />
             )}
             {data.prismicLayout.data.logo_text && (
