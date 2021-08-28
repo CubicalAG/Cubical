@@ -165,7 +165,7 @@
 
 .navigation-sticky-container {
   display: none;
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     display: flex;
     position: absolute;
     right: 10px;
