@@ -151,5 +151,8 @@
 }
 
 .property-title {
-  font-size: 4rem;
+  font-size: 3rem;
+  @include breakpoint(sm){
+    font-size: 4rem;
+  }
 }

@@ -1,3 +1,9 @@
-.big-number{
-  font-size:7rem;
+@import "../../styles/utils/breakpoints.scss";
+
+.big-number {
+  font-size: 4.5rem;
+  @include breakpoint(md) {
+    font-size: 6rem;
+  }
+  padding-right: 10px;
 }

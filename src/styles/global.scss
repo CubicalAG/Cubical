@@ -19,7 +19,7 @@ h1 {
   font-weight: 800;
   font-size: 3.85rem;
   @include breakpoint(lg) {
-    font-size: 7rem;
+    font-size: 6.5rem;
   }
 }
 
@@ -30,15 +30,15 @@ h2 {
     font-size: 3.5rem;
   }
   @include breakpoint(lg) {
-    font-size: 6.5rem;
+    font-size: 6rem;
   }
 }
 
 h3 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   @include breakpoint(lg) {
     line-height: 5rem;
-    font-size: 3rem;
+    font-size: 2.75rem;
   }
 }
 
