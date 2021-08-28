@@ -28,15 +28,37 @@ const PageHeroSlider = ({ data }) => {
               data.hero_images.length > 0 &&
               data.hero_images.map((image) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide className={styles.desktopSlide}>
                     <div style={{ height: "100vh" }}>
-                      {image && image.hero_images && (
-                        <BackgroundImage
-                          image={
-                            image.hero_images.localFile.childImageSharp.fluid
-                          }
-                        />
-                      )}
+                      {image &&
+                        image.hero_images &&
+                        image.hero_images.localFile.childImageSharp && (
+                          <BackgroundImage
+                            image={
+                              image.hero_images.localFile.childImageSharp.fluid
+                            }
+                          />
+                        )}
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            {data.hero_images &&
+              data.hero_images.length > 0 &&
+              data.hero_images.map((image) => {
+                return (
+                  <SwiperSlide className={styles.mobileSlide}>
+                    <div style={{ height: "100vh" }}>
+                      {image &&
+                        image.hero_images_mobile &&
+                        image.hero_images_mobile.localFile && (
+                          <BackgroundImage
+                            image={
+                              image.hero_images_mobile.localFile.childImageSharp
+                                .fluid
+                            }
+                          />
+                        )}
                     </div>
                   </SwiperSlide>
                 );

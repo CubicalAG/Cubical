@@ -57,6 +57,17 @@
                   "thumbnails": [],
                   "label": "Hero Images"
                 }
+              },
+              "hero_images_mobile": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 720,
+                    "height": 1036
+                  },
+                  "thumbnails": [],
+                  "label": "Hero Images Mobile"
+                }
               }
             }
           },
@@ -596,7 +607,8 @@
               "page_link": {
                 "type": "Link",
                 "config": {
-                  "label": "Page link"
+                  "label": "Page link",
+                  "select": null
                 }
               }
             }

@@ -232,6 +232,15 @@ export const PageQuery = graphql`
                   }
                 }
               }
+              hero_images_mobile {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1036, quality: 100) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
             }
             fields: primary {
               section_id

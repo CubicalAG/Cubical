@@ -44,6 +44,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     card_heading: String
     card_body: HTML
     hero_images: LocalImageWithAlt @infer
+    hero_images_mobile: LocalImageWithAlt @infer
     card_image: LocalImageWithAlt
     heading: String
     small_heading: String
