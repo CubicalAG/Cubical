@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import Image from "gatsby-image";
 
+import { Link } from "gatsby";
 import styles from "./reference.module.scss";
 import playCircle from "../../img/play-circle.svg";
 import closeCircle from "../../img/close-circle.svg";
@@ -10,7 +11,6 @@ import RoofSVG from "../RoofSVG";
 import TiltableContainer from "../TiltableContainer";
 import AppearOnViewContainer from "../AppearOnViewContainer";
 import ButtonBordered from "../ButtonBordered";
-import { Link } from "gatsby";
 
 const Reference = ({
   videoLink,
@@ -32,7 +32,7 @@ const Reference = ({
             buttonLink &&
             (buttonLink.uid
               ? `/${buttonLink.uid}`
-              : buttonLink.document[0]
+              : buttonLink.document && buttonLink.document[0]
               ? buttonLink.document[0].data &&
                 buttonLink.document[0].data.page_path
               : buttonLink.url)
@@ -55,10 +55,10 @@ const Reference = ({
                 width="100%"
                 height="100%"
                 src={videoLink}
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
+                allowFullScreen
+              />
               <button onClick={() => setShowVideo(false)}>
                 <img src={closeCircle} alt="close" />
               </button>
@@ -99,7 +99,7 @@ const Reference = ({
                               buttonLink &&
                               (buttonLink.uid
                                 ? `/${buttonLink.uid}`
-                                : buttonLink.document[0]
+                                : buttonLink.document && buttonLink.document[0]
                                 ? buttonLink.document[0].data &&
                                   buttonLink.document[0].data.page_path
                                 : buttonLink.url)
