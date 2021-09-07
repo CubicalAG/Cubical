@@ -1,21 +1,24 @@
-@import '../../styles/utils/breakpoints.scss';
+@import "../../styles/utils/breakpoints.scss";
 
-.section{
+.section {
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  padding: 25px;
+  position: relative;
+  @include breakpoint(sm) {
+    max-width: 850px;
+  }
+  @include breakpoint(lg) {
     max-width: 940px;
-    margin:auto;
-    margin-top:80px;
-    margin-bottom:80px;
-    padding:25px;
-    position: relative;
-    @include breakpoint(lg){
-        padding:unset;
-        margin-top:130px;
-        margin-bottom:130px;
-    }
+    padding: unset;
+    margin-top: 130px;
+    margin-bottom: 130px;
+  }
 }
 
-.full-width{
-    @include breakpoint(lg){
-        max-width:100%;
-    }
+.full-width {
+  @include breakpoint(lg) {
+    max-width: 100%;
+  }
 }

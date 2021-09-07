@@ -3,9 +3,9 @@
 .nav-link-vertical {
   display: flex;
   position: relative;
-  padding: 55px 15px;
   margin: 0;
   @include breakpoint(sm) {
+    padding: 55px 15px;
     transform: rotateZ(-90deg);
   }
   .main-button {
