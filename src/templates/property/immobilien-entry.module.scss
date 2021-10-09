@@ -126,21 +126,17 @@
   ul {
     list-style: none;
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 500;
     margin-left: 0;
     position: relative;
     margin-bottom: 40px;
-    li {
-      display: flex;
-      align-items: center;
-    }
     li::before {
       content: "";
       background: #f04d23;
       display: inline-block;
       height: 2px;
       width: 10px;
-      bottom: 50%;
+      margin-bottom:0.4rem;
       margin-right: 2.5px;
     }
   }
