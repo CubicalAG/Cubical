@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import Section from "../../components/Section";
-import ButtonBordered from "../../components/ButtonBordered";
-import Reference from "../../components/Reference";
+import Section from "../Section";
+import ButtonBordered from "../ButtonBordered";
+import Reference from "../Reference";
 import referenceImg from "../../img/background1.jpg";
 
 import styles from "./page-reference-section.module.scss";
@@ -84,11 +84,11 @@ const PageReferenceSection = ({ data: sliceData }) => {
             reference.data.reference_tag == sliceData.primary.reference_by_tag
           ) {
             return true;
-          } else if (sliceData.primary.reference_by_tag == null) {
-            return true;
-          } else {
-            return false;
           }
+          if (sliceData.primary.reference_by_tag == null) {
+            return true;
+          }
+          return false;
         })
       );
     }
@@ -114,12 +114,12 @@ const PageReferenceSection = ({ data: sliceData }) => {
               dangerouslySetInnerHTML={{
                 __html: sliceData.primary.section_content.html,
               }}
-            ></div>
+            />
           )}
         {filteredData &&
-          filteredData.map(({ node: reference }, index) => {
-            // if (index < numOfLoadedItems) {
-            return (
+          filteredData.map(
+            ({ node: reference }, index) => (
+              // if (index < numOfLoadedItems) {
               <div className={`${styles.referenceItem} ${styles.visibleItem}`}>
                 <Reference
                   button={reference.data.button}
@@ -127,7 +127,7 @@ const PageReferenceSection = ({ data: sliceData }) => {
                   image={
                     reference.data.cover_image &&
                     reference.data.cover_image.localFile &&
-                    reference.data.cover_image.localFile.childImageSharp.fluid
+                    reference.data.cover_image.localFile.childImageSharp?.fluid
                   }
                   alt={
                     reference.data.cover_image && reference.data.cover_image.alt
@@ -138,13 +138,13 @@ const PageReferenceSection = ({ data: sliceData }) => {
                       dangerouslySetInnerHTML={{
                         __html: reference.data.body && reference.data.body.html,
                       }}
-                    ></div>
+                    />
                   }
                 />
               </div>
-            );
+            )
             // }
-          })}
+          )}
         {/* {filteredData && filteredData.length > numOfLoadedItems && (
           <div className={styles.seeMoreButton}>
             <ButtonBordered

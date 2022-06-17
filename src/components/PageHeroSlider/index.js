@@ -3,13 +3,13 @@ import { SwiperSlide } from "swiper/react";
 
 import styles from "./page-hero-slider.module.scss";
 import imgSlide1 from "../../img/home-page.png";
-import BackgroundImage from "../../components/BackgroundImage";
-import LinkRibbons from "../../components/LinkRibbons";
-import ScrollScreenButton from "../../components/ScrollScreenButton";
+import BackgroundImage from "../BackgroundImage";
+import LinkRibbons from "../LinkRibbons";
+import ScrollScreenButton from "../ScrollScreenButton";
 import downArrowImg from "../../img/chevron-down-outline.svg";
-import TiltableContainer from "../../components/TiltableContainer";
-import MotoText from "../../components/MotoText";
-import Slider from "../../components/Slider";
+import TiltableContainer from "../TiltableContainer";
+import MotoText from "../MotoText";
+import Slider from "../Slider";
 
 const PageHeroSlider = ({ data }) => {
   console.log(data);
@@ -26,43 +26,39 @@ const PageHeroSlider = ({ data }) => {
           >
             {data.hero_images &&
               data.hero_images.length > 0 &&
-              data.hero_images.map((image) => {
-                return (
-                  <SwiperSlide className={styles.desktopSlide}>
-                    <div style={{ height: "100vh" }}>
-                      {image &&
-                        image.hero_images &&
-                        image.hero_images.localFile.childImageSharp && (
-                          <BackgroundImage
-                            image={
-                              image.hero_images.localFile.childImageSharp.fluid
-                            }
-                          />
-                        )}
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
+              data.hero_images.map((image) => (
+                <SwiperSlide className={styles.desktopSlide}>
+                  <div style={{ height: "100vh" }}>
+                    {image &&
+                      image.hero_images &&
+                      image.hero_images.localFile?.childImageSharp && (
+                        <BackgroundImage
+                          image={
+                            image.hero_images.localFile.childImageSharp?.fluid
+                          }
+                        />
+                      )}
+                  </div>
+                </SwiperSlide>
+              ))}
             {data.hero_images &&
               data.hero_images.length > 0 &&
-              data.hero_images.map((image) => {
-                return (
-                  <SwiperSlide className={styles.mobileSlide}>
-                    <div style={{ height: "100vh" }}>
-                      {image &&
-                        image.hero_images_mobile &&
-                        image.hero_images_mobile.localFile && (
-                          <BackgroundImage
-                            image={
-                              image.hero_images_mobile.localFile.childImageSharp
-                                .fluid
-                            }
-                          />
-                        )}
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
+              data.hero_images.map((image) => (
+                <SwiperSlide className={styles.mobileSlide}>
+                  <div style={{ height: "100vh" }}>
+                    {image &&
+                      image.hero_images_mobile &&
+                      image.hero_images_mobile.localFile && (
+                        <BackgroundImage
+                          image={
+                            image.hero_images_mobile.localFile.childImageSharp
+                              ?.fluid
+                          }
+                        />
+                      )}
+                  </div>
+                </SwiperSlide>
+              ))}
           </Slider>
           {data.fields.heading && (
             <MotoText heading text={data.fields.heading} />

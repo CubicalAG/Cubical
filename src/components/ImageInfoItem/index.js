@@ -33,7 +33,10 @@ const ImageInfoItem = ({ heading, title, image, children, link, data }) => {
                 {data.small_heading && <h5>{data.small_heading}</h5>}
                 {data.card_image && (
                   <Image
-                    fluid={data.card_image.localFile && data.card_image.localFile.childImageSharp.fluid}
+                    fluid={
+                      data.card_image.localFile &&
+                      data.card_image.localFile.childImageSharp?.fluid
+                    }
                     alt={data.card_image.alt}
                   />
                 )}
@@ -42,7 +45,7 @@ const ImageInfoItem = ({ heading, title, image, children, link, data }) => {
                   {data.card_body && (
                     <div
                       dangerouslySetInnerHTML={{ __html: data.card_body.html }}
-                    ></div>
+                    />
                   )}
                   {data.card_link && (
                     <img

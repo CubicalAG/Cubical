@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { animated, useTransition } from "react-spring";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import React, { useState, useEffect } from 'react'
+import { animated, useTransition } from 'react-spring'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 
-import PropertyFilter from "../PropertyFilter";
-import Section from "../Section";
-import TextImageBox from "../TextImageBox";
-import BottomBorderedContainer from "../BottomBorderedContainer";
-import SpacedItemsContainer from "../SpacedItemsContainer";
-import property from "../../img/property.png";
-import ButtonBordered from "../ButtonBordered";
+import PropertyFilter from '../PropertyFilter'
+import Section from '../Section'
+import TextImageBox from '../TextImageBox'
+import BottomBorderedContainer from '../BottomBorderedContainer'
+import SpacedItemsContainer from '../SpacedItemsContainer'
+import property from '../../img/property.png'
+import ButtonBordered from '../ButtonBordered'
 
-import styles from "./filter-property-section.module.scss";
-import numberWithUpperCommas from "../../utils/numberWithUpperCommas";
+import styles from './filter-property-section.module.scss'
+import numberWithUpperCommas from '../../utils/numberWithUpperCommas'
 
 const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
   const data = useStaticQuery(graphql`
@@ -77,80 +77,75 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
         }
       }
     }
-  `);
+  `)
 
-  const [numOfLoadedItems, setNumOfLoadedItems] = useState(5);
-  const [scrollFromTop, setScrollFromTop] = useState(0);
-  const [filters, setFilters] = useState({});
-  const [sorting, setSorting] = useState({});
-  const [filteredData, setFilteredData] = useState([]);
-  const [properties, setProperties] = useState([]);
+  const [numOfLoadedItems, setNumOfLoadedItems] = useState(5)
+  const [scrollFromTop, setScrollFromTop] = useState(0)
+  const [filters, setFilters] = useState({})
+  const [sorting, setSorting] = useState({})
+  const [filteredData, setFilteredData] = useState([])
+  const [properties, setProperties] = useState([])
 
   const transitions = useTransition(filteredData, {
-    from: { maxHeight: "0vh", overflow: "hidden", opacity: 0 },
-    enter: { maxHeight: "250vh", overflow: "hidden", opacity: 1 },
-    leave: { maxHeight: "0vh", overflow: "hidden", opacity: 0 },
-  });
+    from: { maxHeight: '0vh', overflow: 'hidden', opacity: 0 },
+    enter: { maxHeight: '250vh', overflow: 'hidden', opacity: 1 },
+    leave: { maxHeight: '0vh', overflow: 'hidden', opacity: 0 },
+  })
 
   const setScrollPosition = () => {
-    setScrollFromTop(window.pageYOffset);
-  };
+    setScrollFromTop(window.pageYOffset)
+  }
 
   useEffect(() => {
-    let filteredArray = data.allPrismicProperty.edges.filter(
-      ({ node: property }) => {
-        if (kaufenProperties) {
-          if (property.data.type_of_property == false) {
-            return true;
-          }
-        } else if (mietenProperties) {
-          if (property.data.type_of_property == true) {
-            return true;
-          }
+    const filteredArray = data.allPrismicProperty.edges.filter(({ node: property }) => {
+      if (kaufenProperties) {
+        if (property.data.type_of_property == false) {
+          return true
+        }
+      } else if (mietenProperties) {
+        if (property.data.type_of_property == true) {
+          return true
         }
       }
-    );
-    setProperties([...filteredArray]);
-  }, []);
+    })
+    setProperties([...filteredArray])
+  }, [])
 
   useEffect(() => {
-    window.scrollTo(0, scrollFromTop);
-  }, [numOfLoadedItems]);
+    window.scrollTo(0, scrollFromTop)
+  }, [numOfLoadedItems])
 
   useEffect(() => {
-    //filtering function
+    // filtering function
 
-    //filterung filter
-    //filter for Prismic lost data that cannot be removed
+    // filterung filter
+    // filter for Prismic lost data that cannot be removed
     let filteredArray = properties.filter(({ node: property }) => {
-      if (property.uid != "familienhaus") {
-        return true;
+      if (property.uid != 'familienhaus') {
+        return true
       }
-    });
+    })
 
     filteredArray = filteredArray.filter(({ node: property }) => {
-      if (
-        property.data.abgeschlossenne == "false" ||
-        !property.data.abgeschlossenne
-      ) {
-        return true;
+      if (property.data.abgeschlossenne == 'false' || !property.data.abgeschlossenne) {
+        return true
       }
-    });
+    })
 
     // verkaufen filter
 
     filteredArray = filteredArray.filter(({ node: property }) => {
-      if (property.data.verkaufen == "true") {
-        return true;
+      if (property.data.verkaufen == 'true') {
+        return true
       }
-    });
+    })
 
     filteredArray = filteredArray.filter(({ node: property }) => {
       if (!filters.filterung || filters.filterung.length <= 0) {
-        return true;
+        return true
       }
 
-      let checker = (arr, target) => target.every((v) => arr.includes(v));
+      const checker = (arr, target) => target.every((v) => arr.includes(v))
 
       if (
         filters.filterung &&
@@ -161,199 +156,168 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
           filters.filterung
         )
       ) {
-        return true;
+        return true
       }
-    });
+    })
 
-    //zimmer filter
+    // zimmer filter
     filteredArray = filteredArray.filter(({ node: property }) => {
-      let numberOfRooms = Number(property.data.zimmer);
-      let numberOfRoomsFrom;
-      let numberOfRoomsTo;
+      const numberOfRooms = Number(property.data.zimmer)
+      let numberOfRoomsFrom
+      let numberOfRoomsTo
 
       if (property.data.zimmer_from != undefined) {
-        numberOfRoomsFrom = Number(property.data.zimmer_from);
+        numberOfRoomsFrom = Number(property.data.zimmer_from)
       }
       if (property.data.zimmer_to != undefined) {
-        numberOfRoomsTo = Number(property.data.zimmer_to);
+        numberOfRoomsTo = Number(property.data.zimmer_to)
       }
 
-      let zimmerMapping = [];
-      if (
-        (numberOfRooms && numberOfRooms < 2) ||
-        (numberOfRoomsTo != undefined && numberOfRoomsTo < 2)
-      ) {
-        zimmerMapping.push("1-2 Zimmer");
+      const zimmerMapping = []
+      if ((numberOfRooms && numberOfRooms < 2) || (numberOfRoomsTo != undefined && numberOfRoomsTo < 2)) {
+        zimmerMapping.push('1-2 Zimmer')
       }
       if ((numberOfRooms >= 2 && numberOfRooms < 3) || numberOfRoomsTo >= 3) {
-        zimmerMapping.push("2-3 Zimmer");
+        zimmerMapping.push('2-3 Zimmer')
       }
       if ((numberOfRooms >= 3 && numberOfRooms < 4) || numberOfRoomsTo >= 4) {
-        zimmerMapping.push("3-4 Zimmer");
+        zimmerMapping.push('3-4 Zimmer')
       }
       if ((numberOfRooms >= 4 && numberOfRooms < 5) || numberOfRoomsTo >= 5) {
-        zimmerMapping.push("4-5 Zimmer");
+        zimmerMapping.push('4-5 Zimmer')
       }
       if (numberOfRooms >= 5 || numberOfRoomsTo > 5) {
-        zimmerMapping.push("über 5 Zimmer");
+        zimmerMapping.push('über 5 Zimmer')
       }
       if (zimmerMapping.includes(filters.zimmer) || !filters.zimmer) {
-        return true;
+        return true
       }
-    });
+    })
 
-    //ort filter
+    // ort filter
     filteredArray = filteredArray.filter(({ node: property }) => {
-      if (
-        (property.data.ort && filters.ort == property.data.ort) ||
-        !filters.ort
-      ) {
-        return true;
+      if ((property.data.ort && filters.ort == property.data.ort) || !filters.ort) {
+        return true
       }
-    });
+    })
 
-    //price from filter
+    // price from filter
     filteredArray = filteredArray.filter(({ node: property }) => {
-      const propertyPrice = property.data.preis;
-      const propertyPriceFrom = property.data.preis_from;
-      const propertyPriceTo = property.data.preis_to;
-      const { priceFrom, priceTo } = filters;
+      const propertyPrice = property.data.preis
+      const propertyPriceFrom = property.data.preis_from
+      const propertyPriceTo = property.data.preis_to
+      const { priceFrom, priceTo } = filters
 
       if (priceFrom && priceTo) {
         if (propertyPrice) {
-          return (
-            Number(propertyPrice) >= Number(priceFrom) &&
-            Number(propertyPrice) <= Number(priceTo)
-          );
-        } else if (propertyPriceFrom && propertyPriceTo) {
+          return Number(propertyPrice) >= Number(priceFrom) && Number(propertyPrice) <= Number(priceTo)
+        }
+        if (propertyPriceFrom && propertyPriceTo) {
           return (
             Number(propertyPriceFrom) >= Number(priceFrom) &&
             Number(propertyPriceTo) <= Number(priceTo) &&
             Number(propertyPriceTo) >= Number(priceFrom) &&
             Number(propertyPriceFrom) <= Number(priceTo)
-          );
-        } else if (propertyPriceFrom) {
-          return (
-            Number(propertyPriceFrom) >= Number(priceFrom) &&
-            Number(propertyPriceFrom) <= Number(priceTo)
-          );
-        } else if (propertyPriceTo) {
-          return (
-            Number(propertyPriceTo) >= Number(priceFrom) &&
-            Number(propertyPriceTo) <= Number(priceTo)
-          );
+          )
+        }
+        if (propertyPriceFrom) {
+          return Number(propertyPriceFrom) >= Number(priceFrom) && Number(propertyPriceFrom) <= Number(priceTo)
+        }
+        if (propertyPriceTo) {
+          return Number(propertyPriceTo) >= Number(priceFrom) && Number(propertyPriceTo) <= Number(priceTo)
         }
       } else if (priceFrom) {
         if (propertyPrice) {
-          return Number(propertyPrice) >= Number(priceFrom);
-        } else if (propertyPriceFrom && propertyPriceTo) {
-          return (
-            Number(propertyPriceFrom) >= Number(priceFrom) &&
-            Number(propertyPriceTo) >= Number(priceFrom)
-          );
-        } else if (propertyPriceFrom) {
-          return Number(propertyPriceFrom) >= Number(priceFrom);
-        } else if (propertyPriceTo) {
-          return Number(propertyPriceTo) >= Number(priceFrom);
+          return Number(propertyPrice) >= Number(priceFrom)
+        }
+        if (propertyPriceFrom && propertyPriceTo) {
+          return Number(propertyPriceFrom) >= Number(priceFrom) && Number(propertyPriceTo) >= Number(priceFrom)
+        }
+        if (propertyPriceFrom) {
+          return Number(propertyPriceFrom) >= Number(priceFrom)
+        }
+        if (propertyPriceTo) {
+          return Number(propertyPriceTo) >= Number(priceFrom)
         }
       } else if (priceTo) {
         if (propertyPrice) {
-          return Number(propertyPrice) <= Number(priceTo);
-        } else if (propertyPriceFrom && propertyPriceTo) {
-          return (
-            Number(propertyPriceTo) <= Number(priceTo) &&
-            Number(propertyPriceFrom) <= Number(priceTo)
-          );
-        } else if (propertyPriceFrom) {
-          return Number(propertyPriceFrom) <= Number(priceTo);
-        } else if (propertyPriceTo) {
-          return Number(propertyPriceTo) <= Number(priceTo);
+          return Number(propertyPrice) <= Number(priceTo)
+        }
+        if (propertyPriceFrom && propertyPriceTo) {
+          return Number(propertyPriceTo) <= Number(priceTo) && Number(propertyPriceFrom) <= Number(priceTo)
+        }
+        if (propertyPriceFrom) {
+          return Number(propertyPriceFrom) <= Number(priceTo)
+        }
+        if (propertyPriceTo) {
+          return Number(propertyPriceTo) <= Number(priceTo)
         }
       } else {
-        return true;
+        return true
       }
-    });
+    })
 
-    //price to filter
+    // price to filter
     filteredArray = filteredArray.filter(({ node: property }) => {
       if (
-        (property.data.preis &&
-          Number(filters.priceTo) >= Number(property.data.preis)) ||
+        (property.data.preis && Number(filters.priceTo) >= Number(property.data.preis)) ||
         !filters.priceTo ||
-        (property.data.preis_from &&
-          Number(filters.priceTo) >= Number(property.data.preis_from))
+        (property.data.preis_from && Number(filters.priceTo) >= Number(property.data.preis_from))
       ) {
-        return true;
+        return true
       }
-    });
+    })
 
-    //sorting functionality
+    // sorting functionality
 
-    if (sorting.preis == "ASC") {
+    if (sorting.preis == 'ASC') {
       filteredArray = filteredArray.sort(
-        ({ node: propertyA }, { node: propertyB }) => {
-          return propertyA.data.preis - propertyB.data.preis;
-        }
-      );
+        ({ node: propertyA }, { node: propertyB }) => propertyA.data.preis - propertyB.data.preis
+      )
     }
-    if (sorting.preis == "DESC") {
+    if (sorting.preis == 'DESC') {
       filteredArray = filteredArray.sort(
-        ({ node: propertyA }, { node: propertyB }) => {
-          return propertyB.data.preis - propertyA.data.preis;
-        }
-      );
+        ({ node: propertyA }, { node: propertyB }) => propertyB.data.preis - propertyA.data.preis
+      )
     }
 
-    if (sorting.zimmer == "ASC") {
+    if (sorting.zimmer == 'ASC') {
       filteredArray = filteredArray.sort(
-        ({ node: propertyA }, { node: propertyB }) => {
-          return propertyA.data.zimmer - propertyB.data.zimmer;
-        }
-      );
+        ({ node: propertyA }, { node: propertyB }) => propertyA.data.zimmer - propertyB.data.zimmer
+      )
     }
-    if (sorting.zimmer == "DESC") {
+    if (sorting.zimmer == 'DESC') {
       filteredArray = filteredArray.sort(
-        ({ node: propertyA }, { node: propertyB }) => {
-          return propertyB.data.zimmer - propertyA.data.zimmer;
-        }
-      );
+        ({ node: propertyA }, { node: propertyB }) => propertyB.data.zimmer - propertyA.data.zimmer
+      )
     }
 
-    if (sorting.wohnflache == "ASC") {
+    if (sorting.wohnflache == 'ASC') {
       filteredArray = filteredArray.sort(
-        ({ node: propertyA }, { node: propertyB }) => {
-          return propertyA.data.wohnflache - propertyB.data.wohnflache;
-        }
-      );
+        ({ node: propertyA }, { node: propertyB }) => propertyA.data.wohnflache - propertyB.data.wohnflache
+      )
     }
-    if (sorting.wohnflache == "DESC") {
+    if (sorting.wohnflache == 'DESC') {
       filteredArray = filteredArray.sort(
-        ({ node: propertyA }, { node: propertyB }) => {
-          return propertyB.data.wohnflache - propertyA.data.wohnflache;
-        }
-      );
+        ({ node: propertyA }, { node: propertyB }) => propertyB.data.wohnflache - propertyA.data.wohnflache
+      )
     }
 
-    setFilteredData(filteredArray || data.allPrismicProperty.edges);
-  }, [filters, sorting, properties]);
+    setFilteredData(filteredArray || data.allPrismicProperty.edges)
+  }, [filters, sorting, properties])
 
   return (
     <Section>
       <div className={styles.row}>
         <div className={styles.stickyFilterContainer}>
           <div className={styles.filterContainer}>
-            <PropertyFilter
-              data={properties}
-              filters={filters}
-              setFilters={setFilters}
-            />
+            <PropertyFilter data={properties} filters={filters} setFilters={setFilters} />
           </div>
         </div>
         <div className={styles.properties}>
           <div className={`${styles.infoAndSorting} ${styles.rowSpaced}`}>
             <h2>
-              {filteredData.length}{" "}
-              {filteredData.length > 1 ? "Immobilien" : "Immobilie"} gefunden
+              {filteredData.length} {filteredData.length > 1 ? 'Immobilien' : 'Immobilie'} gefunden
             </h2>
             {/* <PropertySorting sorting={sorting} setSorting={setSorting}/> */}
           </div>
@@ -367,7 +331,7 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                       item.data.images.length > 0 &&
                       item.data.images[0].image &&
                       item.data.images[0].image.localFile &&
-                      item.data.images[0].image.localFile.childImageSharp.fluid
+                      item.data.images[0].image.localFile.childImageSharp?.fluid
                     }
                     alt={
                       item.data.images &&
@@ -386,10 +350,10 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                             item.data.categories.length > 0 &&
                             item.data.categories.map((categoryNode, index) => {
                               if (index !== 0) {
-                                return `, ${categoryNode.category}`;
+                                return `, ${categoryNode.category}`
                               }
 
-                              return `${categoryNode.category}`;
+                              return `${categoryNode.category}`
                             })}
                         </p>
                       </SpacedItemsContainer>
@@ -408,7 +372,7 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                         ) : item.data.zimmer_to ? (
                           <p>Bis {item.data.zimmer_to}</p>
                         ) : (
-                          ""
+                          ''
                         )}
                       </SpacedItemsContainer>
                     </BottomBorderedContainer>
@@ -422,35 +386,18 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                       <SpacedItemsContainer>
                         <p>Preis</p>
                         {item.data.preis ? (
-                          <p>
-                            {numberWithUpperCommas(Number(item.data.preis))} CHF
-                          </p>
+                          <p>{numberWithUpperCommas(Number(item.data.preis))} CHF</p>
                         ) : item.data.preis_from && item.data.preis_to ? (
                           <p>
-                            Ab{" "}
-                            {numberWithUpperCommas(
-                              Number(item.data.preis_from)
-                            )}{" "}
-                            CHF bis{" "}
-                            {numberWithUpperCommas(Number(item.data.preis_to))}{" "}
-                            CHF
+                            Ab {numberWithUpperCommas(Number(item.data.preis_from))} CHF bis{' '}
+                            {numberWithUpperCommas(Number(item.data.preis_to))} CHF
                           </p>
                         ) : item.data.preis_from ? (
-                          <p>
-                            Ab{" "}
-                            {numberWithUpperCommas(
-                              Number(item.data.preis_from)
-                            )}{" "}
-                            CHF
-                          </p>
+                          <p>Ab {numberWithUpperCommas(Number(item.data.preis_from))} CHF</p>
                         ) : item.data.preis_to ? (
-                          <p>
-                            Bis{" "}
-                            {numberWithUpperCommas(Number(item.data.preis_to))}{" "}
-                            CHF
-                          </p>
+                          <p>Bis {numberWithUpperCommas(Number(item.data.preis_to))} CHF</p>
                         ) : (
-                          ""
+                          ''
                         )}
                       </SpacedItemsContainer>
                     </BottomBorderedContainer>
@@ -461,11 +408,9 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                           <p>
                             {item.data.wohnflache} m<sup>2</sup>
                           </p>
-                        ) : item.data.wohnflache_from &&
-                          item.data.wohnflache_to ? (
+                        ) : item.data.wohnflache_from && item.data.wohnflache_to ? (
                           <p>
-                            Ab {item.data.wohnflache_from} m<sup>2</sup> bis{" "}
-                            {item.data.wohnflache_to} m<sup>2</sup>
+                            Ab {item.data.wohnflache_from} m<sup>2</sup> bis {item.data.wohnflache_to} m<sup>2</sup>
                           </p>
                         ) : item.data.wohnflache_from ? (
                           <p>
@@ -476,7 +421,7 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                             Bis {item.data.wohnflache_to} m<sup>2</sup>
                           </p>
                         ) : (
-                          ""
+                          ''
                         )}
                       </SpacedItemsContainer>
                     </BottomBorderedContainer>
@@ -485,15 +430,15 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                     </ButtonBordered>
                   </TextImageBox>
                 </animated.div>
-              );
+              )
             }
           })}
           {filteredData.length > numOfLoadedItems && (
             <div className={styles.seeMoreButton}>
               <ButtonBordered
                 onClick={() => {
-                  setScrollPosition();
-                  setNumOfLoadedItems((prevState) => prevState + 5);
+                  setScrollPosition()
+                  setNumOfLoadedItems((prevState) => prevState + 5)
                 }}
               >
                 Mehr Anzeigen
@@ -503,7 +448,7 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
         </div>
       </div>
     </Section>
-  );
-};
+  )
+}
 
-export default FilterPropertySection;
+export default FilterPropertySection

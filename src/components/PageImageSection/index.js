@@ -8,7 +8,7 @@ import AppearOnViewContainer from "../AppearOnViewContainer";
 const PageImageSection = ({ data }) => {
   const imageRef = useRef(null);
 
-  let [imageWidth, setImageWidth] = useState(null);
+  const [imageWidth, setImageWidth] = useState(null);
   const [openContentIndex, setOpenContentIndex] = useState(0);
 
   useEffect(() => {
@@ -41,20 +41,24 @@ const PageImageSection = ({ data }) => {
                 dangerouslySetInnerHTML={{
                   __html: data.primary.above_image_text.html,
                 }}
-              ></div>
+              />
             )}
           {data &&
             data.primary &&
             data.primary.image &&
             data.primary.image.localFile &&
-            data.primary.image.localFile.childImageSharp &&
-            data.primary.image.localFile.childImageSharp.fluid && (
-              <div className={`${styles.image} ${data.items.length !== 4 && styles.fullWidthImage}`}>
+            data.primary.image.localFile?.childImageSharp &&
+            data.primary.image.localFile.childImageSharp?.fluid && (
+              <div
+                className={`${styles.image} ${
+                  data.items.length !== 4 && styles.fullWidthImage
+                }`}
+              >
                 <img
                   ref={imageRef}
                   src={data.primary.image.localFile.url}
                   alt={data.primary.image.alt}
-                  usemap="#imagemap"
+                  useMap="#imagemap"
                 />
                 {data && data.items && data.items.length === 4 && (
                   <div className={styles.overlays}>
@@ -63,25 +67,25 @@ const PageImageSection = ({ data }) => {
                       className={`${
                         openContentIndex === 0 && styles.activeOverlay
                       }`}
-                    ></div>
+                    />
                     <div
                       onClick={() => setOpenContentIndex(1)}
                       className={`${
                         openContentIndex === 1 && styles.activeOverlay
                       }`}
-                    ></div>
+                    />
                     <div
                       onClick={() => setOpenContentIndex(2)}
                       className={`${
                         openContentIndex === 2 && styles.activeOverlay
                       }`}
-                    ></div>
+                    />
                     <div
                       onClick={() => setOpenContentIndex(3)}
                       className={`${
                         openContentIndex === 3 && styles.activeOverlay
                       }`}
-                    ></div>
+                    />
                   </div>
                 )}
                 <map name="imagemap">
@@ -90,7 +94,7 @@ const PageImageSection = ({ data }) => {
                     data.items.length > 0 &&
                     data.items.map((item, index) => {
                       if (item.image_poly_coordinates) {
-                        let pixelDensity =
+                        const pixelDensity =
                           imageWidth / data.primary.image.dimensions.width;
 
                         let trueCoords = item.image_poly_coordinates.split(",");
@@ -116,19 +120,17 @@ const PageImageSection = ({ data }) => {
           {data &&
             data.items &&
             data.items.length > 0 &&
-            data.items.map((item, index) => {
-              return (
-                <div
-                  className={`${styles.content} ${
-                    index === openContentIndex && styles.activeContent
-                  }`}
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      item.after_click_content && item.after_click_content.html,
-                  }}
-                ></div>
-              );
-            })}
+            data.items.map((item, index) => (
+              <div
+                className={`${styles.content} ${
+                  index === openContentIndex && styles.activeContent
+                }`}
+                dangerouslySetInnerHTML={{
+                  __html:
+                    item.after_click_content && item.after_click_content.html,
+                }}
+              />
+            ))}
         </div>
       </AppearOnViewContainer>
     </Section>

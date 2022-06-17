@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-import OffsetItemContainer from "../../components/OffsetItemContainer";
-import RealEstateItem from "../../components/SlidingOverlayItem";
-import Section from "../../components/Section";
-import ButtonBordered from "../../components/ButtonBordered";
+import OffsetItemContainer from "../OffsetItemContainer";
+import RealEstateItem from "../SlidingOverlayItem";
+import Section from "../Section";
+import ButtonBordered from "../ButtonBordered";
 import realEstateItemImage from "../../img/itemImage1.png";
 
 import styles from "./page-offset-cards-section.module.scss";
@@ -46,7 +46,7 @@ const PageOffsetCardsSection = ({ data }) => {
                   text={item.card_text && item.card_text}
                   image={
                     item.card_cover &&
-                    item.card_cover.localFile.childImageSharp.fluid
+                    item.card_cover.localFile?.childImageSharp?.fluid
                   }
                   heading={item.card_small_heading}
                   alt={item.card_cover && item.card_cover.alt}
