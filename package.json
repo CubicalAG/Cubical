@@ -25,6 +25,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@emotion/styled-base": "^10.0.31",
+    "@gatsbyjs/reach-router": "^2.0.1",
     "@juggle/resize-observer": "^3.2.0",
     "@reach/skip-nav": "^0.8.6",
     "@sendgrid/mail": "^7.4.2",
