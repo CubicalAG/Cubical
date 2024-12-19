@@ -34,11 +34,6 @@ const PageReferenceSection = ({ data: sliceData }) => {
                       page_path
                     }
                   }
-                  ... on PrismicProperty {
-                    data {
-                      type_of_property
-                    }
-                  }
                 }
               }
               reference_tag
