@@ -321,7 +321,7 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
             </h2>
             {/* <PropertySorting sorting={sorting} setSorting={setSorting}/> */}
           </div>
-          {transitions((style, { node: item }, t, index) => {
+          {transitions.map((style, { node: item }, t, index) => {
             if (index < numOfLoadedItems) {
               return (
                 <animated.div style={style} className={styles.property}>

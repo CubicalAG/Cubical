@@ -467,7 +467,7 @@ const Layout = ({ children, location }) => {
       </NavMenuContainer>
       <main>
         <div className={`${styles.mainContentNavigation}`}>
-          {navIconsTransition(
+          {navIconsTransition.map(
             (style, item) =>
               item && (
                 <animated.div
@@ -523,7 +523,7 @@ const Layout = ({ children, location }) => {
         </div>
         <div className={styles.mainContent}>{children}</div>
         <div className={styles.mainContentNavigation}>
-          {rightNavIconsTransition(
+          {rightNavIconsTransition.map(
             (style, item) =>
               item && (
                 <animated.div
@@ -759,7 +759,7 @@ const Layout = ({ children, location }) => {
             </div>
           )}
       </FooterContainer>
-      {contactFormTransition(
+      {contactFormTransition.map(
         (style, item) =>
           item && (
             <animated.div style={style} className={styles.contactFormContainer}>
@@ -779,7 +779,7 @@ const Layout = ({ children, location }) => {
             </animated.div>
           )
       )}
-      {contactFormTransition(
+      {contactFormTransition.map(
         (style, item) =>
           item && (
             <animated.div style={style} className={styles.mobileForm}>
