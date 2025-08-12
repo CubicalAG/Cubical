@@ -86,11 +86,17 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
   const [filteredData, setFilteredData] = useState([])
   const [properties, setProperties] = useState([])
 
-  const transitions = useTransition(filteredData, {
-    from: { maxHeight: '0vh', overflow: 'hidden', opacity: 0 },
-    enter: { maxHeight: '250vh', overflow: 'hidden', opacity: 1 },
-    leave: { maxHeight: '0vh', overflow: 'hidden', opacity: 0 },
-  })
+  // Limit items before passing to transitions and provide stable keys (react-spring v8)
+  const visibleData = filteredData.slice(0, numOfLoadedItems)
+  const transitions = useTransition(
+    visibleData,
+    (edge) => edge && edge.node && edge.node.uid,
+    {
+      from: { maxHeight: '0vh', overflow: 'hidden', opacity: 0 },
+      enter: { maxHeight: '250vh', overflow: 'hidden', opacity: 1 },
+      leave: { maxHeight: '0vh', overflow: 'hidden', opacity: 0 },
+    }
+  )
 
   const setScrollPosition = () => {
     setScrollFromTop(window.pageYOffset)
@@ -321,34 +327,35 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
             </h2>
             {/* <PropertySorting sorting={sorting} setSorting={setSorting}/> */}
           </div>
-          {transitions.map((style, { node: item }, t, index) => {
-            if (index < numOfLoadedItems) {
-              return (
-                <animated.div style={style} className={styles.property}>
+          {transitions.map(({ key, item, props: style }) => {
+            const node = item && item.node
+            if (!node) return null
+            return (
+              <animated.div key={key} style={style} className={styles.property}>
                   <TextImageBox
                     image={
-                      item.data.images &&
-                      item.data.images.length > 0 &&
-                      item.data.images[0].image &&
-                      item.data.images[0].image.localFile &&
-                      item.data.images[0].image.localFile.childImageSharp?.fluid
+                      node.data.images &&
+                      node.data.images.length > 0 &&
+                      node.data.images[0].image &&
+                      node.data.images[0].image.localFile &&
+                      node.data.images[0].image.localFile.childImageSharp?.fluid
                     }
                     alt={
-                      item.data.images &&
-                      item.data.images.length > 0 &&
-                      item.data.images[0].image &&
-                      item.data.images[0].image.alt
+                      node.data.images &&
+                      node.data.images.length > 0 &&
+                      node.data.images[0].image &&
+                      node.data.images[0].image.alt
                     }
-                    imageHref={`/${item.uid}`}
+                    imageHref={`/${node.uid}`}
                   >
-                    <h3>{item.data.property_heading}</h3>
+                    <h3>{node.data.property_heading}</h3>
                     <BottomBorderedContainer>
                       <SpacedItemsContainer>
                         <p>Filterung</p>
                         <p>
-                          {item.data.categories &&
-                            item.data.categories.length > 0 &&
-                            item.data.categories.map((categoryNode, index) => {
+                          {node.data.categories &&
+                            node.data.categories.length > 0 &&
+                            node.data.categories.map((categoryNode, index) => {
                               if (index !== 0) {
                                 return `, ${categoryNode.category}`
                               }
@@ -361,16 +368,16 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                     <BottomBorderedContainer>
                       <SpacedItemsContainer>
                         <p>Zimmer</p>
-                        {item.data.zimmer ? (
-                          <p>{item.data.zimmer}</p>
-                        ) : item.data.zimmer_from && item.data.zimmer_to ? (
+                        {node.data.zimmer ? (
+                          <p>{node.data.zimmer}</p>
+                        ) : node.data.zimmer_from && node.data.zimmer_to ? (
                           <p>
-                            Ab {item.data.zimmer_from} bis {item.data.zimmer_to}
+                            Ab {node.data.zimmer_from} bis {node.data.zimmer_to}
                           </p>
-                        ) : item.data.zimmer_from ? (
-                          <p>Ab {item.data.zimmer_from}</p>
-                        ) : item.data.zimmer_to ? (
-                          <p>Bis {item.data.zimmer_to}</p>
+                        ) : node.data.zimmer_from ? (
+                          <p>Ab {node.data.zimmer_from}</p>
+                        ) : node.data.zimmer_to ? (
+                          <p>Bis {node.data.zimmer_to}</p>
                         ) : (
                           ''
                         )}
@@ -379,23 +386,23 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                     <BottomBorderedContainer>
                       <SpacedItemsContainer>
                         <p>Ort</p>
-                        <p>{item.data.ort}</p>
+                        <p>{node.data.ort}</p>
                       </SpacedItemsContainer>
                     </BottomBorderedContainer>
                     <BottomBorderedContainer>
                       <SpacedItemsContainer>
                         <p>Preis</p>
-                        {item.data.preis ? (
-                          <p>{numberWithUpperCommas(Number(item.data.preis))} CHF</p>
-                        ) : item.data.preis_from && item.data.preis_to ? (
+                        {node.data.preis ? (
+                          <p>{numberWithUpperCommas(Number(node.data.preis))} CHF</p>
+                        ) : node.data.preis_from && node.data.preis_to ? (
                           <p>
-                            Ab {numberWithUpperCommas(Number(item.data.preis_from))} CHF bis{' '}
-                            {numberWithUpperCommas(Number(item.data.preis_to))} CHF
+                            Ab {numberWithUpperCommas(Number(node.data.preis_from))} CHF bis{' '}
+                            {numberWithUpperCommas(Number(node.data.preis_to))} CHF
                           </p>
-                        ) : item.data.preis_from ? (
-                          <p>Ab {numberWithUpperCommas(Number(item.data.preis_from))} CHF</p>
-                        ) : item.data.preis_to ? (
-                          <p>Bis {numberWithUpperCommas(Number(item.data.preis_to))} CHF</p>
+                        ) : node.data.preis_from ? (
+                          <p>Ab {numberWithUpperCommas(Number(node.data.preis_from))} CHF</p>
+                        ) : node.data.preis_to ? (
+                          <p>Bis {numberWithUpperCommas(Number(node.data.preis_to))} CHF</p>
                         ) : (
                           ''
                         )}
@@ -404,21 +411,21 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                     <BottomBorderedContainer>
                       <SpacedItemsContainer>
                         <p>Wohnfläche</p>
-                        {item.data.wohnflache ? (
+                        {node.data.wohnflache ? (
                           <p>
-                            {item.data.wohnflache} m<sup>2</sup>
+                            {node.data.wohnflache} m<sup>2</sup>
                           </p>
-                        ) : item.data.wohnflache_from && item.data.wohnflache_to ? (
+                        ) : node.data.wohnflache_from && node.data.wohnflache_to ? (
                           <p>
-                            Ab {item.data.wohnflache_from} m<sup>2</sup> bis {item.data.wohnflache_to} m<sup>2</sup>
+                            Ab {node.data.wohnflache_from} m<sup>2</sup> bis {node.data.wohnflache_to} m<sup>2</sup>
                           </p>
-                        ) : item.data.wohnflache_from ? (
+                        ) : node.data.wohnflache_from ? (
                           <p>
-                            Ab {item.data.wohnflache_from} m<sup>2</sup>
+                            Ab {node.data.wohnflache_from} m<sup>2</sup>
                           </p>
-                        ) : item.data.wohnflache_to ? (
+                        ) : node.data.wohnflache_to ? (
                           <p>
-                            Bis {item.data.wohnflache_to} m<sup>2</sup>
+                            Bis {node.data.wohnflache_to} m<sup>2</sup>
                           </p>
                         ) : (
                           ''
@@ -426,12 +433,11 @@ const FilterPropertySection = ({ kaufenProperties, mietenProperties }) => {
                       </SpacedItemsContainer>
                     </BottomBorderedContainer>
                     <ButtonBordered>
-                      <Link to={`/${item.uid}`}>Weitere Infos</Link>
+                      <Link to={`/${node.uid}`}>Weitere Infos</Link>
                     </ButtonBordered>
                   </TextImageBox>
-                </animated.div>
-              )
-            }
+              </animated.div>
+            )
           })}
           {filteredData.length > numOfLoadedItems && (
             <div className={styles.seeMoreButton}>

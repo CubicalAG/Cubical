@@ -467,13 +467,13 @@ const Layout = ({ children, location }) => {
       </NavMenuContainer>
       <main>
         <div className={`${styles.mainContentNavigation}`}>
-          {navIconsTransition.map(
-            (style, item) =>
-              item && (
-                <animated.div
-                  style={style}
-                  className={`${styles.navigationStickyContainer} ${styles.navigationStickyContainerLeft}`}
-                >
+          {navIconsTransition.map(({ key, item, props: style }) =>
+            item ? (
+              <animated.div
+                key={key}
+                style={style}
+                className={`${styles.navigationStickyContainer} ${styles.navigationStickyContainerLeft}`}
+              >
                   {data.prismicLayout.data.left_side_links &&
                     data.prismicLayout.data.left_side_links.length > 0 && (
                       <AsideNavContainer
@@ -517,19 +517,19 @@ const Layout = ({ children, location }) => {
                         })}
                       </AsideNavContainer>
                     )}
-                </animated.div>
-              )
+              </animated.div>
+            ) : null
           )}
         </div>
         <div className={styles.mainContent}>{children}</div>
         <div className={styles.mainContentNavigation}>
-          {rightNavIconsTransition.map(
-            (style, item) =>
-              item && (
-                <animated.div
-                  style={style}
-                  className={styles.navigationStickyContainer}
-                >
+          {rightNavIconsTransition.map(({ key, item, props: style }) =>
+            item ? (
+              <animated.div
+                key={key}
+                style={style}
+                className={styles.navigationStickyContainer}
+              >
                   <AsideNavContainer rotated>
                     {data.prismicLayout.data.right_side_links &&
                       data.prismicLayout.data.right_side_links.length > 0 &&
@@ -589,8 +589,8 @@ const Layout = ({ children, location }) => {
                         }
                       )}
                   </AsideNavContainer>
-                </animated.div>
-              )
+              </animated.div>
+            ) : null
           )}
         </div>
       </main>
@@ -759,10 +759,9 @@ const Layout = ({ children, location }) => {
             </div>
           )}
       </FooterContainer>
-      {contactFormTransition.map(
-        (style, item) =>
-          item && (
-            <animated.div style={style} className={styles.contactFormContainer}>
+      {contactFormTransition.map(({ key, item, props: style }) =>
+        item ? (
+          <animated.div key={key} style={style} className={styles.contactFormContainer}>
               <ContactForm>
                 <img
                   style={{
@@ -776,13 +775,12 @@ const Layout = ({ children, location }) => {
                   onClick={() => dispatch({ type: "toggle_contact_form" })}
                 />
               </ContactForm>
-            </animated.div>
-          )
+          </animated.div>
+        ) : null
       )}
-      {contactFormTransition.map(
-        (style, item) =>
-          item && (
-            <animated.div style={style} className={styles.mobileForm}>
+      {contactFormTransition.map(({ key, item, props: style }) =>
+        item ? (
+          <animated.div key={key} style={style} className={styles.mobileForm}>
               <ContactForm>
                 <img
                   style={{
@@ -796,8 +794,8 @@ const Layout = ({ children, location }) => {
                   onClick={() => dispatch({ type: "toggle_contact_form" })}
                 />
               </ContactForm>
-            </animated.div>
-          )
+          </animated.div>
+        ) : null
       )}
     </div>
   );
