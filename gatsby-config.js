@@ -24,13 +24,6 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-netlify-functions`,
-      options: {
-        functionsSrc: `${__dirname}/lambda`,
-        functionsOutput: `${__dirname}/functions`,
-      },
-    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-emotion",
     "gatsby-plugin-lodash",
