@@ -56,7 +56,7 @@ const ContactForm = ({ children }) => {
       setErrorMessage(undefined);
       setFetching(true);
       fetch(
-        `/.netlify/functions/contactForm?name=${name}&email=${email}&tel=${tel}&vorname=${vorname}&reasonOfContact=${reasonOfContact}&msg=${msg}`,
+        `/.netlify/functions/contactForm?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&tel=${encodeURIComponent(tel)}&vorname=${encodeURIComponent(vorname)}&reasonOfContact=${encodeURIComponent(reasonOfContact)}&msg=${encodeURIComponent(msg)}`,
         {
           headers: {
             Accept: "application/json",
@@ -139,7 +139,7 @@ const ContactForm = ({ children }) => {
           <TextareaField name="msg" value={msg} onChange={setMsg} />
         </label>
       </div>
-      <button className={styles.sendButton} onClick={(e) => handleSubmit(e)}>
+       <button className={styles.sendButton} type="button" onClick={(e) => handleSubmit(e)}>
         <img src={sendBlueImg} alt="send" />
       </button>
       {successMessage && (

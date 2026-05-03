@@ -1,3 +1,18 @@
+/*
+ * @archived
+ * @date 2026-05-03
+ * @note Old contact form Netlify function - preserved for reference.
+ * 
+ * This file was the original Netlify function handler for the contact form.
+ * The function is now handled by lambda/contactForm.js via gatsby-plugin-netlify-functions.
+ * 
+ * The form submission URL is: /.netlify/functions/contactForm
+ * 
+ * Issues that were fixed in the client-side form (src/components/ContactForm/index.js):
+ *   1. Missing URL encoding on query parameters (encodeURIComponent added)
+ *   2. Missing button type="button" to prevent accidental form submission
+ */
+
 "use strict";
 
 require("dotenv").config();
@@ -7,6 +22,7 @@ const {
   SENDGRID_TO_EMAIL
 } = process.env;
 sgMail.setApiKey(SENDGRID_API_KEY);
+
 module.exports.handler = async function (event, context) {
   const data = event.queryStringParameters;
   const msg = {
