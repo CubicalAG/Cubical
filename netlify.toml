@@ -1,5 +1,2 @@
 [template.environment]
   API_KEY = "Your Prismic API access token"
-
-[build]
-  functions = "functions"

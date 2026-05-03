@@ -7,6 +7,18 @@ import TextInputField from "../TextInputField";
 import TextareaField from "../TextareaField";
 import sendBlueImg from "../../img/sendContactForm.svg";
 
+const FORM_NAME = "contact";
+const EMAIL_SUBJECT = "Neue Kontaktanfrage";
+const SUCCESS_MESSAGE =
+  "Vielen Dank. Wir haben Ihre Anfrage erhalten. Unser Team wird schnellstmöglich innerhalb der nächsten Tagen mit den notwendigen Informationen auf Sie zurückkommen. Für Ihr Verständnis und Ihre Geduld bedanken wir uns im Voraus.";
+const SERVER_ERROR_MESSAGE =
+  "Leider konnte Ihre Anfrage gerade nicht versendet werden. Bitte versuchen Sie es später erneut.";
+
+const encodeFormData = (data) =>
+  Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join("&");
+
 const getReasonOfContact = (query) => {
   const fallback = "";
 
@@ -33,10 +45,10 @@ const ContactForm = ({ children }) => {
   const [successMessage, setSuccessMessage] = useState(undefined);
   const [fetching, setFetching] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage("");
-    setSuccessMessage("");
+    setErrorMessage(undefined);
+    setSuccessMessage(undefined);
     if (
       !reasonOfContact ||
       !name ||
@@ -55,32 +67,44 @@ const ContactForm = ({ children }) => {
     } else {
       setErrorMessage(undefined);
       setFetching(true);
-      fetch(
-        `/.netlify/functions/contactForm?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&tel=${encodeURIComponent(tel)}&vorname=${encodeURIComponent(vorname)}&reasonOfContact=${encodeURIComponent(reasonOfContact)}&msg=${encodeURIComponent(msg)}`,
-        {
+      const formData = {
+        "form-name": FORM_NAME,
+        "bot-field": "",
+        subject: EMAIL_SUBJECT,
+        name,
+        vorname,
+        tel,
+        reasonOfContact,
+        email,
+        msg,
+      };
+
+      try {
+        const response = await fetch("/", {
           headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
           },
           method: "POST",
-        }
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          setFetching(false);
-          if (data.status == "success") {
-            return setSuccessMessage(data.message);
-          } else if (data.status == "error") {
-            return setErrorMessage(data.message);
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          setFetching(false);
-          setErrorMessage(
-            "There was some error while trying to send your email. Try later!"
-          );
+          body: encodeFormData(formData),
         });
+
+        if (!response.ok) {
+          throw new Error("Netlify form submission failed");
+        }
+
+        setSuccessMessage(SUCCESS_MESSAGE);
+        setName("");
+        setVorname("");
+        setEmail("");
+        setTel("");
+        setMsg("");
+        setReasonOfContact("");
+      } catch (error) {
+        console.log(error);
+        setErrorMessage(SERVER_ERROR_MESSAGE);
+      } finally {
+        setFetching(false);
+      }
     }
   };
 
@@ -93,7 +117,23 @@ const ContactForm = ({ children }) => {
   }, []);
 
   return (
-    <form className={styles.contactForm}>
+    <form
+      className={styles.contactForm}
+      name={FORM_NAME}
+      method="POST"
+      action="/"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+    >
+      <input type="hidden" name="form-name" value={FORM_NAME} />
+      <input type="hidden" name="bot-field" />
+      <input
+        type="hidden"
+        name="subject"
+        data-remove-prefix="true"
+        value={EMAIL_SUBJECT}
+      />
       <div className={styles.childContainer}>{children}</div>
       <div className={styles.inputs}>
         <label>
@@ -139,7 +179,7 @@ const ContactForm = ({ children }) => {
           <TextareaField name="msg" value={msg} onChange={setMsg} />
         </label>
       </div>
-       <button className={styles.sendButton} type="button" onClick={(e) => handleSubmit(e)}>
+       <button className={styles.sendButton} type="submit">
         <img src={sendBlueImg} alt="send" />
       </button>
       {successMessage && (
