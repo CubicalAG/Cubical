@@ -80,7 +80,7 @@ const ContactForm = ({ children }) => {
       };
 
       try {
-        const response = await fetch("/", {
+        const response = await fetch(submitPath, {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
@@ -109,6 +109,8 @@ const ContactForm = ({ children }) => {
   };
 
   const location = useLocation();
+  const submitPath =
+    location && location.pathname ? location.pathname : "/";
 
   useEffect(() => {
     const reasonOfContactQuery =
@@ -121,7 +123,7 @@ const ContactForm = ({ children }) => {
       className={styles.contactForm}
       name={FORM_NAME}
       method="POST"
-      action="/"
+      action={submitPath}
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
